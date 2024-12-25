@@ -1,12 +1,21 @@
 
+using System;
+
 public interface IMoneyService : IService
 {
-    public uint Money { get; }
+    public uint DayMoney { get; }
+    public uint PiggyBankMoney { get; }
     
-    public void AddMoney(uint amount);
+    public uint PiggyBankGoal { get; }
 
-    public void RemoveMoney(uint amount);
+    public event Action OnMoneyChange;
+    
+    public void AddDayMoney(uint amount);
 
-    public void Clear();
+    public void RemoveDayMoney(uint amount);
+
+    public bool PutInPiggyBank();
+
+    public bool RemoveFromPiggyBank(uint amount);
 
 }

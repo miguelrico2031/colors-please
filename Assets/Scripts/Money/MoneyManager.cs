@@ -4,25 +4,47 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/MoneyManager")]
 public class MoneyManager : ScriptableObject, IMoneyService
 {
-    [field: SerializeField] public uint Money { get; private set; }
+    [field: SerializeField] public uint DayMoney { get; private set; }
+    [field: SerializeField] public uint PiggyBankMoney { get; private set; }
+    [field: SerializeField] public uint PiggyBankGoal { get; private set; }
+
+    public event Action OnMoneyChange;
+
     
-    
-    public void AddMoney(uint amount)
+    public void AddDayMoney(uint amount)
     {
-        Money += amount;
+        DayMoney += amount;
+        OnMoneyChange?.Invoke();
     }
 
 
-    public void RemoveMoney(uint amount)
+    public void RemoveDayMoney(uint amount)
     {
-        if (amount > Money)
+        if (amount > DayMoney)
             throw new Exception("Tried to remove more money than possible.");
 
-        Money -= amount;
+        DayMoney -= amount;
+        OnMoneyChange?.Invoke();
     }
 
-    public void Clear()
+    public bool PutInPiggyBank()
     {
-        Money = 0;
+        if (DayMoney == 0) 
+            return false;
+        PiggyBankMoney += DayMoney;
+        DayMoney = 0;
+        OnMoneyChange?.Invoke();
+        return true;
     }
+
+    public bool RemoveFromPiggyBank(uint amount)
+    {
+        if (amount > PiggyBankMoney)
+            return false;
+        
+        PiggyBankMoney -= amount;
+        OnMoneyChange?.Invoke();
+        return true;
+    }
+
 }

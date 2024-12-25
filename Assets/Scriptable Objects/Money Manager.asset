@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f97527784dc4bb694c7882b89bfcd4c, type: 3}
   m_Name: Money Manager
   m_EditorClassIdentifier: 
-  <Money>k__BackingField: 0
+  <DayMoney>k__BackingField: 20
+  <PiggyBankMoney>k__BackingField: 10
+  <PiggyBankGoal>k__BackingField: 1500

@@ -6,6 +6,8 @@ public class ServicesInitializer : MonoBehaviour
     [Header("Money")]
     [SerializeField] private MoneyManager _moneyManager;
     
+    [Header("Relationships")]
+    [SerializeField] private RelationshipManager _relationshipManager;
     //Este script esta configurado en los project settings para ser ejecutado antes que los demas
     private void Awake()
     {
@@ -18,11 +20,13 @@ public class ServicesInitializer : MonoBehaviour
     {
         var audioManager = FindAnyObjectByType<AudioManager>();
         ServiceLocator.Register<IAudioService>(audioManager);
-
+        
         if (_moneyManager is null)
             throw new Exception("Money Manager not assigned.");
-        else
-            ServiceLocator.Register<IMoneyService>(_moneyManager);
-
+        ServiceLocator.Register<IMoneyService>(_moneyManager);
+        
+        if(_relationshipManager is null)
+            throw new Exception("Relationship Manager not assigned.");
+        ServiceLocator.Register<IRelationshipService>(_relationshipManager);
     }
 }
