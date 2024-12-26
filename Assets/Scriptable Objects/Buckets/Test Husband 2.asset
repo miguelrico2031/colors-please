@@ -17,8 +17,8 @@ MonoBehaviour:
     Pillale un regalin a tu husbando'
   <Cost>k__BackingField: 120
   PayedConsequences:
-  - Relationship: 1
+  - character: 2
     Points: 3
   NotPayedConsequences:
-  - Relationship: 1
+  - character: 1
     Points: -2

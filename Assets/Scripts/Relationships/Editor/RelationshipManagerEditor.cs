@@ -27,6 +27,9 @@ public class RelationshipManagerEditor : Editor
         
         foreach (Character key in System.Enum.GetValues(typeof(Character)))
         {
+            if(key is Character.None or Character.Yourself)
+                continue;
+            
             var pair = relationshipManager.Points.Find(p => p.character == key);
             if (pair == null)
             {

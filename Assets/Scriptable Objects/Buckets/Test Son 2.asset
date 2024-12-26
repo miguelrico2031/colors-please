@@ -15,8 +15,8 @@ MonoBehaviour:
   Description: Hola papa soy tu hijo comprame la play joder
   <Cost>k__BackingField: 150
   PayedConsequences:
-  - Relationship: 2
+  - character: 3
     Points: 4
   NotPayedConsequences:
-  - Relationship: 2
+  - character: 3
     Points: -3

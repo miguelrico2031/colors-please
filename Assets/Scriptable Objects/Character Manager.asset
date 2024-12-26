@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff5cfaee3d59409581b8e91ace16386a, type: 3}
+  m_Name: Character Manager
+  m_EditorClassIdentifier: 
+  Characters:
+  - Character: 0
+    Name: 
+    Picture: {fileID: 0}
+    ChatColor: {r: 0, g: 0, b: 0, a: 0}
+  - Character: 1
+    Name: Dwight Dropper
+    Picture: {fileID: 8727749776475338117, guid: 1229e7b6af3ea4949bffef1b0140fc02, type: 3}
+    ChatColor: {r: 0.690566, g: 0.690566, b: 0.690566, a: 1}
+  - Character: 2
+    Name: Claude
+    Picture: {fileID: -1833916756600125517, guid: 00f09db756a7c584fa47915a46d1b0e6, type: 3}
+    ChatColor: {r: 0.98182017, g: 1, b: 0.53396225, a: 1}
+  - Character: 3
+    Name: Dwight Jr
+    Picture: {fileID: -4567196947324017653, guid: 903fc6e0c771fab469f7ac405e3d5a4c, type: 3}
+    ChatColor: {r: 0.2688572, g: 0.4641509, b: 0.30456126, a: 1}
+  - Character: 4
+    Name: Landolordo
+    Picture: {fileID: -1825931381, guid: 1201c14bb4ee74d8e99e56dc4f3f4fd1, type: 3}
+    ChatColor: {r: 0.78867924, g: 0.53579724, b: 0.40922034, a: 1}
+  - Character: 5
+    Name: El Jef
+    Picture: {fileID: -5360521793857065805, guid: d36a6fb5efa2d7d408594978c17f26d9, type: 3}
+    ChatColor: {r: 0.34515485, g: 0.45122817, b: 0.5396226, a: 1}
