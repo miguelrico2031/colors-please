@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73614af7cf3d421185ca73aa1921b268, type: 3}
-  m_Name: Test Bucket 3
+  m_Name: Test Husband 1
   m_EditorClassIdentifier: 
-  Description: 3 2 2 gffdg ddfgdfgdf ghgfh
+  Description: Por que no vas y le pillas un regalo a tu pibe brou
   <Cost>k__BackingField: 80
   PayedConsequences:
-  - Relationship: 0
-    Points: 3
+  - Relationship: 1
+    Points: 1
   NotPayedConsequences: []

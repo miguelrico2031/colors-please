@@ -1,6 +1,8 @@
+using UnityEngine.Serialization;
+
 [System.Serializable]
 public class RelationshipPoints
 {
-    public Relationships Relationship;
+    [FormerlySerializedAs("Relationship")] public Character character;
     public uint Points;
 }

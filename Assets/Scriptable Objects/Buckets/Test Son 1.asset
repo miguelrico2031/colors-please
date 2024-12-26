@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73614af7cf3d421185ca73aa1921b268, type: 3}
-  m_Name: Test Bucket 4
+  m_Name: Test Son 1
   m_EditorClassIdentifier: 
-  Description: 4 2 2 gffdg ddfgdfgdf ghgfh
-  <Cost>k__BackingField: 80
+  Description: Hola este es el cubo 1 paga dinero para qjue tu hijo te quiera. Hazlo
+  <Cost>k__BackingField: 100
   PayedConsequences:
-  - Relationship: 0
-    Points: 3
-  NotPayedConsequences: []
+  - Relationship: 2
+    Points: 2
+  NotPayedConsequences:
+  - Relationship: 2
+    Points: -2

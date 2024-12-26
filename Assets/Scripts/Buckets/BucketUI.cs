@@ -193,11 +193,11 @@ public class BucketUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
             uint points = (uint)Mathf.Abs(consequence.Points);
             if (consequence.Points > 0)
             {
-                relationShipService.AddPoints(consequence.Relationship, points);
+                relationShipService.AddPoints(consequence.character, points);
             }
             else
             {
-                relationShipService.RemovePoints(consequence.Relationship, points);
+                relationShipService.RemovePoints(consequence.character, points);
             }
         }
     }

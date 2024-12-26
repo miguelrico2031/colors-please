@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(menuName = "ScriptableObjects/Bucket")]
 public class Bucket : ScriptableObject
@@ -17,7 +18,7 @@ public class Bucket : ScriptableObject
     [Serializable]
     public class Consequence
     {
-        public Relationships Relationship;
+        [FormerlySerializedAs("Relationship")] public Character character;
         public int Points;
     }
 }

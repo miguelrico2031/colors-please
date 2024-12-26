@@ -11,22 +11,22 @@ public class RelationshipManager : ScriptableObject, IRelationshipService
     public List<RelationshipPoints> Points { get; private set; } = new();
     
 
-    public uint GetPoints(Relationships relationship)
+    public uint GetPoints(Character character)
     {
-        return Points.First(p => p.Relationship == relationship).Points;
+        return Points.First(p => p.character == character).Points;
     }
 
-    public void AddPoints(Relationships relationship, uint points)
+    public void AddPoints(Character character, uint points)
     {
-        var relationshipPoints = Points.First(p => p.Relationship == relationship);
+        var relationshipPoints = Points.First(p => p.character == character);
         
         var newPoints = relationshipPoints.Points + points;
        relationshipPoints.Points = (uint) Mathf.Clamp(newPoints, 0, MaxPoints);
     }
 
-    public void RemovePoints(Relationships relationship, uint points)
+    public void RemovePoints(Character character, uint points)
     {
-        var relationshipPoints = Points.First(p => p.Relationship == relationship);
+        var relationshipPoints = Points.First(p => p.character == character);
             
         var newPoints = points < relationshipPoints.Points
             ? relationshipPoints.Points - points

@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73614af7cf3d421185ca73aa1921b268, type: 3}
-  m_Name: Test Bucket 2
+  m_Name: Test Son 2
   m_EditorClassIdentifier: 
-  Description: 2 2 2 gffdg ddfgdfgdf ghgfh
-  <Cost>k__BackingField: 80
+  Description: Hola papa soy tu hijo comprame la play joder
+  <Cost>k__BackingField: 150
   PayedConsequences:
-  - Relationship: 0
-    Points: 3
-  NotPayedConsequences: []
+  - Relationship: 2
+    Points: 4
+  NotPayedConsequences:
+  - Relationship: 2
+    Points: -3

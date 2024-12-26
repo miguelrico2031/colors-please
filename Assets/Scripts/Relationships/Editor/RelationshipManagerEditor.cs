@@ -25,12 +25,12 @@ public class RelationshipManagerEditor : Editor
         EditorGUILayout.LabelField("Points Configuration", EditorStyles.boldLabel);
 
         
-        foreach (Relationships key in System.Enum.GetValues(typeof(Relationships)))
+        foreach (Character key in System.Enum.GetValues(typeof(Character)))
         {
-            var pair = relationshipManager.Points.Find(p => p.Relationship == key);
+            var pair = relationshipManager.Points.Find(p => p.character == key);
             if (pair == null)
             {
-                pair = new RelationshipPoints() { Relationship = key, Points = 0 };
+                pair = new RelationshipPoints() { character = key, Points = 0 };
                 relationshipManager.Points.Add(pair);
             }
 
