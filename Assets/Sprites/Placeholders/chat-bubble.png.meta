@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      chat-bubble_0: 4014243158257258569
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
