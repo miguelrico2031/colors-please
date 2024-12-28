@@ -34,6 +34,7 @@ public class RandomizedDay : ADay
             Minigame minigame;
             do minigame = _minigamesPool[Random.Range(0, _minigamesPool.Count)];
             while (GetDistanceToSameMinigame(minigames, minigame) <= _nonRepeatingSequenceSize);
+            minigames.Add(minigame);
         }
         
         return minigames;

@@ -12,12 +12,11 @@ public class ScoreManager : ScriptableObject, IScoreService
     
     
     
-    private readonly float MAX_DISTANCE = new Vector3(255f, 255f, 255f).magnitude;
     
     public Score GetScore(RGB255 targetColor, RGB255 guessedColor)
     {
         Score score = new Score();
-        float similarity = GetSimilarity(targetColor, guessedColor);
+        float similarity = RGB255.GetSimilarity(targetColor, guessedColor);
         var percentage = 100f * similarity;
         score.Percentage = percentage;
 
@@ -45,12 +44,4 @@ public class ScoreManager : ScriptableObject, IScoreService
     }
 
 
-    private float GetSimilarity(RGB255 colorA, RGB255 colorB)
-    {
-        Vector3 vectorA = new Vector3(colorA.R, colorA.G, colorA.B);
-        Vector3 vectorB = new Vector3(colorB.R, colorB.G, colorB.B);
-        float distance = Vector3.Distance(vectorA, vectorB);
-        float similarity = 1f - distance / MAX_DISTANCE;
-        return similarity;
-    }
 }

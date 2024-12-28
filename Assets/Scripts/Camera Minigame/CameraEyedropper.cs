@@ -32,6 +32,7 @@ public class CameraEyedropper : MonoBehaviour, IDragHandler, IBeginDragHandler, 
 
     private void Update()
     {
+        if (!_webcamManager.IsReady) return;
         _updateColorTimer -= Time.deltaTime;
         if (_updateColorTimer > 0f) return;
         _updateColorTimer = _updateColorPeriod;
