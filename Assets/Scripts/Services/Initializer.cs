@@ -16,6 +16,9 @@ public class Initializer : MonoBehaviour
     [Header("Days")]
     [SerializeField] private DayManager _dayManager;
     
+    [Header("Score")]
+    [SerializeField] private ScoreManager _scoreManager;
+    
     
     private static Initializer _instance;
     private void Awake()
@@ -55,5 +58,9 @@ public class Initializer : MonoBehaviour
         if(_dayManager is null)
             throw new Exception("Day Manager not assigned.");
         ServiceLocator.Register<IDayService>(_dayManager);
+        
+        if(_scoreManager is null)
+            throw new Exception("Score Manager not assigned.");
+        ServiceLocator.Register<IScoreService>(_scoreManager);
     }
 }

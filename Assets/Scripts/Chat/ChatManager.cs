@@ -19,8 +19,7 @@ public class ChatManager : MonoBehaviour
     [SerializeField] private GameObject _continueArea;
     [SerializeField] private float _areaSwapDuration;
 
-    [FormerlySerializedAs("_areaSpawAnimationType")] [SerializeField]
-    private LeanTweenType _areaSwapAnimationType;
+    [SerializeField] private LeanTweenType _areaSwapAnimationType;
 
     [SerializeField] private Vector3 _chatDisplacement;
     [SerializeField] private float _delayBeforeFirstMessage;
@@ -37,13 +36,10 @@ public class ChatManager : MonoBehaviour
 
     private void Start()
     {
-        _messages = new Queue<Message>(_dialogue.Messages);
-
-        _replyButton.onClick.AddListener(Reply);
-
         _dialogue = ServiceLocator.Get<IDayService>().DialogueToDisplay;
-
-        StartCoroutine(StartChatCoroutine());
+        _messages = new Queue<Message>(_dialogue.Messages);
+        _replyButton.onClick.AddListener(Reply);
+        StartChat();
     }
 
     public void StartChat()
@@ -57,6 +53,11 @@ public class ChatManager : MonoBehaviour
         _canReply = false;
         _replyButton.interactable = false;
         StartCoroutine(ReplyCoroutine());
+    }
+
+    public void GoToMinigame()
+    {
+        ServiceLocator.Get<IDayService>().GoToNextMinigame();
     }
 
     private IEnumerator StartChatCoroutine()

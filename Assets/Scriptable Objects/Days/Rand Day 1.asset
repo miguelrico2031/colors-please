@@ -12,11 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d802a6f5ad7414cada89d466f4722b8, type: 3}
   m_Name: Rand Day 1
   m_EditorClassIdentifier: 
+  <DialogueBefore>k__BackingField: {fileID: 11400000, guid: 2c55ae3d990d2974ea34135cb8da8e92, type: 2}
   <MinigamesCount>k__BackingField: 5
-  _nonRepeatingSequenceSize: 2
+  _nonRepeatingSequenceSize: 0
   _minigamesPool:
   - {fileID: 11400000, guid: 401d2dc1369f4eb4c993da9aeb0cf726, type: 2}
-  - {fileID: 11400000, guid: b1150ab49828eda438ea1cbf09638cda, type: 2}
-  - {fileID: 11400000, guid: b1150ab49828eda438ea1cbf09638cda, type: 2}
-  - {fileID: 11400000, guid: b1150ab49828eda438ea1cbf09638cda, type: 2}
-  - {fileID: 11400000, guid: ca20d1d6f932a1c4bba9b87ae4c1d839, type: 2}

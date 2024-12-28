@@ -1,21 +1,37 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(menuName = "ScriptableObjects/DayManager")]
 public class DayManager : ScriptableObject, IDayService
 {
     [field: SerializeField] public ADay CurrentDay { get; private set; }
     [field: SerializeField] public Dialogue DialogueToDisplay { get; private set; }
+    
+    [field: SerializeField] public RGB255 TargetColor { get; private set; }
+    [field: SerializeField] public RGB255 GuessedColor { get; private set; }
     [field: SerializeField] public Minigame CurrentMinigame { get; private set; }
-
+    
     [SerializeField] private string _chatSceneName;
     [SerializeField] private string _bucketsSceneName;
+    [SerializeField] private string _scoreSceneName;
+    
+    [Header("List of Days in Order")]
+    [SerializeField] private List<ADay> _days;
 
+    [SerializeField]private int _currentDayIndex = -1;
     private Queue<Minigame> _minigames;
 
-    public void StartDay(ADay day)
+    public void StartDay()
     {
-        CurrentDay = day;
+        _currentDayIndex++;
+        if (_currentDayIndex >= _days.Count)
+        {
+            FinishGame();
+            return;
+        }
+        
+        CurrentDay = _days[_currentDayIndex];
 
         _minigames = new Queue<Minigame>(CurrentDay.GetMinigames());
 
@@ -43,8 +59,20 @@ public class DayManager : ScriptableObject, IDayService
         }
     }
 
+    public void FinishMinigame(RGB255 targetColor, RGB255 guessedColor)
+    {
+        TargetColor = targetColor;
+        GuessedColor = guessedColor;
+        ServiceLocator.Get<ISceneTransitionService>().TransitionToScene(_scoreSceneName);
+    }
+
     private void FinishDay()
     {
         ServiceLocator.Get<ISceneTransitionService>().TransitionToScene(_bucketsSceneName);
+    }
+
+    private void FinishGame()
+    {
+        Debug.Log("GANASTE?");
     }
 }
