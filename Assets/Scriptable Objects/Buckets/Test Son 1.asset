@@ -15,8 +15,8 @@ MonoBehaviour:
   Description: Hola este es el cubo 1 paga dinero para qjue tu hijo te quiera. Hazlo
   <Cost>k__BackingField: 100
   PayedConsequences:
-  - Relationship: 2
+  - character: 3
     Points: 2
   NotPayedConsequences:
-  - Relationship: 2
+  - character: 3
     Points: -2

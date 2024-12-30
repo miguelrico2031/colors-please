@@ -15,6 +15,6 @@ MonoBehaviour:
   Description: Por que no vas y le pillas un regalo a tu pibe brou
   <Cost>k__BackingField: 80
   PayedConsequences:
-  - Relationship: 1
+  - character: 2
     Points: 1
   NotPayedConsequences: []

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d802a6f5ad7414cada89d466f4722b8, type: 3}
+  m_Name: Rand Day 1
+  m_EditorClassIdentifier: 
+  <DialogueBefore>k__BackingField: {fileID: 11400000, guid: 03e26d792f6de3b4eb4dea103d25ed19, type: 2}
+  <MinigamesCount>k__BackingField: 2
+  _nonRepeatingSequenceSize: 0
+  _minigamesPool:
+  - {fileID: 11400000, guid: 401d2dc1369f4eb4c993da9aeb0cf726, type: 2}

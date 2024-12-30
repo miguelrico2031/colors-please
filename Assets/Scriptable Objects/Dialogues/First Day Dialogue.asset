@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a48728766a413e9dc659c4fc1a0f01, type: 3}
+  m_Name: First Day Dialogue
+  m_EditorClassIdentifier: 
+  <Messages>k__BackingField:
+  - Character: 5
+    Text: "Buenos d\xEDas, Se\xF1or Dropper. Yo soy Edward Eyedroppinson, pero puedes
+      llamarme Se\xF1or Jefe o Se\xF1or Jefe Eyedroppinson o Jefe Eyedroppinson.
+      \r\r\r\r\r"
+  - Character: 1
+    Text: "\xA1Buen d\xEDa jefe!"
+  - Character: 5
+    Text: "He dicho Se\xF1or Jefe. Bueno, como es tu primer d\xEDa, tendr\xE9 que
+      explicarte lo b\xE1sico antes de que te puedas poner a trabajar.\r\nEres un
+      cuentagotas. Tu tarea es obtener el color RGB de una imagen.\r"
+  - Character: 1
+    Text: "\xBFQu\xE9 es \u201CRGB\u201D, Se\xF1or Jefe?"
+  - Character: 5
+    Text: "Incre\xEDble. Estas nuevas generaciones no saben lo que es un color RGB.
+      Ah, pero preg\xFAntales qu\xE9 es \u201CSkibidi Toilet\u201D y seguro te lo
+      explican con detalle.\r"
+  - Character: 5
+    Text: "D\xE9jame que te explique: RGB significa Rojo, Verde y Azul. Es un color
+      que se crea combinando las intensidades de la luz de estos 3 colores primarios.
+      \r"
+  - Character: 5
+    Text: "Las intensidades van desde 0 hasta 255, y se representan as\xED: (Rojo,
+      Verde, Azul). Por ejemplo, el color (0, 0, 0) es negro, porque no hay luz de
+      ningun color. \r"
+  - Character: 5
+    Text: "Pero el color (200, 0, 0) es un tono de rojo, ya que solo tiene luz roja.
+      El color (50, 0, 0) tambi\xE9n es un tono de rojo, pero m\xE1s oscuro que el
+      anterior, porque tiene menos luz.\r"
+  - Character: 1
+    Text: "Entonces, el color (255, 0, 255) ser\xEDa morado, \xBFverdad?\r\r"
+  - Character: 5
+    Text: "\xA1Correcto! No eres tan tonto como pensaba, afortunadamente.\r\nHa sido
+      r\xE1pido el proceso de aprendizaje, pero ya te he ense\xF1ado todo lo que
+      necesitas para trabajar.\r\r\r"
+  - Character: 1
+    Text: "\xBFSeguro, jefe? Sigo sin saber lo que tengo que hacer\u2026\r\r\r\r"
+  - Character: 5
+    Text: "\xA1TE HE DICHO QUE ME LLAMES \u201CSE\xD1OR JEFE\u201D!\r\r\r\r"
+  - Character: 5
+    Text: "Como te he explicado, tienes que obtener el color RGB de un p\xEDxel de
+      una imagen. Ver\xE1s en pantalla un pixel, y tendr\xE1s una interfaz para seleccionar
+      el color.\r\r\r\r"
+  - Character: 5
+    Text: "Cuanto m\xE1s se acerque tu respuesta al color real, m\xE1s satisfechos
+      quedar\xE1n los clientes, as\xED que recibir\xE1s m\xE1s dinero. Si lo clavas
+      perfecto, \xA1recibir\xE1s una propina y todo!\r\r\r\r"
+  - Character: 5
+    Text: "Pero si no te lo tomas en serio y no te acercas nada al color real, no
+      te dar\xE9 ni un duro, que lo sepas.\r\r\r\r"
+  - Character: 1
+    Text: "Entendido Se\xF1or Jefe, suena sencillo.\r\r\r\r"
+  - Character: 5
+    Text: "Jejeje, claro, muy sencillo\u2026\r\nBueno, suficiente yappeo, \xA1a currar!\r\r\r\r\r"

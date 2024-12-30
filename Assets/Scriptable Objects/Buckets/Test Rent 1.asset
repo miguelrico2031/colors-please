@@ -16,5 +16,5 @@ MonoBehaviour:
   <Cost>k__BackingField: 80
   PayedConsequences: []
   NotPayedConsequences:
-  - Relationship: 3
+  - character: 4
     Points: -3
