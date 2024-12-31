@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1229e7b6af3ea4949bffef1b0140fc02
+guid: 64fc1835080083b42a398ee06e6eeef0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8727749776475338117
-    second: manuel_0
+      213: -2197672003421536830
+    second: Flecha_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,7 +48,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -110,7 +110,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: iOS
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -123,7 +123,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -139,23 +139,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: manuel_0
+      name: Flecha_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 338
-        height: 462
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        x: 5
+        y: 19
+        width: 438
+        height: 211
+      alignment: 9
+      pivot: {x: 0.9987978, y: 0.4947574}
+      border: {x: 188, y: 0, z: 21, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 585be4b1e223f1970800000000000000
-      internalID: 8727749776475338117
+      spriteID: 2cdfc37e4fc4081e0800000000000000
+      internalID: -2197672003421536830
       vertices: []
       indices: 
       edges: []
@@ -164,7 +164,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1c166c1631f8e314b8196873a833c96f
     internalID: 0
     vertices: []
     indices: 
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      manuel_0: 8727749776475338117
+      Flecha_0: -2197672003421536830
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
