@@ -6,8 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Template Scene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/Main Menu.unity
+    guid: b2e84a0ce1ac1274c93a8b6522da2f8c
+  - enabled: 1
+    path: Assets/Scenes/Chat.unity
+    guid: 4ee30efe25ac41a4fa940940df6ce852
+  - enabled: 1
+    path: Assets/Scenes/Camera Minigame.unity
+    guid: c87466d662c38cb499ffcedf12bf95f1
+  - enabled: 1
+    path: Assets/Scenes/Score.unity
+    guid: b49a46d3cdaa1b544affc3dda8010f22
+  - enabled: 1
+    path: Assets/Scenes/Buckets.unity
+    guid: 705c6d075e9279c47b85a70b66d0a184
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

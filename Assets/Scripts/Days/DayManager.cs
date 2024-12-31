@@ -22,6 +22,14 @@ public class DayManager : ScriptableObject, IDayService
     [SerializeField]private int _currentDayIndex = -1;
     private Queue<Minigame> _minigames;
 
+    public void ResetDays()
+    {
+        _currentDayIndex = -1;
+        CurrentDay = null;
+        DialogueToDisplay = null;
+        CurrentMinigame = null;
+        _minigames = null;
+    }
     public void StartDay()
     {
         _currentDayIndex++;
@@ -48,6 +56,25 @@ public class DayManager : ScriptableObject, IDayService
 
     public void GoToNextMinigame()
     {
+        if(CurrentMinigame is null)
+            TrySelectNextMinigame();
+        else
+            ServiceLocator.Get<ISceneTransitionService>().TransitionToScene(CurrentMinigame.SceneName);
+
+    }
+
+    public void FinishMinigame(RGB255 targetColor, RGB255 guessedColor)
+    {
+        TargetColor = targetColor;
+        GuessedColor = guessedColor;
+        CurrentMinigame = null;
+        ServiceLocator.Get<ISceneTransitionService>().TransitionToScene(_scoreSceneName);
+    }
+    
+    
+
+    private void TrySelectNextMinigame()
+    {
         if (_minigames.TryDequeue(out var minigame))
         {
             CurrentMinigame = minigame;
@@ -57,13 +84,6 @@ public class DayManager : ScriptableObject, IDayService
         {
             FinishDay();
         }
-    }
-
-    public void FinishMinigame(RGB255 targetColor, RGB255 guessedColor)
-    {
-        TargetColor = targetColor;
-        GuessedColor = guessedColor;
-        ServiceLocator.Get<ISceneTransitionService>().TransitionToScene(_scoreSceneName);
     }
 
     private void FinishDay()

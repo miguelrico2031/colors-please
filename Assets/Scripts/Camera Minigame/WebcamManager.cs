@@ -36,6 +36,11 @@ public class WebcamManager : MonoBehaviour
         StartCoroutine(InitializeCamera());
     }
 
+    private void OnDisable()
+    {
+        WebcamTexture.Stop();
+    }
+
 
     public void SwitchCamera()
     {
@@ -55,6 +60,23 @@ public class WebcamManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(.5f);
         InitCameraDevices();
         yield return SetCameraTexture();
+    }
+    
+    private void InitCameraDevices()
+    {
+        foreach (var device in WebCamTexture.devices)
+        {
+            if (device.isFrontFacing)
+            {
+                _webcamDeviceFront ??= device;
+            }
+            else if (!device.isFrontFacing)
+            {
+                _webcamDeviceBack ??= device;
+            }
+        }
+
+        _activeWebcamDevice = _webcamDeviceBack ?? _webcamDeviceFront;
     }
 
     private IEnumerator SetCameraTexture()
@@ -82,22 +104,7 @@ public class WebcamManager : MonoBehaviour
     }
 
 
-    private void InitCameraDevices()
-    {
-        foreach (var device in WebCamTexture.devices)
-        {
-            if (device.isFrontFacing)
-            {
-                _webcamDeviceFront ??= device;
-            }
-            else if (!device.isFrontFacing)
-            {
-                _webcamDeviceBack ??= device;
-            }
-        }
 
-        _activeWebcamDevice = _webcamDeviceBack ?? _webcamDeviceFront;
-    }
 
 
 #if UNITY_IOS
