@@ -142,7 +142,7 @@ public class WebcamManager : MonoBehaviour
     private IEnumerator DelayedCameraInitialization()
     {
         yield return null;
-        InitializeCamera();
+        yield return InitializeCamera();
     }
 
     private void PermissionCallbacksPermissionDenied(string permissionName)
