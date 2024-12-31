@@ -1,3 +1,5 @@
+using System.Collections;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -16,29 +18,34 @@ public class PachinkoManager : MonoBehaviour
     #region Variables
     [Header("Pachinko Params")]
     [SerializeField] private GameObject _pachinkoBall;
+    [SerializeField] private GameObject _pachinkoGrid;
+    [SerializeField] private GameObject[] _pachinkoLayoutsList;
+    [SerializeField] private GameObject _pachinkoEndingWall;
+    [SerializeField] private Material _pachinkoGradient;
     [SerializeField] private float _forceFactor = 2f;
     [SerializeField] private float _minForce = 1f;
     [SerializeField] private float _maxForce = 5f;
-    [SerializeField] private GameObject[] _pachinkoLayoutsList;
-    [SerializeField] private GameObject _pachinkoGrid;
-    [SerializeField] private GameObject _pachinkoEndingWall;
-    [Header("Target Color")]
+    private states _pachinkoState;
+    private Rigidbody2D _rb;
+    private Vector2 _originalBallPosition;
+    private Vector2 _aimDirection;
+    private uint _ballCount;
+    private uint _maxBalls = 3;
+    
+    [Header("Color Params")]
     [SerializeField]private SpriteRenderer _targetColorSprite;
+    [SerializeField]private RectTransform _valueSelected;
+    [SerializeField]private RectTransform _colorSelected;
+    [SerializeField]private float _valueSelectedAnimTime;
+    private float _originalValuePosY;
+    private RGB255 _targetColor;
+    private byte[] _RGBComponents;
+
     [Header("Arrow Params")]
     [SerializeField] private GameObject _arrow;
     [SerializeField] private SpriteRenderer _arrowSprite;
     [SerializeField] private float _minWidth = 4f;
     [SerializeField] private float _maxWidth = 10f;
-
-    private states _pachinkoState;
-    private Rigidbody2D _rb;
-    private Vector2 _originalPosition;
-    private Vector2 _aimDirection;
-    private uint _ballCount;
-    private uint _maxBalls = 3;
-    private RGB255 _targetColor;
-    private byte[] _RGBComponents;
-    
     #endregion
 
     #region Singleton
@@ -62,9 +69,12 @@ public class PachinkoManager : MonoBehaviour
         _targetColor = RGB255.Random();
         _targetColorSprite.color = _targetColor.ToColor();
         _pachinkoState = states.startAim;
+        _originalBallPosition = _pachinkoBall.transform.position;
+        _originalValuePosY = _valueSelected.position.y;
         _ballCount = 0;
         _RGBComponents = new byte[3];
         _arrow.SetActive(false);
+        _valueSelected.gameObject.SetActive(false);
         Instantiate(_pachinkoLayoutsList[Random.Range(0, _pachinkoLayoutsList.Length)], _pachinkoGrid.transform);
     }
 
@@ -80,8 +90,6 @@ public class PachinkoManager : MonoBehaviour
                 break;
             case states.game:
                 break;
-            case states.finish:
-                break;
         }
     }
     #endregion
@@ -91,7 +99,21 @@ public class PachinkoManager : MonoBehaviour
     {
         _rb = _pachinkoBall.GetComponent<Rigidbody2D>();
         _rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        _originalPosition = _pachinkoBall.transform.position;
+        _valueSelected.gameObject.SetActive(false);
+
+        switch (_ballCount)
+        {
+            case 0:
+                _pachinkoGradient.SetColor("_RightColor", Color.red);
+                break;
+            case 1:
+                _pachinkoGradient.SetColor("_RightColor", Color.green);
+                break;
+            case 2:
+                _pachinkoGradient.SetColor("_RightColor", Color.blue);
+                break;
+        }
+        Debug.Log(_ballCount);
         _pachinkoState = states.aim;
     }
 
@@ -108,7 +130,7 @@ public class PachinkoManager : MonoBehaviour
             if (touch.phase == TouchPhase.Moved)
             {
                 var touchPos = (Vector2)Camera.main.ScreenToWorldPoint(touch.position);
-                _aimDirection = touchPos - _originalPosition;
+                _aimDirection = touchPos - _originalBallPosition;
                 float dirLengthClamped = Mathf.Clamp(_aimDirection.magnitude, _minWidth, _maxWidth);
                 Vector2 newSize = new Vector2(dirLengthClamped + Mathf.Clamp(_aimDirection.magnitude, 0f, _maxWidth), _arrowSprite.size.y);
                 _arrowSprite.size = newSize;
@@ -135,14 +157,31 @@ public class PachinkoManager : MonoBehaviour
         value = value + _pachinkoEndingWall.transform.localScale.x / 2;
         value = Mathf.Clamp(value / _pachinkoEndingWall.transform.localScale.x, 0f, 1f);
         value *= 255;
-        _RGBComponents[_ballCount] = (byte) value;
-        Debug.Log(_RGBComponents[_ballCount]);
+        _RGBComponents[_ballCount] = (byte)value;
+        
+        StartCoroutine(ValueSelected());
+    }
+
+    private IEnumerator ValueSelected()
+    {
+        _valueSelected.gameObject.SetActive(true);
+        _valueSelected.GetComponentInChildren<TextMeshProUGUI>().text = $"{_RGBComponents[_ballCount]}";
+        LeanTween.move(_valueSelected.gameObject, _colorSelected.position, _valueSelectedAnimTime).setEase(LeanTweenType.easeInOutCubic);
+        
+        yield return new WaitForSeconds(_valueSelectedAnimTime/2);
+
+        LeanTween.scale(_valueSelected, Vector2.one * 0.1f, _valueSelectedAnimTime/2).setEase(LeanTweenType.easeInOutCubic);
+
+        yield return new WaitForSeconds(_valueSelectedAnimTime / 2);
+
         _ballCount++;
-        if( _ballCount < _maxBalls)
+        _colorSelected.GetComponentInChildren<TextMeshProUGUI>().text = $"{_RGBComponents[0]} {_RGBComponents[1]} {_RGBComponents[2]}";
+        if (_ballCount < _maxBalls)
         {
-            ResetBall();
+            Reset();
             _pachinkoState = states.startAim;
-        } else
+        }
+        else
         {
             RGB255 guessedColor = new RGB255(_RGBComponents[0], _RGBComponents[1], _RGBComponents[2]);
             Debug.Log(guessedColor.ToString());
@@ -150,9 +189,12 @@ public class PachinkoManager : MonoBehaviour
         }
     }
 
-    private void ResetBall()
+    private void Reset()
     {
-        _pachinkoBall.transform.position = _originalPosition;
+        _pachinkoBall.transform.position = _originalBallPosition;
+        Vector2 resetPosition = new Vector2(_valueSelected.position.x, _originalValuePosY);
+        LeanTween.scale(_valueSelected, Vector2.one, 0f);
+        _valueSelected.position = resetPosition;
     }
     #endregion
 }

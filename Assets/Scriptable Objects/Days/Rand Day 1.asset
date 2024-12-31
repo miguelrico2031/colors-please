@@ -20,5 +20,4 @@ MonoBehaviour:
   <MinigamesCount>k__BackingField: 2
   _nonRepeatingSequenceSize: 0
   _minigamesPool:
-  - {fileID: 11400000, guid: 401d2dc1369f4eb4c993da9aeb0cf726, type: 2}
   - {fileID: 11400000, guid: bf55f65b156e04d4692a711eebe88e70, type: 2}

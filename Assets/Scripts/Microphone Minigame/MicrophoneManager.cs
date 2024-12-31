@@ -117,7 +117,6 @@ public class MicrophoneManager : MonoBehaviour
     private IEnumerator DelayedMicInitialization()
     {
         yield return null;
-        Ini
     }
 
     private void PermissionCallbacksPermissionDenied(string permissionName)
