@@ -9,12 +9,14 @@ public class BucketGenerator : MonoBehaviour
     [SerializeField] private SwipeController _swipeController;
     [SerializeField] private RectTransform _bucketUIGroup;
     [SerializeField] private BucketUI _bucketUIPrefab;
+    [SerializeField] private BucketUI _piggyBankBucketUIPrefab;
     
     [SerializeField] private List<Bucket> _powerUpBuckets;
     
     [Serializable]
     public class UniqueBucketsList
     {
+        public Character Character;
         public List<Bucket> Buckets;
     }
     [Header("Se selecciona 1 cubo de cada sublista de esta lista")]
@@ -37,8 +39,17 @@ public class BucketGenerator : MonoBehaviour
         _bucketCount = 0;
         
         List<Bucket> buckets = new List<Bucket>();
+        HashSet<Character> dayBucketsCharacter = new();
+        
+        buckets.AddRange(ServiceLocator.Get<IDayService>().CurrentDay.Buckets.Select(characterBucket =>
+        {
+            dayBucketsCharacter.Add(characterBucket.Character);
+            return characterBucket.Bucket;
+        }));
+        
         foreach (var uniqueBucketList in _uniqueBuckets)
         {
+            if(dayBucketsCharacter.Contains(uniqueBucketList.Character)) continue;
             var bucket = uniqueBucketList.Buckets[Random.Range(0, uniqueBucketList.Buckets.Count)];
             buckets.Add(bucket);
         }
@@ -63,16 +74,18 @@ public class BucketGenerator : MonoBehaviour
         
         //crear los cubos
         foreach (var bucket in buckets)
-            CreateBucketUI(bucket);
+            CreateBucketUI(bucket, _bucketUIPrefab);
+        
+        CreateBucketUI(null, _piggyBankBucketUIPrefab);
 
         _bucketUIGroup.position -= (_bucketCount - 1) * (_swipeController.ItemStep / 2f);
         _swipeController.Initialize(_bucketCount);
     }
 
 
-    private void CreateBucketUI(Bucket bucket)
+    private void CreateBucketUI(Bucket bucket, BucketUI prefab)
     {
-        var bucketUI = Instantiate(_bucketUIPrefab, _bucketUIGroup);
+        var bucketUI = Instantiate(prefab, _bucketUIGroup);
         bucketUI.Initialize(bucket);
         _bucketCount++;
     }

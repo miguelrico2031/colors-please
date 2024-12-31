@@ -12,20 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b841a80c24df4521a4d07cdfe1ea05d5, type: 3}
   m_Name: Day Manager
   m_EditorClassIdentifier: 
-  <CurrentDay>k__BackingField: {fileID: 0}
-  <DialogueToDisplay>k__BackingField: {fileID: 0}
+  <CurrentDay>k__BackingField: {fileID: 11400000, guid: ff8d8b6b1b01cc240839ff27f500b982, type: 2}
+  <DialogueToDisplay>k__BackingField: {fileID: 11400000, guid: 03e26d792f6de3b4eb4dea103d25ed19, type: 2}
   <TargetColor>k__BackingField:
-    R: 82
-    G: 41
-    B: 199
+    R: 119
+    G: 237
+    B: 145
   <GuessedColor>k__BackingField:
-    R: 180
-    G: 250
-    B: 250
-  <CurrentMinigame>k__BackingField: {fileID: 11400000, guid: 401d2dc1369f4eb4c993da9aeb0cf726, type: 2}
+    R: 137
+    G: 137
+    B: 141
+  <CurrentMinigame>k__BackingField: {fileID: 0}
   _chatSceneName: Chat
   _bucketsSceneName: Buckets
   _scoreSceneName: Score
   _days:
   - {fileID: 11400000, guid: ff8d8b6b1b01cc240839ff27f500b982, type: 2}
+  - {fileID: 11400000, guid: d19414471bb5b3d4e94f1ab613c8ebd2, type: 2}
   _currentDayIndex: 0

@@ -7,6 +7,7 @@ public class DayManager : ScriptableObject, IDayService
 {
     [field: SerializeField] public ADay CurrentDay { get; private set; }
     [field: SerializeField] public Dialogue DialogueToDisplay { get; private set; }
+    public bool IsEndOfDayDialogue { get; private set; }
     
     [field: SerializeField] public RGB255 TargetColor { get; private set; }
     [field: SerializeField] public RGB255 GuessedColor { get; private set; }
@@ -46,6 +47,7 @@ public class DayManager : ScriptableObject, IDayService
         if (CurrentDay.DialogueBefore is not null)
         {
             DialogueToDisplay = CurrentDay.DialogueBefore;
+            IsEndOfDayDialogue = false;
             ServiceLocator.Get<ISceneTransitionService>().TransitionToScene(_chatSceneName);
         }
         else
@@ -87,6 +89,17 @@ public class DayManager : ScriptableObject, IDayService
     }
 
     private void FinishDay()
+    {
+        if (CurrentDay.DialogueAfter is not null)
+        {
+            DialogueToDisplay = CurrentDay.DialogueAfter;
+            IsEndOfDayDialogue = true;
+            ServiceLocator.Get<ISceneTransitionService>().TransitionToScene(_chatSceneName);
+        }
+        else GoToBuckets();
+    }
+
+    public void GoToBuckets()
     {
         ServiceLocator.Get<ISceneTransitionService>().TransitionToScene(_bucketsSceneName);
     }

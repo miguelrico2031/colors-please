@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f97527784dc4bb694c7882b89bfcd4c, type: 3}
-  m_Name: Money Manager
+  m_Script: {fileID: 11500000, guid: 03385c5037334c278512aed92272821c, type: 3}
+  m_Name: Microphone Minigame
   m_EditorClassIdentifier: 
-  <DayMoney>k__BackingField: 0
-  <PiggyBankMoney>k__BackingField: 214
-  <PiggyBankGoal>k__BackingField: 1500
+  SceneName: Microphone Minigame

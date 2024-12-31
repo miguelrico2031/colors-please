@@ -9,9 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f97527784dc4bb694c7882b89bfcd4c, type: 3}
-  m_Name: Money Manager
+  m_Script: {fileID: 11500000, guid: 73614af7cf3d421185ca73aa1921b268, type: 3}
+  m_Name: Day Husb 1
   m_EditorClassIdentifier: 
-  <DayMoney>k__BackingField: 0
-  <PiggyBankMoney>k__BackingField: 214
-  <PiggyBankGoal>k__BackingField: 1500
+  Description: DIA HUSBAND
+  <Cost>k__BackingField: 131
+  PayedConsequences:
+  - character: 2
+    Points: 1
+  NotPayedConsequences:
+  - character: 2
+    Points: -2
