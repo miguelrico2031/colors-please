@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BucketUICenter
   - Pachinko Ball
+  - Paint Drop
   layers:
   - Default
   - TransparentFX
