@@ -10,6 +10,7 @@ public class SlidersManager : MonoBehaviour
     public Image targetColorDisplay;
     public Button acceptButton;
     public TMP_Text feedbackText;
+    public TMP_Text titleText;
 
     private RGB255 targetColor;
     private RGB255 playerColor;
@@ -32,7 +33,28 @@ public class SlidersManager : MonoBehaviour
         blueSlider.value = 0;
 
         acceptButton.onClick.AddListener(SubmitColor);
+
+        AdjustTextColor();
     }
+
+    void AdjustTextColor()
+    {
+        float similarityWithBlack = RGB255.GetSimilarity(targetColor, new RGB255());
+
+        if (similarityWithBlack > 0.5f)
+        {
+            titleText.color = Color.white;
+            feedbackText.color = Color.white;
+        }
+        else
+        {
+            titleText.color = Color.black;
+            feedbackText.color = Color.black;
+        }
+
+        Debug.Log($"similaritud con negro: {similarityWithBlack}");
+    }
+
 
     void SubmitColor()
     {

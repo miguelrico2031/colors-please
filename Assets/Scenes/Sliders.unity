@@ -1139,6 +1139,7 @@ MonoBehaviour:
   targetColorDisplay: {fileID: 956688271}
   acceptButton: {fileID: 1097018086}
   feedbackText: {fileID: 965647917}
+  titleText: {fileID: 2077294551}
 --- !u!4 &717624153
 Transform:
   m_ObjectHideFlags: 0
@@ -2218,7 +2219,7 @@ GameObject:
   - component: {fileID: 2077294552}
   - component: {fileID: 2077294551}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Titulo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

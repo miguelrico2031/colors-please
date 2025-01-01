@@ -138,8 +138,6 @@ public class GridMinigame : MonoBehaviour
     }
 
 
-
-
     Vector2 GetTilt()
     {
         if (SystemInfo.supportsGyroscope)
