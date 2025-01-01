@@ -1,106 +1,160 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class GridMinigame : MonoBehaviour
 {
     [Header("UI Elements")]
-    public GameObject cellPrefab;       // Prefab para cada celda
-    public Transform gridParent;       // Contenedor para la cuadrícula
-    public GameObject cursor;          // Cursor que se mueve
-    public TextMeshProUGUI selectedText; // Texto (TextMeshPro) donde se muestra el código hexadecimal seleccionado
-    public Image targetImage;          // Imagen donde se aplica el color objetivo
-    public RectTransform canvasRect;   // RectTransform del Canvas principal
+    public GameObject cellPrefab;
+    public Transform gridParent;
+    public GameObject cursor;
+    public TextMeshProUGUI selectedText;
+    public TextMeshProUGUI titleText;
+    public Image targetImage;
+    public RectTransform canvasRect;
 
     [Header("Grid Settings")]
-    public int rows = 4;               // Filas de la cuadrícula
-    public int columns = 4;            // Columnas de la cuadrícula
-    public float cellSize = 50f;       // Tamaño de cada celda (en píxeles)
-    public float spacing = 5f;         // Espacio entre celdas
-    public float accelerationFactor = 3000f; // Factor de aceleración por inclinación
-    public float friction = 2.6f;             // Fricción para reducir la velocidad
+    public int rows = 4;
+    public int columns = 4;
+    public float accelerationFactor = 3000f;
+    public float friction = 2.6f;
 
-    private Vector2 cursorPosition;         // Posición actual del cursor en pantalla
-    private Vector2 cursorVelocity;         // Velocidad actual del cursor
-    private GameObject[,] gridCells;        // Matriz para almacenar las celdas
-    private string selectedHex = "#";       // Código hexadecimal construido por el jugador
-    private RGB255 targetColor;             // Color objetivo
-    private RGB255 playerColor;             // Color introducido por el jugador
+    private Vector2 cursorPosition;
+    private Vector2 cursorVelocity;
+    private GameObject[,] gridCells;
+    private string selectedHex = "#";
+    private RGB255 targetColor;
+    private RGB255 playerColor;
+    private bool isReady = false;
 
     void Start()
     {
-        // Generar un color objetivo aleatorio
         targetColor = RGB255.Random();
-        Debug.Log($"Color objetivo generado: {targetColor}");
-
-        // Aplicar el color objetivo a la imagen
+        //Debug.Log($"color: {targetColor}");
         targetImage.color = targetColor.ToColor();
 
-        // Crear la cuadrícula dinámica
         CreateHexGrid();
-
-        // Inicializar el cursor en el centro
+        PositionTextsAndGrid();
         cursorPosition = new Vector2(Screen.width / 2, Screen.height / 2);
         UpdateCursorPosition();
 
-        // Configurar giroscopio
         if (SystemInfo.supportsGyroscope)
         {
             Input.gyro.enabled = true;
         }
         else
         {
-            Debug.LogWarning("El dispositivo no soporta giroscopio.");
+            Debug.LogWarning("el movil no tiene giroscopio");
         }
+
+        //StartCoroutine(InitializeInput());
     }
+
+    /*
+    IEnumerator InitializeInput()
+    {
+        // Esperar un frame para garantizar que todo esté renderizado
+        yield return null;
+        Canvas.ForceUpdateCanvases();
+        isReady = true;
+        Debug.Log("Input listo. Puedes interactuar con la cuadrícula.");
+    }*/
 
     void Update()
     {
-        // Obtener inclinación del móvil
-        Vector2 tilt = GetTilt();
+        //if (!isReady) return;
 
-        // Calcular aceleración basada en la inclinación
-        Vector2 acceleration = tilt * accelerationFactor * Time.deltaTime;
-
-        // Actualizar la velocidad del cursor
-        cursorVelocity += acceleration;
-
-        // Aplicar fricción para reducir la velocidad gradualmente
-        cursorVelocity = Vector2.Lerp(cursorVelocity, Vector2.zero, friction * Time.deltaTime);
-
-        // Actualizar la posición del cursor
+        Vector2 tilt = GetTilt(); // La inclinacion del movil
+        Vector2 acceleration = tilt * accelerationFactor * Time.deltaTime; // * la aceleracion y el deltatime
+        cursorVelocity += acceleration; // se aplica al cursor
+        cursorVelocity = Vector2.Lerp(cursorVelocity, Vector2.zero, friction * Time.deltaTime); 
         cursorPosition += cursorVelocity * Time.deltaTime;
 
-        // Limitar el cursor dentro de los bordes de la pantalla
+        // para que el cursor no se salga de la pantalla
         cursorPosition.x = Mathf.Clamp(cursorPosition.x, 0, Screen.width);
         cursorPosition.y = Mathf.Clamp(cursorPosition.y, 0, Screen.height);
 
-        // Actualizar la posición del cursor en el Canvas
         UpdateCursorPosition();
 
-        // Detectar tap para seleccionar la casilla actual
+        // pulsar en la pantalla
         if (Input.GetMouseButtonDown(0))
         {
             SelectCharacter();
         }
     }
 
+    void PositionTextsAndGrid()
+    {
+        float canvasHeight = canvasRect.rect.height;
+        float canvasWidth = canvasRect.rect.width;
+
+        // proporciones de los 3 elementos en pantalla: Titulo, grid de casillas y marcador de color
+        float titleHeightRatio = 0.25f;
+        float markerHeightRatio = 0.10f;
+        float gridHeightRatio = 0.65f;
+
+        float titleSectionStart = canvasHeight / 2;
+        float titleSectionEnd = canvasHeight / 2 - canvasHeight * titleHeightRatio;
+        float markerSectionStart = -canvasHeight / 2 + canvasHeight * markerHeightRatio;
+        float markerSectionEnd = -canvasHeight / 2;
+        float gridHeight = canvasHeight * gridHeightRatio;
+
+        // TITULO
+        float titleY = (titleSectionStart + titleSectionEnd) / 2;
+        RectTransform titleRect = titleText.GetComponent<RectTransform>();
+        titleRect.anchoredPosition = new Vector2(0, titleY);
+        titleRect.sizeDelta = new Vector2(canvasWidth * 0.9f, titleRect.sizeDelta.y);
+
+        // MARCADOR
+        float markerY = (markerSectionStart + markerSectionEnd) / 2;
+        RectTransform markerRect = selectedText.GetComponent<RectTransform>();
+        markerRect.anchoredPosition = new Vector2(0, markerY);
+
+        // GRID
+        RectTransform gridRect = gridParent.GetComponent<RectTransform>();
+        gridRect.sizeDelta = new Vector2(canvasWidth, gridHeight);
+        gridRect.anchoredPosition = new Vector2(0, (titleSectionEnd + markerSectionStart) / 2); // Centrado entre título y marcador
+
+        AdjustTextColor(); // cambiar color textos
+    }
+
+    void AdjustTextColor()
+    {
+        float similarityWithBlack = RGB255.GetSimilarity(targetColor, new RGB255());
+
+        if (similarityWithBlack > 0.5f)
+        {
+            titleText.color = Color.white;
+            selectedText.color = Color.white;
+        }
+        else
+        {
+            titleText.color = Color.black;
+            selectedText.color = Color.black;
+        }
+
+        Debug.Log($"similaritud con negro: {similarityWithBlack}");
+    }
+
+
+
+
     Vector2 GetTilt()
     {
         if (SystemInfo.supportsGyroscope)
         {
-            // Obtener inclinación del móvil en X e Y
             return new Vector2(Input.gyro.gravity.x, Input.gyro.gravity.y);
         }
         else
         {
+            Debug.Log("No soporta giroscopio el movil");
             return Vector2.zero;
         }
     }
 
     void UpdateCursorPosition()
     {
-        // Convertir coordenadas de pantalla a coordenadas locales del Canvas
         RectTransform cursorRect = cursor.GetComponent<RectTransform>();
         Vector2 canvasPos;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, cursorPosition, null, out canvasPos);
@@ -110,26 +164,33 @@ public class GridMinigame : MonoBehaviour
     void CreateHexGrid()
     {
         string[] hexChars = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F" };
+
         gridCells = new GameObject[rows, columns];
+
         int index = 0;
+
+        float containerWidth = canvasRect.rect.width;
+        float cellWidth = containerWidth / columns;
+        float cellHeight = cellWidth;
+        float cellSize = Mathf.Min(cellWidth, cellHeight);
+        float spacingX = (containerWidth - (cellSize * columns)) / (columns - 1);
+        float startY = (rows - 1) * (cellSize + spacingX) / 2f;
 
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < columns; j++)
             {
-                // Instanciar la celda y configurar su posición
                 GameObject cell = Instantiate(cellPrefab, gridParent);
-                cell.transform.localPosition = new Vector3(
-                    j * (cellSize + spacing),
-                    -i * (cellSize + spacing),
+                Vector3 cellPosition = new Vector3(
+                    -containerWidth / 2f + cellSize / 2f + j * (cellSize + spacingX),
+                    startY - i * (cellSize + spacingX),
                     0
                 );
-
-                // Configurar el carácter de la celda
+                RectTransform cellRect = cell.GetComponent<RectTransform>();
+                cellRect.sizeDelta = new Vector2(cellSize, cellSize);
+                cellRect.anchoredPosition = cellPosition;
                 TextMeshProUGUI cellText = cell.GetComponentInChildren<TextMeshProUGUI>();
                 cellText.text = hexChars[index % hexChars.Length];
-
-                // Guardar la celda en la matriz
                 gridCells[i, j] = cell;
                 index++;
             }
@@ -138,36 +199,42 @@ public class GridMinigame : MonoBehaviour
 
     void SelectCharacter()
     {
-        // Obtener la celda bajo el cursor
         Vector2 localCursor;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, cursorPosition, null, out localCursor);
-
-        int x = Mathf.Clamp(Mathf.FloorToInt(localCursor.x / (cellSize + spacing)), 0, columns - 1);
-        int y = Mathf.Clamp(Mathf.FloorToInt(-localCursor.y / (cellSize + spacing)), 0, rows - 1);
-
-        GameObject cell = gridCells[y, x];
-        string character = cell.GetComponentInChildren<TextMeshProUGUI>().text;
-
-        // Agregar el carácter al código hexadecimal
-        selectedHex += character;
-        selectedText.text = selectedHex;
-
-        // Verificar si el código está completo
-        if (selectedHex.Length == 7)
+        RectTransform gridRect = gridParent.GetComponent<RectTransform>();
+        if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(gridRect, cursorPosition, null, out localCursor))
         {
-            Debug.Log($"Código hexadecimal seleccionado: {selectedHex}");
-
-            // Convertir a RGB255
-            playerColor = new RGB255(ColorUtility.TryParseHtmlString(selectedHex, out Color color) ? color : Color.black);
-
-            // Finalizar el minijuego
-            FinishMinigame();
+            Debug.LogWarning("Error en el paso de coordenadas del cursor");
+            return;
         }
+
+        for (int row = 0; row < rows; row++)
+        {
+            for (int column = 0; column < columns; column++)
+            {
+                GameObject cell = gridCells[row, column];
+                RectTransform cellRect = cell.GetComponent<RectTransform>();
+                if (RectTransformUtility.RectangleContainsScreenPoint(cellRect, cursorPosition, null))
+                {
+                    string character = cell.GetComponentInChildren<TextMeshProUGUI>().text;
+                    selectedHex += character;
+                    selectedText.text = selectedHex;
+                    //Debug.Log($"Caracter: {character}, posicion: [{row}, {column}]");
+                    
+                    if (selectedHex.Length == 7)
+                    {
+                        //Debug.Log($"Codigo: {selectedHex}");
+                        playerColor = new RGB255(ColorUtility.TryParseHtmlString(selectedHex, out Color color) ? color : Color.black);
+                        FinishMinigame();
+                    }
+                    return;
+                }
+            }
+        }
+        Debug.LogWarning("el cursor no esta en ninguna celda");
     }
 
     void FinishMinigame()
     {
-        // Llamar al servicio con el color objetivo y el color del jugador
         ServiceLocator.Get<IDayService>().FinishMinigame(targetColor, playerColor);
     }
 }
