@@ -5,7 +5,7 @@ using System.Collections;
 
 public class GridMinigame : MonoBehaviour
 {
-    [Header("UI Elements")]
+    [Header("UI")]
     public GameObject cellPrefab;
     public Transform gridParent;
     public GameObject cursor;
@@ -14,7 +14,7 @@ public class GridMinigame : MonoBehaviour
     public Image targetImage;
     public RectTransform canvasRect;
 
-    [Header("Grid Settings")]
+    [Header("Grid")]
     public int rows = 4;
     public int columns = 4;
     public float accelerationFactor = 3000f;
@@ -26,7 +26,7 @@ public class GridMinigame : MonoBehaviour
     private string selectedHex = "#";
     private RGB255 targetColor;
     private RGB255 playerColor;
-    private bool isReady = false;
+    //private bool isReady = false;
 
     void Start()
     {
