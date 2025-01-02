@@ -9,9 +9,34 @@ public class BucketsMinigameManager : MonoBehaviour
     [SerializeField] private SpriteRenderer guessColorSprite;
     [SerializeField] private RGB255 guessColor;
 
+    [SerializeField] private GameObject blueBucketButton;
+    [SerializeField] private GameObject redBucketButton;
+    [SerializeField] private GameObject yellowBucketButton;
+    [SerializeField] private GameObject whiteBucketButton;
+    private GameObject activeBucket;
+    public int activeColor;
+
+    [SerializeField] private bool DEBUG;
+
     private static readonly RGB255 RED = new RGB255(255, 0, 0);
     private static readonly RGB255 YELLOW = new RGB255(255, 255, 0);
     private static readonly RGB255 BLUE = new RGB255(0, 0, 255);
+    private static readonly RGB255 WHITE = new RGB255(255, 255, 255);
+
+
+    public static BucketsMinigameManager Instance { get; private set; }
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(Instance);
+        }
+    }
 
     void Start()
     {
@@ -20,6 +45,15 @@ public class BucketsMinigameManager : MonoBehaviour
 
         guessColor = new RGB255(255, 255, 255);
         guessColorSprite.color = guessColor.ToColor();
+
+        activeColor = 3;
+        activeBucket = whiteBucketButton;
+    }
+
+    void Update()
+    {
+        if (DEBUG)
+            Debug.Log($"R{guessColor.R}, G{guessColor.G}, B{guessColor.B}");
     }
 
     public void MixColor(RGB255 colorToMix)
@@ -45,9 +79,7 @@ public class BucketsMinigameManager : MonoBehaviour
         else if (colorToMix.ToColor() == Color.white)
         {
             Debug.Log("white");
-            guessColor.R = byte.MaxValue;
-            guessColor.G = byte.MaxValue;
-            guessColor.B = byte.MaxValue;
+            MixSubtractiveColor(guessColor, WHITE);
             guessColorSprite.color = guessColor.ToColor();
         }
         /*
@@ -85,27 +117,68 @@ public class BucketsMinigameManager : MonoBehaviour
 
     private void MixSubtractiveColor(RGB255 currentColor, RGB255 colorToAdd)
     {
-        float amount = 0.01f;
+        float amount = 0.006f;
+        float whiteAmount = 0.008f;
 
-        float r = currentColor.R / 255f;
-        float g = currentColor.G / 255f;
-        float b = currentColor.B / 255f;
+        if (colorToAdd.ToColor() == Color.white)
+        {
+            guessColor.R = (byte)Mathf.Clamp(guessColor.R + (int)(whiteAmount * 255), 0, 255);
+            guessColor.G = (byte)Mathf.Clamp(guessColor.G + (int)(whiteAmount * 255), 0, 255);
+            guessColor.B = (byte)Mathf.Clamp(guessColor.B + (int)(whiteAmount * 255), 0, 255);
+        }
+        else
+        {
+            float r = currentColor.R / 255f;
+            float g = currentColor.G / 255f;
+            float b = currentColor.B / 255f;
 
-        float colorR = colorToAdd.R / 255f;
-        float colorG = colorToAdd.G / 255f;
-        float colorB = colorToAdd.B / 255f;
+            float colorR = colorToAdd.R / 255f;
+            float colorG = colorToAdd.G / 255f;
+            float colorB = colorToAdd.B / 255f;
 
-        r = Mathf.Max(0f, r + (colorR - 1f) * amount);
-        g = Mathf.Max(0f, g + (colorG - 1f) * amount);
-        b = Mathf.Max(0f, b + (colorB - 1f) * amount);
+            r = Mathf.Max(0f, r + (colorR - 1f) * amount);
+            g = Mathf.Max(0f, g + (colorG - 1f) * amount);
+            b = Mathf.Max(0f, b + (colorB - 1f) * amount);
 
-        guessColor.R = (byte)(r * 255);
-        guessColor.G = (byte)(g * 255);
-        guessColor.B = (byte)(b * 255);
+            guessColor.R = (byte)(r * 255);
+            guessColor.G = (byte)(g * 255);
+            guessColor.B = (byte)(b * 255);
+        }
     }
 
-    void Update()
+    public void OnBlueBucketClicked()
     {
-        Debug.Log($"R{guessColor.R}, G{guessColor.G}, B{guessColor.B}");
+        blueBucketButton.SetActive(false);
+        activeBucket.SetActive(true);
+        activeColor = 2;
+        PaintDropSpawner.Instance.ChangeBucketColor(activeColor);
+        activeBucket = blueBucketButton;
+    }
+
+    public void OnRedBucketClicked()
+    {
+        redBucketButton.SetActive(false);
+        activeBucket.SetActive(true);
+        activeColor = 0;
+        PaintDropSpawner.Instance.ChangeBucketColor(activeColor);
+        activeBucket = redBucketButton;
+    }
+
+    public void OnYellowBucketClicked()
+    {
+        yellowBucketButton.SetActive(false);
+        activeBucket.SetActive(true);
+        activeColor = 1;
+        PaintDropSpawner.Instance.ChangeBucketColor(activeColor);
+        activeBucket = yellowBucketButton;
+    }
+
+    public void OnWhiteBucketClicked()
+    {
+        whiteBucketButton.SetActive(false);
+        activeBucket.SetActive(true);
+        activeColor = 3;
+        PaintDropSpawner.Instance.ChangeBucketColor(activeColor);
+        activeBucket = whiteBucketButton;
     }
 }

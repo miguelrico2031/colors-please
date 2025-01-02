@@ -9,7 +9,8 @@ public class BucketDst : MonoBehaviour
         if (other.CompareTag("Paint Drop"))
         {
             RGB255 otherColor = new RGB255(other.GetComponent<SpriteRenderer>().color);
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
+            PaintDropSpawner.Instance.ReturnToPool(other.gameObject);
 
             manager.MixColor(otherColor);
         }
