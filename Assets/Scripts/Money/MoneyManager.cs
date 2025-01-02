@@ -8,7 +8,10 @@ public class MoneyManager : ScriptableObject, IMoneyService
     [field: SerializeField] public uint PiggyBankMoney { get; private set; }
     [field: SerializeField] public uint PiggyBankGoal { get; private set; }
 
+    // public bool IsDirty { get; private set; }
     public event Action OnMoneyChange;
+    
+    // private uint _cleanPiggyBankMoney;
 
     
     public void AddDayMoney(uint amount)
@@ -31,6 +34,12 @@ public class MoneyManager : ScriptableObject, IMoneyService
     {
         if (DayMoney == 0) 
             return false;
+
+        // if (!IsDirty)
+        // {
+        //     IsDirty = true;
+        //     _cleanPiggyBankMoney = PiggyBankMoney;
+        // }
         PiggyBankMoney += DayMoney;
         DayMoney = 0;
         OnMoneyChange?.Invoke();
@@ -42,9 +51,33 @@ public class MoneyManager : ScriptableObject, IMoneyService
         if (amount > PiggyBankMoney)
             return false;
         
+        // if (!IsDirty)
+        // {
+        //     IsDirty = true;
+        //     _cleanPiggyBankMoney = PiggyBankMoney;
+        // }
         PiggyBankMoney -= amount;
         OnMoneyChange?.Invoke();
         return true;
     }
+
+
+    public void Load(int piggyBankMoney)
+    {
+        PiggyBankMoney = (uint) piggyBankMoney;
+    }
+
+    public void Save(out int piggyBankMoney)
+    {
+        // ApplyChanges();
+        // piggyBankMoney = _cleanPiggyBankMoney;
+        piggyBankMoney = (int) PiggyBankMoney;
+    }
+
+    // private void ApplyChanges()
+    // {
+    //     _cleanPiggyBankMoney = PiggyBankMoney;
+    //     IsDirty = false;
+    // }
 
 }

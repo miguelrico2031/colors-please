@@ -7,6 +7,7 @@ public class DayManager : ScriptableObject, IDayService
 {
     [field: SerializeField] public ADay CurrentDay { get; private set; }
     [field: SerializeField] public Dialogue DialogueToDisplay { get; private set; }
+    public bool IsEndOfDayDialogue { get; private set; }
     
     [field: SerializeField] public RGB255 TargetColor { get; private set; }
     [field: SerializeField] public RGB255 GuessedColor { get; private set; }
@@ -22,9 +23,9 @@ public class DayManager : ScriptableObject, IDayService
     [SerializeField]private int _currentDayIndex = -1;
     private Queue<Minigame> _minigames;
 
-    public void ResetDays()
+    public void ClearNonPersistentData()
     {
-        _currentDayIndex = -1;
+        // _currentDayIndex = -1;
         CurrentDay = null;
         DialogueToDisplay = null;
         CurrentMinigame = null;
@@ -33,6 +34,8 @@ public class DayManager : ScriptableObject, IDayService
     public void StartDay()
     {
         _currentDayIndex++;
+        ServiceLocator.Get<IPersistenceService>().Save();
+        
         if (_currentDayIndex >= _days.Count)
         {
             FinishGame();
@@ -46,6 +49,7 @@ public class DayManager : ScriptableObject, IDayService
         if (CurrentDay.DialogueBefore is not null)
         {
             DialogueToDisplay = CurrentDay.DialogueBefore;
+            IsEndOfDayDialogue = false;
             ServiceLocator.Get<ISceneTransitionService>().TransitionToScene(_chatSceneName);
         }
         else
@@ -71,6 +75,20 @@ public class DayManager : ScriptableObject, IDayService
         ServiceLocator.Get<ISceneTransitionService>().TransitionToScene(_scoreSceneName);
     }
     
+    public void GoToBuckets()
+    {
+        ServiceLocator.Get<ISceneTransitionService>().TransitionToScene(_bucketsSceneName);
+    }
+
+    public void Load(int dayIndex)
+    {
+        _currentDayIndex = dayIndex - 1; //porque se va a ++ al principio de StartDay
+    }
+
+    public void Save(out int dayIndex)
+    {
+        dayIndex = _currentDayIndex;   
+    }
     
 
     private void TrySelectNextMinigame()
@@ -88,8 +106,15 @@ public class DayManager : ScriptableObject, IDayService
 
     private void FinishDay()
     {
-        ServiceLocator.Get<ISceneTransitionService>().TransitionToScene(_bucketsSceneName);
+        if (CurrentDay.DialogueAfter is not null)
+        {
+            DialogueToDisplay = CurrentDay.DialogueAfter;
+            IsEndOfDayDialogue = true;
+            ServiceLocator.Get<ISceneTransitionService>().TransitionToScene(_chatSceneName);
+        }
+        else GoToBuckets();
     }
+
 
     private void FinishGame()
     {
