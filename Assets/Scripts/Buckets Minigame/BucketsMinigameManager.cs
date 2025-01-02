@@ -1,5 +1,7 @@
 using UnityEngine;
 using System;
+using UnityEngine.Scripting;
+using TMPro;
 
 public class BucketsMinigameManager : MonoBehaviour
 {
@@ -15,6 +17,10 @@ public class BucketsMinigameManager : MonoBehaviour
     [SerializeField] private GameObject whiteBucketButton;
     private GameObject activeBucket;
     public int activeColor;
+
+    [SerializeField] private int countdownTime;
+    private int currentTime;
+    [SerializeField] private TextMeshProUGUI countdownText;
 
     [SerializeField] private bool DEBUG;
 
@@ -48,12 +54,35 @@ public class BucketsMinigameManager : MonoBehaviour
 
         activeColor = 3;
         activeBucket = whiteBucketButton;
+
+        currentTime = countdownTime;
+        countdownText.text = currentTime.ToString();
+        InvokeRepeating(nameof(UpdateCountdown), 1f, 1f);
     }
 
     void Update()
     {
         if (DEBUG)
             Debug.Log($"R{guessColor.R}, G{guessColor.G}, B{guessColor.B}");
+    }
+
+    private void UpdateCountdown()
+    {
+        if (currentTime > 0)
+        {
+            currentTime--;
+            countdownText.text = currentTime.ToString();
+            if (DEBUG)
+            {
+                Debug.Log($"Tiempo restante: {currentTime} segundos");
+            }
+        }
+
+        if (currentTime <= 0)
+        {
+            CancelInvoke(nameof(UpdateCountdown));
+            ServiceLocator.Get<IDayService>().FinishMinigame(targetColor, guessColor);
+        }
     }
 
     public void MixColor(RGB255 colorToMix)
@@ -180,5 +209,10 @@ public class BucketsMinigameManager : MonoBehaviour
         activeColor = 3;
         PaintDropSpawner.Instance.ChangeBucketColor(activeColor);
         activeBucket = whiteBucketButton;
+    }
+
+    public void FinishMinigame()
+    {
+        ServiceLocator.Get<IDayService>().FinishMinigame(targetColor, guessColor);
     }
 }

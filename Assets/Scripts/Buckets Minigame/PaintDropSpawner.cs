@@ -59,8 +59,8 @@ public class PaintDropSpawner : MonoBehaviour
         {
             GameObject newPaintDrop = paintDropPool.Dequeue();
             newPaintDrop.transform.position = spawnPoint.position + new Vector3(
-                Random.Range(-0.1f, 0.1f),
-                Random.Range(-0.1f, 0.1f),
+                Random.Range(-0.15f, 0.15f),
+                Random.Range(-0.15f, 0.15f),
                 0);
 
             newPaintDrop.GetComponent<SpriteRenderer>().color = currentColor;
