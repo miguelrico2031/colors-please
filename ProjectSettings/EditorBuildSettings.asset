@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pachinko Minigame.unity
     guid: 0ae709e9c67a1354fb4649341fe3ce0c
+  - enabled: 1
+    path: Assets/Scenes/Undertale Minigame.unity
+    guid: ddf34552a22b7344495abbabd4397d58
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
