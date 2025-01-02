@@ -49,4 +49,13 @@ public struct RGB255
         return similarity;
     }
 
+    public static RGB255 operator +(RGB255 a, RGB255 b)
+    {
+        return new RGB255(
+            (byte)Mathf.Clamp(a.R + b.R, 0, 255),
+            (byte)Mathf.Clamp(a.G + b.G, 0, 255),
+            (byte)Mathf.Clamp(a.B + b.B, 0, 255)
+            );
+    } 
+
 }
