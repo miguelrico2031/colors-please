@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UndertaleTarget : MonoBehaviour, IPointerDownHandler
+public class UndertaleTarget : MonoBehaviour
 {
     public event Action OnNeedleStopped;
     public RGB255 GuessedColor { get; private set; } = new RGB255();
     
     private static readonly int _leftColorHash = Shader.PropertyToID("_LeftColor");
     private static readonly int _rightColorHash = Shader.PropertyToID("_RightColor");
+    [SerializeField] private PressArea _pressArea;
     [SerializeField] private RectTransform _needle;
     [SerializeField] private Image _backgroundGradient;
     [SerializeField] private float _horizontalBound;
@@ -23,11 +24,17 @@ public class UndertaleTarget : MonoBehaviour, IPointerDownHandler
     private int _tweenID;
     
     private Vector2 _needleStartPosition;
-
+    
 
     private void Awake()
     {
         _needleStartPosition = _needle.anchoredPosition;
+        _pressArea.OnPress += OnPress;
+    }
+
+    private void OnDestroy()
+    {
+        _pressArea.OnPress -= OnPress;
     }
 
     private void Update()
@@ -68,7 +75,7 @@ public class UndertaleTarget : MonoBehaviour, IPointerDownHandler
     }
     
     
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnPress()
     {
         if (_isNeedleMoving)
             StopNeedle();
