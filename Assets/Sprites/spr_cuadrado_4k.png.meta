@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 3cca2be4d9fddd24db86271a4edb4e92
+guid: 83f55ef12ef8cc5408899d4f59b0b158
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8186559834428679207
-    second: spr_camara_strip4_0
-  - first:
-      213: 3688602775976948714
-    second: spr_camara_strip4_1
-  - first:
-      213: -8920898618526818069
-    second: spr_camara_strip4_2
-  - first:
-      213: 3356880946524210259
-    second: spr_camara_strip4_3
+      213: -4705970502217179099
+    second: spr_cuadrado_4k_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -118,43 +109,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_camara_strip4_0
+      name: spr_cuadrado_4k_0
       rect:
         serializedVersion: 2
-        x: 29
-        y: 60
-        width: 444
-        height: 270
+        x: 0
+        y: 0
+        width: 2000
+        height: 2000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,74 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7242a9f8bc08c9170800000000000000
-      internalID: 8186559834428679207
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_camara_strip4_1
-      rect:
-        serializedVersion: 2
-        x: 532
-        y: 58
-        width: 428
-        height: 277
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ae330a38eac803330800000000000000
-      internalID: 3688602775976948714
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_camara_strip4_2
-      rect:
-        serializedVersion: 2
-        x: 1032
-        y: 55
-        width: 431
-        height: 283
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: be0af6da8f9923480800000000000000
-      internalID: -8920898618526818069
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_camara_strip4_3
-      rect:
-        serializedVersion: 2
-        x: 1532
-        y: 55
-        width: 424
-        height: 284
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3544ad27f69069e20800000000000000
-      internalID: 3356880946524210259
+      spriteID: 520e0e3f2c801beb0800000000000000
+      internalID: -4705970502217179099
       vertices: []
       indices: 
       edges: []
@@ -249,10 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      spr_camara_strip4_0: 8186559834428679207
-      spr_camara_strip4_1: 3688602775976948714
-      spr_camara_strip4_2: -8920898618526818069
-      spr_camara_strip4_3: 3356880946524210259
+      spr_cuadrado_4k_0: -4705970502217179099
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

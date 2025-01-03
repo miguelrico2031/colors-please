@@ -4,6 +4,26 @@ using System.Linq;
 
 public class MusicManager : MonoBehaviour, IMusicService
 {
+    public float MusicVolume
+    {
+        get => volMusic;
+        set
+        {
+            volMusic = Mathf.Clamp01(value);
+            UpdateMusicVolume();
+        }
+    }
+    
+    public float SoundsVolume
+    {
+        get => volSounds;
+        set
+        {
+            volSounds = Mathf.Clamp01(value);
+            UpdateSoundVolume();
+        }
+    }
+
     [SerializeField] private AudioClip[] clips;
 
     [Range(0, 1)] public float volMusic = 1.0f;
@@ -35,22 +55,19 @@ public class MusicManager : MonoBehaviour, IMusicService
 
     private AudioReverbZone reverbZone;
 
-    public static MusicManager Instance;
+    private static MusicManager _instance;
 
     protected void Awake()
     {
-        /*
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
+        if (_instance is not null)
         {
             Destroy(gameObject);
+            return;
         }
 
+        _instance = this;
         DontDestroyOnLoad(gameObject);
-        */
+
 
         audioSourceA = CreateAudioSource(true);
         audioSourceB = CreateAudioSource(true);
@@ -67,6 +84,9 @@ public class MusicManager : MonoBehaviour, IMusicService
         songs["clips"] = clips;
 
         InitializeSoundPool();
+
+        UpdateSoundVolume();
+        UpdateMusicVolume();
     }
 
 
@@ -80,50 +100,58 @@ public class MusicManager : MonoBehaviour, IMusicService
 
     private void Update()
     {
-        // Detectar cambios en los volumenes
-        if (!Mathf.Approximately(volMusic, lastVolMusic))
-        {
-            lastVolMusic = volMusic;
-            UpdateMusicVolume();
-        }
-
-        if (!Mathf.Approximately(volSounds, lastVolSounds))
-        {
-            lastVolSounds = volSounds;
-            UpdateSoundVolume();
-        }
+        // // Detectar cambios en los volumenes
+        // if (!Mathf.Approximately(volMusic, lastVolMusic))
+        // {
+        //     lastVolMusic = volMusic;
+        //     UpdateMusicVolume();
+        // }
+        //
+        // if (!Mathf.Approximately(volSounds, lastVolSounds))
+        // {
+        //     lastVolSounds = volSounds;
+        //     UpdateSoundVolume();
+        // }
 
         // Transiciones de musica
-        if (isTransitioning || isSongTransitioning)
-        {
-            fadeTimer += Time.deltaTime;
-            float fadeProgress = Mathf.Clamp01(fadeTimer / FadeDuration);
-
-            AudioSource activeSource = isPlayingA ? audioSourceA : audioSourceB;
-            AudioSource newSource = isPlayingA ? audioSourceB : audioSourceA;
-
-            activeSource.volume = Mathf.Lerp(volMusic, 0, fadeProgress);
-            newSource.volume = Mathf.Lerp(0, volMusic, fadeProgress);
-
-            if (fadeProgress >= 1f)
-            {
-                activeSource.Stop();
-                EndTransition();
-            }
-        }
+        DoMusicTransitions();
 
         // Transiciones de background
-        if (isBackgroundTransitioning)
+        DoBackgroundTransitions();
+    }
+
+    private void DoMusicTransitions()
+    {
+        if (!isTransitioning && !isSongTransitioning) return;
+
+        fadeTimer += Time.deltaTime;
+        float fadeProgress = Mathf.Clamp01(fadeTimer / FadeDuration);
+
+        AudioSource activeSource = isPlayingA ? audioSourceA : audioSourceB;
+        AudioSource newSource = isPlayingA ? audioSourceB : audioSourceA;
+
+        activeSource.volume = Mathf.Lerp(volMusic, 0, fadeProgress);
+        newSource.volume = Mathf.Lerp(0, volMusic, fadeProgress);
+
+        if (fadeProgress >= 1f)
         {
-            fadeTimer += Time.deltaTime;
-            float fadeProgress = Mathf.Clamp01(fadeTimer / FadeDuration);
+            activeSource.Stop();
+            EndTransition();
+        }
+    }
 
-            backgroundSoundSource.volume = Mathf.Lerp(0, volSounds, fadeProgress);
+    private void DoBackgroundTransitions()
+    {
+        if (!isBackgroundTransitioning) return;
 
-            if (fadeProgress >= 1f)
-            {
-                isBackgroundTransitioning = false;
-            }
+        fadeTimer += Time.deltaTime;
+        float fadeProgress = Mathf.Clamp01(fadeTimer / FadeDuration);
+
+        backgroundSoundSource.volume = Mathf.Lerp(0, volSounds, fadeProgress);
+
+        if (fadeProgress >= 1f)
+        {
+            isBackgroundTransitioning = false;
         }
     }
 
@@ -131,21 +159,20 @@ public class MusicManager : MonoBehaviour, IMusicService
     {
         if (audioSourceA != null) audioSourceA.volume = volMusic;
         if (audioSourceB != null) audioSourceB.volume = volMusic;
-        //Debug.Log($"Volumen de música actualizado: {volMusic}");
     }
 
     private void UpdateSoundVolume()
     {
         foreach (var source in soundPool)
         {
-            if (!source.isPlaying) continue;
+            // if (!source.isPlaying) continue;
             source.volume = volSounds;
         }
+
         if (backgroundSoundSource != null)
         {
             backgroundSoundSource.volume = volSounds;
         }
-        //Debug.Log($"Volumen de sonidos actualizado: {volSounds}");
     }
 
     private AudioSource CreateAudioSource(bool loop)
@@ -414,23 +441,23 @@ public class MusicManager : MonoBehaviour, IMusicService
     public void MenuChange(int newMenuIndex)
     {
         var menuMappings = new Dictionary<int, (int phase, string sound, string soundEffect)>
-    {
-        { 0, (0, "amb_underwater", "aceptar2") }, // InitialScreenLogIn
-        { 1, (0, "amb_underwater", "aceptar2") }, // MainMenu
-        { 2, (1, "amb_underwater", "aceptar2") }, // Settings
-        { 3, (0, "amb_underwater", "aceptar2") }, // Credits
-        { 4, (0, "amb_underwater", "aceptar2") }, // LogOut
-        { 5, (2, "amb_underwater", "snd_entershop") }, // Shop
-        { 6, (1, "amb_beach", "snd_jugar") }, // PlayMenu
-        { 7, (1, "amb_beach", "aceptar2") }, // Lobby
-        { 8, (1, "amb_beach", "aceptar2") }, // CharacterSelection
-        { 9, (3, "amb_underwater", "snd_enterpve") } // Singleplayer
-    };
+        {
+            { 0, (0, "amb_underwater", "aceptar2") }, // InitialScreenLogIn
+            { 1, (0, "amb_underwater", "aceptar2") }, // MainMenu
+            { 2, (1, "amb_underwater", "aceptar2") }, // Settings
+            { 3, (0, "amb_underwater", "aceptar2") }, // Credits
+            { 4, (0, "amb_underwater", "aceptar2") }, // LogOut
+            { 5, (2, "amb_underwater", "snd_entershop") }, // Shop
+            { 6, (1, "amb_beach", "snd_jugar") }, // PlayMenu
+            { 7, (1, "amb_beach", "aceptar2") }, // Lobby
+            { 8, (1, "amb_beach", "aceptar2") }, // CharacterSelection
+            { 9, (3, "amb_underwater", "snd_enterpve") } // Singleplayer
+        };
 
         if (menuMappings.TryGetValue(newMenuIndex, out var action))
         {
-            SetPhase(action.phase);              // Cambia la fase de música
-            PlaySound(action.soundEffect);       // Reproduce efecto de sonido
+            SetPhase(action.phase); // Cambia la fase de música
+            PlaySound(action.soundEffect); // Reproduce efecto de sonido
             if (!IsBackgroundSoundPlaying(action.sound))
             {
                 PlayBackgroundSound(action.sound); // Reproduce el sonido de fondo
@@ -536,6 +563,4 @@ public class MusicManager : MonoBehaviour, IMusicService
 
         Debug.Log($"ReverbZone actualizada para la fase {phase}: MinDistance={minDistance}, MaxDistance={maxDistance}");
     }
-
-
 }

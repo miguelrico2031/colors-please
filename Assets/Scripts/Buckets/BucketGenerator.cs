@@ -11,8 +11,6 @@ public class BucketGenerator : MonoBehaviour
     [SerializeField] private BucketUI _bucketUIPrefab;
     [SerializeField] private BucketUI _piggyBankBucketUIPrefab;
     
-    [SerializeField] private List<Bucket> _powerUpBuckets;
-    
     [Serializable]
     public class UniqueBucketsList
     {
@@ -40,8 +38,8 @@ public class BucketGenerator : MonoBehaviour
         
         List<Bucket> buckets = new List<Bucket>();
         HashSet<Character> dayBucketsCharacter = new();
-        
-        buckets.AddRange(ServiceLocator.Get<IDayService>().CurrentDay.Buckets.Select(characterBucket =>
+        var day = ServiceLocator.Get<IDayService>().CurrentDay;
+        buckets.AddRange(day.Buckets.Select(characterBucket =>
         {
             dayBucketsCharacter.Add(characterBucket.Character);
             return characterBucket.Bucket;
@@ -57,7 +55,9 @@ public class BucketGenerator : MonoBehaviour
         if (_maxBucketsFromNone > _nonUniqueBuckets.Count)
             throw new Exception("Add more non unique buckets or decrease the max amount.");
         
-        int nonUniqueBucketCount = Random.Range(_minBucketsFromNone, _maxBucketsFromNone + 1);
+        int nonUniqueBucketCount = day.SkipNonUniqueBuckets ? 0 :
+            Random.Range(_minBucketsFromNone, _maxBucketsFromNone + 1);
+        
         for (int i = 0; i < nonUniqueBucketCount; i++)
         {
             Bucket randomBucket;
@@ -65,12 +65,8 @@ public class BucketGenerator : MonoBehaviour
             while (buckets.Contains(randomBucket));
             buckets.Add(randomBucket);
         }
-        
-        //randomizarla antes de opwerups, asi quedan a la izquierda pero random los cubos de lore y tal
-        //y a la derecha los powerups
+
         buckets.Shuffle();
-        
-        buckets.AddRange(_powerUpBuckets);
         
         //crear los cubos
         foreach (var bucket in buckets)
