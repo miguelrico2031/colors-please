@@ -2,14 +2,14 @@ using System;
 using UnityEngine;
 
 [System.Serializable]
-public struct RGB255
+public struct RGB255 : IEquatable<RGB255>
 {
     public byte R;
     public byte G;
     public byte B;
 
 
-    public static readonly IColorComparer Comparer = new ColorComparer.Euclidean();
+    public static IColorComparer Comparer = ComparerTool.GetColorComparer(ComparerTool.DefaultComparer);
 
     public RGB255(byte r, byte g, byte b)
     {
@@ -68,5 +68,20 @@ public struct RGB255
         }
 
         return this;
+    }
+
+    public bool Equals(RGB255 other)
+    {
+        return R == other.R && G == other.G && B == other.B;
+    }
+
+    public override bool Equals(object obj)
+    {
+        return obj is RGB255 other && Equals(other);
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(R, G, B);
     }
 }

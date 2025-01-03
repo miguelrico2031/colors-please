@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      marido_clonestamp_0: -6301148875643079632
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

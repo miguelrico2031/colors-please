@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bebe_dropperclonestamp_0: -6756471228596302557
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

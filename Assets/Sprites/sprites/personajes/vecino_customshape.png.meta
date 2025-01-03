@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      vecino_customshape_0: 4306850296687643777
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

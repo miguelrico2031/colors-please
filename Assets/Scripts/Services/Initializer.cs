@@ -40,8 +40,8 @@ public class Initializer : MonoBehaviour
     //Si hace falta cambiar una implementacion de un service por otra, se cambia aqui y gg
     private void LocateAndRegisterServices()
     {
-        var audioManager = FindAnyObjectByType<AudioManager>();
-        ServiceLocator.Register<IAudioService>(audioManager);
+        var audioManager = FindAnyObjectByType<MusicManager>();
+        ServiceLocator.Register<IMusicService>(audioManager);
         
         var sceneManager = FindAnyObjectByType<SceneTransitionManager>();
         ServiceLocator.Register<ISceneTransitionService>(sceneManager);

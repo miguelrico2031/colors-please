@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: eb1503657ecbca54b9b6823a901f12f1
+guid: febd95879b298794dbed04b4b00935cc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1520479468681070429
-    second: vecina_magneticlasso_0
+      213: -5065021490834376583
+    second: corchea_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -110,19 +110,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -139,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: vecina_magneticlasso_0
+      name: corchea_0
       rect:
         serializedVersion: 2
-        x: 130
-        y: 63
-        width: 239
-        height: 413
+        x: 4
+        y: 4
+        width: 60
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3a87df4aafb26eae0800000000000000
-      internalID: -1520479468681070429
+      spriteID: 978f81b2acd65b9b0800000000000000
+      internalID: -5065021490834376583
       vertices: []
       indices: 
       edges: []
@@ -174,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      vecina_magneticlasso_0: -1520479468681070429
+      corchea_0: -5065021490834376583
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

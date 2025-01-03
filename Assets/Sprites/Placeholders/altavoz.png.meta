@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: eb1503657ecbca54b9b6823a901f12f1
+guid: 2ae1da27532bd6e4e8677f9b0e11cb50
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1520479468681070429
-    second: vecina_magneticlasso_0
+      213: -40841084048212426
+    second: altavoz_0
+  - first:
+      213: -2209919945220712872
+    second: altavoz_1
+  - first:
+      213: -4786736007937650987
+    second: altavoz_2
+  - first:
+      213: -8105875117791643034
+    second: altavoz_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -110,19 +119,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -139,13 +135,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: vecina_magneticlasso_0
+      name: altavoz_0
       rect:
         serializedVersion: 2
-        x: 130
-        y: 63
-        width: 239
-        height: 413
+        x: 0
+        y: 5
+        width: 30
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +150,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3a87df4aafb26eae0800000000000000
-      internalID: -1520479468681070429
+      spriteID: 63e701d1047ee6ff0800000000000000
+      internalID: -40841084048212426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altavoz_1
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 21
+        width: 9
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 856911bb489c451e0800000000000000
+      internalID: -2209919945220712872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altavoz_2
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 12
+        width: 11
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5de0e4546f8129db0800000000000000
+      internalID: -4786736007937650987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: altavoz_3
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 3
+        width: 14
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66af952f685228f80800000000000000
+      internalID: -8105875117791643034
       vertices: []
       indices: 
       edges: []
@@ -164,7 +226,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -174,7 +236,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      vecina_magneticlasso_0: -1520479468681070429
+      altavoz_0: -40841084048212426
+      altavoz_1: -2209919945220712872
+      altavoz_2: -4786736007937650987
+      altavoz_3: -8105875117791643034
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
