@@ -1,31 +1,19 @@
 fileFormatVersion: 2
-guid: e1272a5dab1ba2944a801fbf0cd6d803
+guid: 6f8e39c374c2c394391d1a188acd711e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4544085817417486888
-    second: spr_microfono_strip4_0
+      213: -4421727175775519440
+    second: spr_cambio_camara_fondo_strip4_0
   - first:
-      213: -5770840117853482211
-    second: spr_microfono_strip4_1
+      213: 7495797188110742073
+    second: spr_cambio_camara_fondo_strip4_1
   - first:
-      213: 353922265794537483
-    second: spr_microfono_strip4_2
+      213: -7267818378982311241
+    second: spr_cambio_camara_fondo_strip4_2
   - first:
-      213: -8872150233841154142
-    second: spr_microfono_strip4_3
-  - first:
-      213: -3234171329927426852
-    second: spr_microfono_strip4_4
-  - first:
-      213: -6676281984786572961
-    second: spr_microfono_strip4_5
-  - first:
-      213: 970237958329466944
-    second: spr_microfono_strip4_6
-  - first:
-      213: -5237624796776814518
-    second: spr_microfono_strip4_7
+      213: 1984977536532157958
+    second: spr_cambio_camara_fondo_strip4_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -147,13 +135,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_microfono_strip4_0
+      name: spr_cambio_camara_fondo_strip4_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 500
-        height: 500
+        x: 13
+        y: 19
+        width: 465
+        height: 465
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8dda0ff460a20f0c0800000000000000
-      internalID: -4544085817417486888
+      spriteID: 03d753a9f8ed2a2c0800000000000000
+      internalID: -4421727175775519440
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_microfono_strip4_1
+      name: spr_cambio_camara_fondo_strip4_1
       rect:
         serializedVersion: 2
-        x: 500
-        y: 0
-        width: 500
-        height: 500
+        x: 514
+        y: 23
+        width: 461
+        height: 460
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,20 +172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d1315cfec7bd9efa0800000000000000
-      internalID: -5770840117853482211
+      spriteID: 93276b104db660860800000000000000
+      internalID: 7495797188110742073
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_microfono_strip4_2
+      name: spr_cambio_camara_fondo_strip4_2
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 0
-        width: 500
-        height: 500
+        x: 1019
+        y: 29
+        width: 457
+        height: 453
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b08e8c2fc6269e400800000000000000
-      internalID: 353922265794537483
+      spriteID: 7ba34bcd0b5832b90800000000000000
+      internalID: -7267818378982311241
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_microfono_strip4_3
+      name: spr_cambio_camara_fondo_strip4_3
       rect:
         serializedVersion: 2
-        x: 1500
-        y: 0
-        width: 500
-        height: 500
+        x: 1518
+        y: 22
+        width: 454
+        height: 458
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,8 +216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2a7cff57e5acfd480800000000000000
-      internalID: -8872150233841154142
+      spriteID: 60611287d8e0c8b10800000000000000
+      internalID: 1984977536532157958
       vertices: []
       indices: 
       edges: []
@@ -238,7 +226,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8bd1b6b45c328494cb2cca1e30964603
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -247,11 +235,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      spr_microfono_strip4_0: -4544085817417486888
-      spr_microfono_strip4_1: -5770840117853482211
-      spr_microfono_strip4_2: 353922265794537483
-      spr_microfono_strip4_3: -8872150233841154142
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

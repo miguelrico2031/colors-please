@@ -179,8 +179,8 @@ MonoBehaviour:
   m_text: "Mant\xE9n pulsado el boton del microfono. Cuanto m\xE1s fuerte hables,
     m\xE1s intensidad tendr\xE1 el color. Primero rojo, luego verde, luego azul."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: afc76d419eed3b242807de9a6b855af0, type: 2}
+  m_sharedMaterial: {fileID: -3575457998427817731, guid: afc76d419eed3b242807de9a6b855af0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -639,6 +639,7 @@ GameObject:
   - component: {fileID: 1182217598}
   - component: {fileID: 1182217597}
   - component: {fileID: 1182217599}
+  - component: {fileID: 1182217600}
   m_Layer: 5
   m_Name: Record Button
   m_TagString: Untagged
@@ -686,8 +687,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6231044458718751821, guid: 8332c6ed6c564b848928f7a7a6bfce7b, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 8125963243197434548, guid: fbad0bec542c40944b50f85f65c35f1e, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -719,6 +720,28 @@ MonoBehaviour:
   _microphoneManager: {fileID: 1444566648}
   _image: {fileID: 1182217597}
   _iconImage: {fileID: 1189743621}
+--- !u!95 &1182217600
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182217595}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2506af62e0bba214bb7c76a46d2796b0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1189743619
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,6 +753,7 @@ GameObject:
   - component: {fileID: 1189743620}
   - component: {fileID: 1189743622}
   - component: {fileID: 1189743621}
+  - component: {fileID: 1189743623}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -776,7 +800,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d6b18d98b1d39b44dab6ea3d8f19b954, type: 3}
+  m_Sprite: {fileID: -4544085817417486888, guid: e1272a5dab1ba2944a801fbf0cd6d803, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -794,6 +818,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1189743619}
   m_CullTransparentMesh: 1
+--- !u!95 &1189743623
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189743619}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 412ebec0ae723c1488a796159e483e3c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1245101208
 GameObject:
   m_ObjectHideFlags: 0

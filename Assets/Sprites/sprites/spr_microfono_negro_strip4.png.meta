@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: e1272a5dab1ba2944a801fbf0cd6d803
+guid: 202098cd4a353b344933238c8ff19e8d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4544085817417486888
-    second: spr_microfono_strip4_0
+      213: 563081186323261343
+    second: spr_microfono_negro_strip4_0
   - first:
-      213: -5770840117853482211
-    second: spr_microfono_strip4_1
+      213: 2170798907743383361
+    second: spr_microfono_negro_strip4_1
   - first:
-      213: 353922265794537483
-    second: spr_microfono_strip4_2
+      213: 5290342239487177534
+    second: spr_microfono_negro_strip4_2
   - first:
-      213: -8872150233841154142
-    second: spr_microfono_strip4_3
+      213: -7322435641109394298
+    second: spr_microfono_negro_strip4_3
   - first:
-      213: -3234171329927426852
-    second: spr_microfono_strip4_4
+      213: 7922406831032399075
+    second: spr_microfono_negro_strip4_4
   - first:
-      213: -6676281984786572961
-    second: spr_microfono_strip4_5
+      213: -7655679701905998474
+    second: spr_microfono_negro_strip4_5
   - first:
-      213: 970237958329466944
-    second: spr_microfono_strip4_6
+      213: -4074095283131514015
+    second: spr_microfono_negro_strip4_6
   - first:
-      213: -5237624796776814518
-    second: spr_microfono_strip4_7
+      213: 1945670216868884893
+    second: spr_microfono_negro_strip4_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -147,7 +147,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_microfono_strip4_0
+      name: spr_microfono_negro_strip4_0
       rect:
         serializedVersion: 2
         x: 0
@@ -160,16 +160,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8dda0ff460a20f0c0800000000000000
-      internalID: -4544085817417486888
+      spriteID: 312950c150861f04bae610704710f14b
+      internalID: -1923863015
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_microfono_strip4_1
+      name: spr_microfono_negro_strip4_1
       rect:
         serializedVersion: 2
         x: 500
@@ -182,16 +182,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d1315cfec7bd9efa0800000000000000
-      internalID: -5770840117853482211
+      spriteID: b8c9d68e98a890e4a87dc52fdecc043b
+      internalID: -320518119
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_microfono_strip4_2
+      name: spr_microfono_negro_strip4_2
       rect:
         serializedVersion: 2
         x: 1000
@@ -204,16 +204,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b08e8c2fc6269e400800000000000000
-      internalID: 353922265794537483
+      spriteID: f3c3e286cfc09d741b1da3e2c9e3cb82
+      internalID: -1886243562
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_microfono_strip4_3
+      name: spr_microfono_negro_strip4_3
       rect:
         serializedVersion: 2
         x: 1500
@@ -226,10 +226,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2a7cff57e5acfd480800000000000000
-      internalID: -8872150233841154142
+      spriteID: ee16e0029ee51c9469bc8b58d394034e
+      internalID: -1595446756
       vertices: []
       indices: 
       edges: []
@@ -238,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8bd1b6b45c328494cb2cca1e30964603
+    spriteID: 33db1c82af22b5546be416aee30c47f4
     internalID: 0
     vertices: []
     indices: 
@@ -248,10 +248,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      spr_microfono_strip4_0: -4544085817417486888
-      spr_microfono_strip4_1: -5770840117853482211
-      spr_microfono_strip4_2: 353922265794537483
-      spr_microfono_strip4_3: -8872150233841154142
+      spr_microfono_negro_strip4_0: -1923863015
+      spr_microfono_negro_strip4_1: -320518119
+      spr_microfono_negro_strip4_2: -1886243562
+      spr_microfono_negro_strip4_3: -1595446756
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
