@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class CameraMinigameManager : MonoBehaviour
 {
     [SerializeField] private Image _targetColorImage;
+    [SerializeField] private GameObject _loadingScreen;
     [SerializeField] private TextMeshProUGUI _countdownText;
     [SerializeField] private int _countdownTime;
     [SerializeField] private float _countdownAnimationSize;
@@ -20,6 +21,7 @@ public class CameraMinigameManager : MonoBehaviour
     private void Awake()
     {
         _webcamManager = GetComponent<WebcamManager>();
+        _loadingScreen.SetActive(true);
     }
 
     private void Start()
@@ -30,6 +32,8 @@ public class CameraMinigameManager : MonoBehaviour
     private IEnumerator StartGame()
     {
         yield return new WaitUntil(() => _webcamManager.IsReady);
+        
+        _loadingScreen.SetActive(false);
         
         //generar un color aleatorio
         RGB255 targetColor = RGB255.Random();

@@ -19,6 +19,9 @@ public class Initializer : MonoBehaviour
     [Header("Score")]
     [SerializeField] private ScoreManager _scoreManager;
     
+    [Header("Persistence")]
+    [SerializeField] private PersistenceManager _persistenceManager;
+    
     
     private static Initializer _instance;
     private void Awake()
@@ -43,6 +46,8 @@ public class Initializer : MonoBehaviour
         var sceneManager = FindAnyObjectByType<SceneTransitionManager>();
         ServiceLocator.Register<ISceneTransitionService>(sceneManager);
         
+        
+        
         if (_moneyManager is null)
             throw new Exception("Money Manager not assigned.");
         ServiceLocator.Register<IMoneyService>(_moneyManager);
@@ -62,5 +67,9 @@ public class Initializer : MonoBehaviour
         if(_scoreManager is null)
             throw new Exception("Score Manager not assigned.");
         ServiceLocator.Register<IScoreService>(_scoreManager);
+        
+        if(_persistenceManager is null)
+            throw new Exception("Persistence Manager not assigned.");
+        ServiceLocator.Register<IPersistenceService>(_persistenceManager);
     }
 }

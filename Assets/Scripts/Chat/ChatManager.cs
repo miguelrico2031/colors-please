@@ -55,9 +55,13 @@ public class ChatManager : MonoBehaviour
         StartCoroutine(ReplyCoroutine());
     }
 
-    public void GoToMinigame()
+    public void Continue()
     {
-        ServiceLocator.Get<IDayService>().GoToNextMinigame();
+        var dayService = ServiceLocator.Get<IDayService>();
+        if (dayService.IsEndOfDayDialogue)
+            dayService.GoToBuckets();
+        else
+            dayService.GoToNextMinigame();
     }
 
     private IEnumerator StartChatCoroutine()

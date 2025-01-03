@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Money Manager
   m_EditorClassIdentifier: 
   <DayMoney>k__BackingField: 0
-  <PiggyBankMoney>k__BackingField: 50
+  <PiggyBankMoney>k__BackingField: 214
   <PiggyBankGoal>k__BackingField: 1500
