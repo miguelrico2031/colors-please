@@ -48,11 +48,14 @@ public class UndertaleTarget : MonoBehaviour, IPointerDownHandler
         _countdownTimer = maxGuessTime;
         
         var leftGradientColor = new RGB255().ToColor();
-        var rightGradientColor = new RGB255().SetCoordinate(coord, 255).ToColor();
+        var rgb = new RGB255().SetCoordinate(coord, 255);
+        var rightGradientColor = rgb.ToColor();
         
         _backgroundGradient.material.SetColor(_leftColorHash, leftGradientColor);
         _backgroundGradient.material.SetColor(_rightColorHash, rightGradientColor);
-        
+
+        _backgroundGradient.enabled = false;
+        _backgroundGradient.enabled = true;
 
         Vector2 rightBound = _needleStartPosition + Vector2.right * _horizontalBound;
         Vector2 leftBound = _needleStartPosition + Vector2.left * _horizontalBound;

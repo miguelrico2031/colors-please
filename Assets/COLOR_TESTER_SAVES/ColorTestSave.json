@@ -1,0 +1,12 @@
+{
+	"Anton": 3,
+	"Redmean": 4,
+	"OrderWeightedLabDeltaE1_2": 2,
+	"OrderWeightedEuclidean3_4": 2,
+	"OrderWeightedEuclidean1_4": 1,
+	"LabDeltaE": 2,
+	"OrderWeightedEuclidean1_2": 2,
+	"OrderWeightedLabDeltaE3_4": 2,
+	"Euclidean": 3,
+	"WeightedEuclidean": 1
+}

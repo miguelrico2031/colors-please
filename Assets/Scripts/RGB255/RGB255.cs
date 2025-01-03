@@ -8,14 +8,16 @@ public struct RGB255
     public byte G;
     public byte B;
 
-    private static readonly float MAX_DISTANCE = new Vector3(255f, 255f, 255f).magnitude;
 
+    public static readonly IColorComparer Comparer = new ColorComparer.Euclidean();
 
     public RGB255(byte r, byte g, byte b)
     {
         R = r;
         G = g;
         B = b;
+        
+        
     }
 
     public RGB255(Color color)
@@ -40,14 +42,7 @@ public struct RGB255
     }
 
 
-    public static float GetSimilarity(RGB255 colorA, RGB255 colorB)
-    {
-        Vector3 vectorA = new Vector3(colorA.R, colorA.G, colorA.B);
-        Vector3 vectorB = new Vector3(colorB.R, colorB.G, colorB.B);
-        float distance = Vector3.Distance(vectorA, vectorB);
-        float similarity = 1f - distance / MAX_DISTANCE;
-        return similarity;
-    }
+    public static float GetSimilarity(RGB255 colorA, RGB255 colorB) => Comparer.Similarity(colorA, colorB);
 
     public enum Coordinate
     {
