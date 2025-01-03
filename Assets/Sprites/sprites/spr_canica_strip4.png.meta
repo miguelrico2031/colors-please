@@ -235,7 +235,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spr_canica_strip4_0: 4543132198101925233
+      spr_canica_strip4_1: 7752182024395033838
+      spr_canica_strip4_2: -2739156682973916376
+      spr_canica_strip4_3: -3119287215533423557
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

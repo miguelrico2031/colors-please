@@ -235,7 +235,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spr_hucha_strip4_0: 7005560088939566125
+      spr_hucha_strip4_1: 8877709007856803000
+      spr_hucha_strip4_2: -3722152897040134129
+      spr_hucha_strip4_3: 15626933239195874
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

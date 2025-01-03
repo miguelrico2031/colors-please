@@ -235,7 +235,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spr_cuentagotas_strip4_0: 63868185933439520
+      spr_cuentagotas_strip4_1: -8502818010923252214
+      spr_cuentagotas_strip4_2: -5855582254384406501
+      spr_cuentagotas_strip4_3: -754783552989770156
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -235,7 +235,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spr_undertale_strip4_0: 2897450262024282324
+      spr_undertale_strip4_1: 56595020788949921
+      spr_undertale_strip4_2: -2603602727845438427
+      spr_undertale_strip4_3: 3433666570703206499
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

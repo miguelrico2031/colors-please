@@ -235,7 +235,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spr_cambio_camara_strip4_0: 1404993268525103132
+      spr_cambio_camara_strip4_1: 7469174772687606220
+      spr_cambio_camara_strip4_2: 201700733731589333
+      spr_cambio_camara_strip4_3: -5116004645748113236
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
