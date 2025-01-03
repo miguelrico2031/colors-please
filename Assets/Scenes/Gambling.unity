@@ -1326,8 +1326,8 @@ MonoBehaviour:
   backGround: {fileID: 1332997036}
   _countdownText: {fileID: 1945526764}
   _countdownTime: 20
-  _countdownAnimationSize: 4
-  _countdownAnimationTime: 0.4
+  _countdownAnimationSize: 3
+  _countdownAnimationTime: 0.3
   _countdownAnimationType: 27
 --- !u!4 &1640259382
 Transform:

@@ -87,12 +87,11 @@ public class GamblingManager : MonoBehaviour
         }
         botEdge = botTransform.position.y;
         topEdge = topTransform.position.y;
+        StartCoroutine(StartGame());
     }
 
     private IEnumerator StartGame()
     {
-
-
         for (int i = _countdownTime; i >= 0; i--)
         {
             _countdownText.text = $"{i}";
