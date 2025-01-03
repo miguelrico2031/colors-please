@@ -17,6 +17,9 @@ public class MainMenuManager : MonoBehaviour
         }
         
         _saveInfoText.text = $"Día {data.DayIndex + 1}\nHucha: ${data.PiggyBankMoney}";
+
+        ServiceLocator.Get<IMusicService>().SetSong("clips");
+        ServiceLocator.Get<IMusicService>().SetPhase(2);
     }
 
     public void NewGame()
@@ -24,6 +27,10 @@ public class MainMenuManager : MonoBehaviour
         ServiceLocator.Get<IPersistenceService>().NewSave();
         ServiceLocator.Get<IDayService>().ClearNonPersistentData();
         ServiceLocator.Get<IDayService>().StartDay();
+        if (ServiceLocator.Get<IDayService>().CurrentDay.DialogueBefore == null)
+        {
+            ServiceLocator.Get<IMusicService>().SetPhase(1);
+        }
     }
 
     public void ContinueGame()
@@ -31,5 +38,9 @@ public class MainMenuManager : MonoBehaviour
         ServiceLocator.Get<IPersistenceService>().Load();
         ServiceLocator.Get<IDayService>().ClearNonPersistentData();
         ServiceLocator.Get<IDayService>().StartDay();
+        if (ServiceLocator.Get<IDayService>().CurrentDay.DialogueBefore == null)
+        {
+            ServiceLocator.Get<IMusicService>().SetPhase(1);
+        }
     }
 }

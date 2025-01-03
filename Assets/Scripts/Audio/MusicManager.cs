@@ -232,42 +232,6 @@ public class MusicManager : MonoBehaviour, IMusicService
         }
     }
 
-    public void PlayBackgroundSound(string soundName)
-    {
-        AudioClip clip = Resources.Load<AudioClip>($"Sonidos/{soundName}");
-
-        if (clip == null)
-        {
-            Debug.LogError($"El sonido de fondo '{soundName}' no se encontró en la carpeta Resources/Sonidos.");
-            return;
-        }
-
-        if (backgroundSoundSource.isPlaying)
-        {
-            StartBackgroundTransition(clip);
-        }
-        else
-        {
-            backgroundSoundSource.clip = clip;
-            backgroundSoundSource.loop = true;
-            backgroundSoundSource.volume = 0f;
-            backgroundSoundSource.Play();
-            isBackgroundTransitioning = true;
-            fadeTimer = 0f;
-        }
-    }
-
-    private void StartBackgroundTransition(AudioClip newClip)
-    {
-        backgroundSoundSource.Stop();
-        backgroundSoundSource.clip = newClip;
-        backgroundSoundSource.loop = true;
-        backgroundSoundSource.volume = 0f;
-        backgroundSoundSource.Play();
-        isBackgroundTransitioning = true;
-        fadeTimer = 0f;
-    }
-
     public void SetPhase(int phase)
     {
         if (isTransitioning || isSongTransitioning || currentClips == null || phase == currentPhase) return;
@@ -362,6 +326,7 @@ public class MusicManager : MonoBehaviour, IMusicService
         }
 
         AudioSource audioSource = GetAvailableAudioSource();
+        audioSource.enabled = true;
         audioSource.pitch = 1.0f;
         audioSource.clip = clip;
         audioSource.volume = volSounds;
@@ -437,41 +402,6 @@ public class MusicManager : MonoBehaviour, IMusicService
             backgroundSoundSource.UnPause();
         }
     }
-
-    public void MenuChange(int newMenuIndex)
-    {
-        var menuMappings = new Dictionary<int, (int phase, string sound, string soundEffect)>
-        {
-            { 0, (0, "amb_underwater", "aceptar2") }, // InitialScreenLogIn
-            { 1, (0, "amb_underwater", "aceptar2") }, // MainMenu
-            { 2, (1, "amb_underwater", "aceptar2") }, // Settings
-            { 3, (0, "amb_underwater", "aceptar2") }, // Credits
-            { 4, (0, "amb_underwater", "aceptar2") }, // LogOut
-            { 5, (2, "amb_underwater", "snd_entershop") }, // Shop
-            { 6, (1, "amb_beach", "snd_jugar") }, // PlayMenu
-            { 7, (1, "amb_beach", "aceptar2") }, // Lobby
-            { 8, (1, "amb_beach", "aceptar2") }, // CharacterSelection
-            { 9, (3, "amb_underwater", "snd_enterpve") } // Singleplayer
-        };
-
-        if (menuMappings.TryGetValue(newMenuIndex, out var action))
-        {
-            SetPhase(action.phase); // Cambia la fase de música
-            PlaySound(action.soundEffect); // Reproduce efecto de sonido
-            if (!IsBackgroundSoundPlaying(action.sound))
-            {
-                PlayBackgroundSound(action.sound); // Reproduce el sonido de fondo
-            }
-
-            // Actualiza la AudioReverbZone
-            SetReverbZone(action.phase, 5f, 20f); // Configura preset y distancias
-        }
-        else
-        {
-            Debug.LogWarning($"El índice {newMenuIndex} no tiene acciones definidas.");
-        }
-    }
-
 
     private bool IsBackgroundSoundPlaying(string soundName)
     {

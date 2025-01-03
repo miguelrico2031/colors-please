@@ -40,6 +40,9 @@ public class ChatManager : MonoBehaviour
         _messages = new Queue<Message>(_dialogue.Messages);
         _replyButton.onClick.AddListener(Reply);
         StartChat();
+
+        ServiceLocator.Get<IMusicService>().SetPhase(1);
+
     }
 
     public void StartChat()
@@ -57,6 +60,8 @@ public class ChatManager : MonoBehaviour
 
     public void Continue()
     {
+        ServiceLocator.Get<IMusicService>().SetPhase(0);
+
         var dayService = ServiceLocator.Get<IDayService>();
         if (dayService.IsEndOfDayDialogue)
             dayService.GoToBuckets();

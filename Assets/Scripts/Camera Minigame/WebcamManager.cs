@@ -51,6 +51,8 @@ public class WebcamManager : MonoBehaviour
             ? _webcamDeviceFront
             : _webcamDeviceBack;
         StartCoroutine(SetCameraTexture());
+
+        ServiceLocator.Get<IMusicService>().PlaySoundPitch("camara");
     }
 
 

@@ -10,10 +10,7 @@ public interface IMusicService : IService
     void PlaySound(string soundName);
     void PlaySoundPitch(string soundName);
     void PlaySoundPitch(string soundName, float pitchVariation);
-    void PlayBackgroundSound(string soundName);
     void MuteSong();
     void ResumeSong();
-    void MuteBackground();
-    void ResumeBackground();
-    void MenuChange(int newMenuIndex);
+
 }

@@ -182,6 +182,7 @@ public class BucketsMinigameManager : MonoBehaviour
         activeColor = 2;
         PaintDropSpawner.Instance.ChangeBucketColor(activeColor);
         activeBucket = blueBucketButton;
+        ServiceLocator.Get<IMusicService>().PlaySoundPitch("aceptar");
     }
 
     public void OnRedBucketClicked()
@@ -191,6 +192,7 @@ public class BucketsMinigameManager : MonoBehaviour
         activeColor = 0;
         PaintDropSpawner.Instance.ChangeBucketColor(activeColor);
         activeBucket = redBucketButton;
+        ServiceLocator.Get<IMusicService>().PlaySoundPitch("aceptar");
     }
 
     public void OnYellowBucketClicked()
@@ -200,6 +202,7 @@ public class BucketsMinigameManager : MonoBehaviour
         activeColor = 1;
         PaintDropSpawner.Instance.ChangeBucketColor(activeColor);
         activeBucket = yellowBucketButton;
+        ServiceLocator.Get<IMusicService>().PlaySoundPitch("aceptar");
     }
 
     public void OnWhiteBucketClicked()
@@ -209,10 +212,12 @@ public class BucketsMinigameManager : MonoBehaviour
         activeColor = 3;
         PaintDropSpawner.Instance.ChangeBucketColor(activeColor);
         activeBucket = whiteBucketButton;
+        ServiceLocator.Get<IMusicService>().PlaySoundPitch("aceptar");
     }
 
     public void FinishMinigame()
     {
         ServiceLocator.Get<IDayService>().FinishMinigame(targetColor, guessColor);
+        ServiceLocator.Get<IMusicService>().PlaySoundPitch("exclamacion");
     }
 }
