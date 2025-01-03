@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 986406834022386595, guid: 1db2972980600c24e84046bab64ee1d7, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 23e7cfeee88938e448220716221fbc97, type: 2}
     - target: {fileID: 3328158159957666003, guid: 1db2972980600c24e84046bab64ee1d7, type: 3}
       propertyPath: m_Name
       value: Piggy Bank Bucket UI
@@ -95,7 +99,7 @@ PrefabInstance:
     - target: {fileID: 6068446996683227845, guid: 1db2972980600c24e84046bab64ee1d7, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -8755162958172297976, guid: c9ab76556748c3447b9993fea6a3e2d4, type: 3}
+      objectReference: {fileID: 5042942230231715265, guid: cc673d94a7f6ca147a1884f3b39acf2f, type: 3}
     - target: {fileID: 7147725949200282334, guid: 1db2972980600c24e84046bab64ee1d7, type: 3}
       propertyPath: m_text
       value: 
@@ -122,12 +126,16 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: ccbdea8c943d3f540b0697fc56d21b4b, type: 2}
     m_RemovedComponents:
     - {fileID: 353158630509875563, guid: 1db2972980600c24e84046bab64ee1d7, type: 3}
+    - {fileID: 986406834022386595, guid: 1db2972980600c24e84046bab64ee1d7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3328158159957666003, guid: 1db2972980600c24e84046bab64ee1d7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4102594286247985204}
+    - targetCorrespondingSourceObject: {fileID: 3328158159957666003, guid: 1db2972980600c24e84046bab64ee1d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8605077195998873298}
   m_SourcePrefab: {fileID: 100100000, guid: 1db2972980600c24e84046bab64ee1d7, type: 3}
 --- !u!1 &1994860003662485217 stripped
 GameObject:
@@ -147,3 +155,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneEndDelay: 3
+--- !u!95 &8605077195998873298
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994860003662485217}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dfbecbd2ae27ec540ba2d68a5fac59c0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

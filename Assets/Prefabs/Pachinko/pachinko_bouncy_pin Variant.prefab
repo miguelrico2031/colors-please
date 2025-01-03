@@ -9,12 +9,32 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -715296734108371372, guid: a3d6acddbad58e2419bd6a38430d575e, type: 3}
+      propertyPath: m_Radius
+      value: 1.3619442
+      objectReference: {fileID: 0}
+    - target: {fileID: -715296734108371372, guid: a3d6acddbad58e2419bd6a38430d575e, type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: ed20e93b915cfe940916602a948f5f90, type: 2}
+    - target: {fileID: -715296734108371372, guid: a3d6acddbad58e2419bd6a38430d575e, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.006579876
+      objectReference: {fileID: 0}
     - target: {fileID: 3522635961934423353, guid: a3d6acddbad58e2419bd6a38430d575e, type: 3}
       propertyPath: m_Name
       value: pachinko_bouncy_pin Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949825824127681218, guid: a3d6acddbad58e2419bd6a38430d575e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949825824127681218, guid: a3d6acddbad58e2419bd6a38430d575e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949825824127681218, guid: a3d6acddbad58e2419bd6a38430d575e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3949825824127681218, guid: a3d6acddbad58e2419bd6a38430d575e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -56,13 +76,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3949825824127681218, guid: a3d6acddbad58e2419bd6a38430d575e, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6078506132454633792, guid: a3d6acddbad58e2419bd6a38430d575e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8229140887680337396, guid: 89f53cacff8654a45913f83451ce16f3, type: 3}
     - target: {fileID: 6078506132454633792, guid: a3d6acddbad58e2419bd6a38430d575e, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6078506132454633792, guid: a3d6acddbad58e2419bd6a38430d575e, type: 3}
       propertyPath: m_Color.g
-      value: 0.8057229
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6078506132454633792, guid: a3d6acddbad58e2419bd6a38430d575e, type: 3}
       propertyPath: m_Color.r
@@ -75,6 +103,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3522635961934423353, guid: a3d6acddbad58e2419bd6a38430d575e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2543552536749165451}
+    - targetCorrespondingSourceObject: {fileID: 3522635961934423353, guid: a3d6acddbad58e2419bd6a38430d575e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2591919045998804998}
   m_SourcePrefab: {fileID: 100100000, guid: a3d6acddbad58e2419bd6a38430d575e, type: 3}
 --- !u!1 &7575100163965182035 stripped
 GameObject:
@@ -93,3 +124,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2dc50da38ee5e8408577e47303ea150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &2591919045998804998
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7575100163965182035}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 96d086a4a1d7c0c4f9da1cdf508f58e7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
