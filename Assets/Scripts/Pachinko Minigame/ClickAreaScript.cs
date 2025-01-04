@@ -16,13 +16,13 @@ public class ClickAreaScript : MonoBehaviour, IDragHandler, IPointerDownHandler,
     public void OnPointerDown(PointerEventData eventData)
     {
         touchPosition = eventData.position;
-        pointerDown.Invoke();
+        pointerDown?.Invoke();
         touching = true;
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        pointerUp.Invoke();
+        pointerUp?.Invoke();
         touching = false;
     }
 }
