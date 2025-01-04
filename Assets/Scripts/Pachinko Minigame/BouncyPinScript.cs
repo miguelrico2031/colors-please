@@ -7,6 +7,7 @@ public class BouncyPinScript : MonoBehaviour
         if(collision.gameObject.CompareTag("Pachinko Ball"))
         {
             Vibrate();
+            ServiceLocator.Get<IMusicService>().PlaySoundPitch("pin2");
         }
     }
     private void Vibrate()

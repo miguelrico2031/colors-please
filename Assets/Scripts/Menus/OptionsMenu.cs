@@ -66,6 +66,7 @@ public class OptionsMenu : MonoBehaviour
     {
         _creditsPanel.SetActive(true);
         _optionsPanel.SetActive(false);
+        ServiceLocator.Get<IMusicService>().PlaySound("aceptar2");
     }
 
 
@@ -90,6 +91,7 @@ public class OptionsMenu : MonoBehaviour
         _comparerText.text = comparer.ToString();
         PlayerPrefs.SetInt("Comparer", (int) comparer);
         RGB255.Comparer = ComparerTool.GetColorComparer(comparer);
+        ServiceLocator.Get<IMusicService>().PlaySound("aceptar2");
     }
 
     public void ResetSettings()
@@ -102,6 +104,7 @@ public class OptionsMenu : MonoBehaviour
         RGB255.Comparer = ComparerTool.GetColorComparer(ComparerTool.DefaultComparer);
         _comparerIndex = Array.IndexOf(_comparers, ComparerTool.DefaultComparer);
         _comparerText.text = ComparerTool.DefaultComparer.ToString();
+        ServiceLocator.Get<IMusicService>().PlaySound("aceptar2");
     }
 
 }

@@ -66,6 +66,7 @@ public class SlidersManager : MonoBehaviour
 
         if (playerColor.Equals(targetColor))
         {
+            ServiceLocator.Get<IMusicService>().PlaySound("aceptar2");
             ServiceLocator.Get<IDayService>().FinishMinigame(targetColor, playerColor);
             return;
         }
@@ -74,10 +75,12 @@ public class SlidersManager : MonoBehaviour
 
         if (attemptsLeft > 0)
         {
+            ServiceLocator.Get<IMusicService>().PlaySound("aceptar");
             feedbackText.text = GenerateFeedback();
         }
         else
         {
+            ServiceLocator.Get<IMusicService>().PlaySound("aceptar2");
             ServiceLocator.Get<IDayService>().FinishMinigame(targetColor, playerColor);
         }
     }

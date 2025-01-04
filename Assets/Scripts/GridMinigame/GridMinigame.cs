@@ -205,6 +205,8 @@ public class GridMinigame : MonoBehaviour
             return;
         }
 
+        ServiceLocator.Get<IMusicService>().PlaySound("aceptar2");
+
         for (int row = 0; row < rows; row++)
         {
             for (int column = 0; column < columns; column++)

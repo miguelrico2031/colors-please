@@ -125,6 +125,7 @@ public class PachinkoManager : MonoBehaviour
             if (touch.phase == TouchPhase.Began)
             {
                 _arrow.SetActive(true);
+                ServiceLocator.Get<IMusicService>().PlaySoundPitch("cancelar");
             }
 
             if (touch.phase == TouchPhase.Moved)
@@ -146,12 +147,14 @@ public class PachinkoManager : MonoBehaviour
                 _rb.constraints = RigidbodyConstraints2D.None;
                 _rb.AddForce(_aimDirection * _forceFactor, ForceMode2D.Impulse);
                 _pachinkoState = states.game;
+                ServiceLocator.Get<IMusicService>().PlaySoundPitch("lanza");
             }
         }
     }
 
     public void DetectRGBValue()
     {
+        ServiceLocator.Get<IMusicService>().PlaySoundPitch("sound");
         _rb.constraints = RigidbodyConstraints2D.FreezeAll;
         float value = _pachinkoBall.transform.position.x;
         value = value + _pachinkoEndingWall.transform.localScale.x / 2;

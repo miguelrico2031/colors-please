@@ -33,6 +33,7 @@ public class UndertaleMinigameManager : MonoBehaviour
     
     private IEnumerator NextCoord()
     {
+        ServiceLocator.Get<IMusicService>().PlaySound("aceptar");
         if (_coords.TryDequeue(out var coord))
         {
             yield return new WaitForSeconds(_timeBetwwenCoords);
@@ -54,6 +55,7 @@ public class UndertaleMinigameManager : MonoBehaviour
 
     private IEnumerator Countdown()
     {
+        ServiceLocator.Get<IMusicService>().PlaySound("bip");
         for (int i = _countdownTimePerCoord; i >= 0; i--)
         {
             _countdownText.text = $"{i}";
@@ -61,6 +63,7 @@ public class UndertaleMinigameManager : MonoBehaviour
             LeanTween.scale(_countdownText.gameObject, Vector3.one, _countdownAnimationTime)
                 .setEase(_countdownAnimationType);
             yield return new WaitForSeconds(1f);
+            ServiceLocator.Get<IMusicService>().PlaySoundPitch("bip", 1/i*2);
         }
     }
 }

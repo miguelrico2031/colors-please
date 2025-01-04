@@ -29,6 +29,7 @@ public class MainMenuManager : MonoBehaviour
         ServiceLocator.Get<IDayService>().StartDay();
         if (ServiceLocator.Get<IDayService>().CurrentDay.DialogueBefore == null)
         {
+            ServiceLocator.Get<IMusicService>().PlaySound("aceptar2");
             ServiceLocator.Get<IMusicService>().SetPhase(1);
         }
     }
@@ -40,6 +41,7 @@ public class MainMenuManager : MonoBehaviour
         ServiceLocator.Get<IDayService>().StartDay();
         if (ServiceLocator.Get<IDayService>().CurrentDay.DialogueBefore == null)
         {
+            ServiceLocator.Get<IMusicService>().PlaySound("aceptar2");
             ServiceLocator.Get<IMusicService>().SetPhase(1);
         }
     }

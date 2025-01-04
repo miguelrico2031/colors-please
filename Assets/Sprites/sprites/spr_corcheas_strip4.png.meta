@@ -235,7 +235,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spr_corcheas_strip4_0: -4695116400737162237
+      spr_corcheas_strip4_1: -2488798670682505683
+      spr_corcheas_strip4_2: 1054337188965601134
+      spr_corcheas_strip4_3: 3852983437543058037
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

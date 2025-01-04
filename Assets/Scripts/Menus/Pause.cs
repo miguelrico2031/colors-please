@@ -29,6 +29,7 @@ public class Pause : MonoBehaviour
         _pauseButton.SetActive(false);
         _optionsMenu.ShowOptions();
         _background.SetActive(true);
+        ServiceLocator.Get<IMusicService>().PlaySound("aceptar");
     }
 
     private void ResumeGame()
@@ -36,5 +37,6 @@ public class Pause : MonoBehaviour
         Time.timeScale = _timeScale;
         _pauseButton.SetActive(true);
         _background.SetActive(false);
+        ServiceLocator.Get<IMusicService>().PlaySound("aceptar2");
     }
 }

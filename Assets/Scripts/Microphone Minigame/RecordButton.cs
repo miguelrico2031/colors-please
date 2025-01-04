@@ -30,6 +30,7 @@ public class RecordButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        ServiceLocator.Get<IMusicService>().PlaySound("aceptar");
         _microphoneManager.StartRecording();
     }
 

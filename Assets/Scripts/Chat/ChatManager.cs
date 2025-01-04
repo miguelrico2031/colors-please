@@ -56,11 +56,14 @@ public class ChatManager : MonoBehaviour
         _canReply = false;
         _replyButton.interactable = false;
         StartCoroutine(ReplyCoroutine());
+
+        ServiceLocator.Get<IMusicService>().PlaySound("exclamacion");
     }
 
     public void Continue()
     {
         ServiceLocator.Get<IMusicService>().SetPhase(0);
+        ServiceLocator.Get<IMusicService>().PlaySound("aceptar2");
 
         var dayService = ServiceLocator.Get<IDayService>();
         if (dayService.IsEndOfDayDialogue)

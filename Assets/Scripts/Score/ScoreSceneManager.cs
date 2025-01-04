@@ -116,6 +116,8 @@ public class ScoreSceneManager : MonoBehaviour
     private IEnumerator DisplayScore()
     {
         yield return new WaitForSeconds(.5f);
+        ServiceLocator.Get<IMusicService>().PlaySound("aceptar");
+
         _targetColor.localScale = Vector3.one * _colorsAnimationInitialScale;
         _guessedColor.localScale = Vector3.one * _colorsAnimationInitialScale;
         
@@ -123,11 +125,13 @@ public class ScoreSceneManager : MonoBehaviour
         LeanTween.scale(_targetColor.gameObject, Vector3.one, _colorsAnimationDuration)
             .setEase(_colorsAnimationType);
         yield return new WaitForSeconds(_colorsAnimationDuration);
-        
+        ServiceLocator.Get<IMusicService>().PlaySound("aceptar");
+
         _guessedColor.gameObject.SetActive(true);
         LeanTween.scale(_guessedColor.gameObject, Vector3.one, _colorsAnimationDuration)
             .setEase(_colorsAnimationType);
         yield return new WaitForSeconds(_colorsAnimationDuration);
+        ServiceLocator.Get<IMusicService>().PlaySoundPitch("aceptar", 0.2f);
 
         var percentage = _percentageText.rectTransform.parent;
         var money = _moneyText.rectTransform.parent;
@@ -143,28 +147,32 @@ public class ScoreSceneManager : MonoBehaviour
         LeanTween.scale(percentage.gameObject, Vector3.one, _scoreAnimationDuration)
             .setEase(_scoreAnimationType);
         yield return new WaitForSeconds(_scoreAnimationDuration);
-        
+        ServiceLocator.Get<IMusicService>().PlaySoundPitch("aceptar", 0.4f);
+
         money.gameObject.SetActive(true);
         LeanTween.scale(money.gameObject, Vector3.one, _scoreAnimationDuration)
             .setEase(_scoreAnimationType);
         yield return new WaitForSeconds(_scoreAnimationDuration);
-        
+        ServiceLocator.Get<IMusicService>().PlaySoundPitch("aceptar", 0.6f);
+
         tip.gameObject.SetActive(true);
         LeanTween.scale(tip.gameObject, Vector3.one, _scoreAnimationDuration)
             .setEase(_scoreAnimationType);
         yield return new WaitForSeconds(_scoreAnimationDuration);
-        
+        ServiceLocator.Get<IMusicService>().PlaySoundPitch("aceptar", 0.8f);
+
         totalMoney.gameObject.SetActive(true);
         LeanTween.scale(totalMoney.gameObject, Vector3.one, _scoreAnimationDuration)
             .setEase(_scoreAnimationType);
         yield return new WaitForSeconds(_scoreAnimationDuration);
-        
+
         ServiceLocator.Get<IMoneyService>().AddDayMoney(_score.Money + _score.Tip);
     }
     
 
     private void NextMinigame()
     {
+        ServiceLocator.Get<IMusicService>().PlaySoundPitch("aceptar2");
         this.enabled = false;
         ServiceLocator.Get<IDayService>().GoToNextMinigame();
     }
