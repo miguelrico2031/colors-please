@@ -1,12 +1,13 @@
 {
-	"Anton": 3,
-	"Redmean": 4,
-	"OrderWeightedLabDeltaE1_2": 2,
-	"OrderWeightedEuclidean3_4": 2,
-	"OrderWeightedEuclidean1_4": 1,
-	"LabDeltaE": 2,
-	"OrderWeightedEuclidean1_2": 2,
-	"OrderWeightedLabDeltaE3_4": 2,
-	"Euclidean": 3,
-	"WeightedEuclidean": 1
+	"Euclidean": 14,
+	"Anton": 9,
+	"OrderWeightedEuclidean1_2": 15,
+	"OrderWeightedLabDeltaE1_4": 49,
+	"OrderWeightedLabDeltaE1_2": 57,
+	"OrderWeightedLabDeltaE3_4": 31,
+	"LabDeltaE": 41,
+	"OrderWeightedEuclidean3_4": 14,
+	"WeightedEuclidean": 15,
+	"Redmean": 11,
+	"OrderWeightedEuclidean1_4": 14
 }

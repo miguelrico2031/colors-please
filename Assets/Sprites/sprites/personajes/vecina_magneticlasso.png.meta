@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      vecina_magneticlasso_0: -1520479468681070429
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

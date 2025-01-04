@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      casero_directselection_0: 1569252295302907744
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
