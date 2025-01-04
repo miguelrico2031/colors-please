@@ -44,5 +44,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Canvas
+    uniqueID: 18914491
+    locked: 0
+  - name: Sprite
+    uniqueID: 4178764683
+    locked: 0
   m_RenderingLayers:
   - Default
