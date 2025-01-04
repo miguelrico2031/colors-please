@@ -493,4 +493,32 @@ public class MusicManager : MonoBehaviour, IMusicService
 
         Debug.Log($"ReverbZone actualizada para la fase {phase}: MinDistance={minDistance}, MaxDistance={maxDistance}");
     }
+    public void PlayGambling()
+    {
+        AudioClip clip = Resources.Load<AudioClip>("Sonidos/gambling");
+
+        if (clip == null)
+        {
+            Debug.LogError("El sonido de gambling no se encontró en la carpeta Resources/Sonidos.");
+            return;
+        }
+
+        backgroundSoundSource.clip = clip;
+        backgroundSoundSource.loop = true;
+        backgroundSoundSource.volume = volSounds;
+        backgroundSoundSource.Play();
+
+        Debug.Log("GAMBLING START");
+    }
+
+    public void StopGambling()
+    {
+        if (backgroundSoundSource.isPlaying && backgroundSoundSource.clip != null && backgroundSoundSource.clip.name == "gambling")
+        {
+            backgroundSoundSource.Stop();
+            backgroundSoundSource.clip = null;
+            Debug.Log("GAMBLING END");
+        }
+    }
+
 }

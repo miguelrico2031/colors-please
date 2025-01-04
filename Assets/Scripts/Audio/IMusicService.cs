@@ -12,5 +12,6 @@ public interface IMusicService : IService
     void PlaySoundPitch(string soundName, float pitchVariation);
     void MuteSong();
     void ResumeSong();
-
+    void PlayGambling();
+    void StopGambling();
 }

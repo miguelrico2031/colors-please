@@ -87,6 +87,7 @@ public class GamblingManager : MonoBehaviour
         }
         botEdge = botTransform.position.y;
         topEdge = topTransform.position.y;
+        ServiceLocator.Get<IMusicService>().PlayGambling();
         StartCoroutine(StartGame());
     }
 
@@ -132,6 +133,7 @@ public class GamblingManager : MonoBehaviour
         nStops++;
         if(nStops == 3)
         {
+            ServiceLocator.Get<IMusicService>().StopGambling();
             ServiceLocator.Get<IDayService>().FinishMinigame(targetRGB, answerRGB);
         }
     }
@@ -142,5 +144,6 @@ public class GamblingManager : MonoBehaviour
         {
             t.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         }
+        ServiceLocator.Get<IMusicService>().PlaySound("pin2");
     }
 }
