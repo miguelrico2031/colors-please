@@ -17,7 +17,7 @@ public class HammerManager : MonoBehaviour
 
     private float waitRoundDuration = 5f;
     public float hitRoundDuration = 1;
-    private float roundTimer;
+    private int roundTimer;
 
     private int color = 0;
 
@@ -25,6 +25,10 @@ public class HammerManager : MonoBehaviour
     public RGB255 AnswerColor { get => answerColor;  set => answerColor = value;  }
 
     [SerializeField] TextMeshProUGUI text;
+    [SerializeField] private float _countdownAnimationSize;
+    [SerializeField] private float _countdownAnimationTime;
+    [SerializeField] private LeanTweenType _countdownAnimationType;
+    bool firstAnim = false;
 
     int lastIntegerTime;
 
@@ -46,12 +50,57 @@ public class HammerManager : MonoBehaviour
 
         targetColor.color = RGB255.Random().ToColor();
 
-        roundTimer = waitRoundDuration;
+        roundTimer = (int)waitRoundDuration;
+
+        StartCoroutine(HammerMinigame());
     }
 
     private void OnDisable()
     {
         InputSystem.DisableDevice(LinearAccelerationSensor.current);
+    }
+
+    private IEnumerator HammerMinigame()
+    {
+        while (true)
+        {
+            if (currentRound == WAIT_ROUND)
+            {
+                text.text = roundTimer.ToString();
+                text.rectTransform.localScale = Vector3.one * _countdownAnimationSize;
+                LeanTween.scale(text.gameObject, Vector3.one, _countdownAnimationTime)
+                    .setEase(_countdownAnimationType);
+                if (roundTimer <= 0)
+                {
+                    currentRound = HIT_ROUND;
+                    buttons[color].onClick.Invoke();
+                    roundTimer = (int)hitRoundDuration;
+                }
+            }
+            if (currentRound == HIT_ROUND)
+            {
+                text.text = "HIT!";
+                if(!firstAnim)
+                {
+                    text.rectTransform.localScale = Vector3.one * _countdownAnimationSize;
+                    LeanTween.scale(text.gameObject, Vector3.one, _countdownAnimationTime)
+                        .setEase(_countdownAnimationType);
+                    firstAnim = true;
+                }
+                if (roundTimer <= 0)
+                {
+                    if(color != 2)
+                    {
+                        currentRound = WAIT_ROUND;
+                        roundTimer = (int)waitRoundDuration;
+                        color++;
+                        firstAnim = false;
+                    }                    
+                }
+            }           
+            yield return new WaitForSeconds(1);
+            roundTimer -= 1;
+        }       
     }
 
     private void Update()
@@ -61,7 +110,7 @@ public class HammerManager : MonoBehaviour
             InputSystem.EnableDevice(LinearAccelerationSensor.current);
         }
        
-        roundTimer -= Time.deltaTime;
+        /*roundTimer -= Time.deltaTime;
 
         if (currentRound == WAIT_ROUND)
         {
@@ -80,11 +129,8 @@ public class HammerManager : MonoBehaviour
             {
                 currentRound = WAIT_ROUND;
                 roundTimer = waitRoundDuration;
-                color++;
-                Debug.Log(color);
-    
             }
-        }
+        }*/
     }
 
     public void EndHammerMiniGame()

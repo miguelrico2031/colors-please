@@ -19,10 +19,17 @@ public class SliderController : MonoBehaviour
 
     bool coroutineStarted = false;
 
+    [SerializeField] GameObject hammerPivot;
+    Quaternion startRot;
+    Quaternion targetRot;
+
 
     void Start()
     {
         timer = 0;
+        startRot = hammerPivot.transform.rotation;
+        targetRot = Quaternion.Euler(hammerPivot.transform.eulerAngles.x, hammerPivot.transform.eulerAngles.y, -90);
+        StartCoroutine(HammerRot());
     }
 
     private void Update()
@@ -43,7 +50,7 @@ public class SliderController : MonoBehaviour
             accelerationValue *= 255 * 0.25f;
             if (accelerationValue <= maxAccelerationValue) return;
             if (accelerationValue > 255f) accelerationValue = 255;
-            maxAccelerationValue = accelerationValue;
+            maxAccelerationValue = accelerationValue;            
         }
         else
         {
@@ -53,6 +60,20 @@ public class SliderController : MonoBehaviour
                 StartCoroutine(UpdateSlider());
             }
         }           
+    }
+
+    private IEnumerator HammerRot()
+    {
+        float rotTimer = 0;
+        float rotFrame = 0.02f;
+        while(rotTimer <= HammerManager.Instance.hitRoundDuration)
+        {
+            rotTimer += rotFrame;
+            float t = Mathf.Clamp01(rotTimer / HammerManager.Instance.hitRoundDuration);
+            hammerPivot.transform.rotation = Quaternion.Lerp(startRot, targetRot, t);
+            yield return new WaitForSeconds(rotFrame);
+        }
+        
     }
 
     private IEnumerator UpdateSlider()
