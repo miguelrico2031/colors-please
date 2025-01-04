@@ -57,7 +57,7 @@ public class ChatManager : MonoBehaviour
         _replyButton.interactable = false;
         StartCoroutine(ReplyCoroutine());
 
-        ServiceLocator.Get<IMusicService>().PlaySound("exclamacion");
+        //ServiceLocator.Get<IMusicService>().PlaySound("aceptar");
     }
 
     public void Continue()
@@ -125,6 +125,7 @@ public class ChatManager : MonoBehaviour
             _chatSpawnPosition.rotation, _chatUIContainer);
         chatUI.Initialize(message, _chatInitialPosition.localPosition);
         _displayedChats.Add(chatUI);
+        ServiceLocator.Get<IMusicService>().PlaySoundPitch("exclamacion", 0.2f);
     }
 
     private void DisplaceChats()

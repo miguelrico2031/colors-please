@@ -48,6 +48,7 @@ public class OptionsMenu : MonoBehaviour
 
     public void GoBack()
     {
+        ServiceLocator.Get<IMusicService>().PlaySound("aceptar2");
         if (_creditsPanel.activeSelf)
         {
             _creditsPanel.SetActive(false);

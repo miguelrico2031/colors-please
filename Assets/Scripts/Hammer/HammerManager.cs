@@ -46,8 +46,6 @@ public class HammerManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("HOLII");
-
         targetColor.color = RGB255.Random().ToColor();
 
         roundTimer = (int)waitRoundDuration;
@@ -66,6 +64,7 @@ public class HammerManager : MonoBehaviour
         {
             if (currentRound == WAIT_ROUND)
             {
+                ServiceLocator.Get<IMusicService>().PlaySound("bip");
                 text.text = roundTimer.ToString();
                 text.rectTransform.localScale = Vector3.one * _countdownAnimationSize;
                 LeanTween.scale(text.gameObject, Vector3.one, _countdownAnimationTime)
@@ -86,6 +85,7 @@ public class HammerManager : MonoBehaviour
                     LeanTween.scale(text.gameObject, Vector3.one, _countdownAnimationTime)
                         .setEase(_countdownAnimationType);
                     firstAnim = true;
+                    ServiceLocator.Get<IMusicService>().PlaySound("pin2");
                 }
                 if (roundTimer <= 0)
                 {
