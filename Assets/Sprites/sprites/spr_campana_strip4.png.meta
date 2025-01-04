@@ -235,7 +235,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spr_campana_strip4_0: -7735862197502329660
+      spr_campana_strip4_1: 3414494673666455948
+      spr_campana_strip4_2: 7406397857700050159
+      spr_campana_strip4_3: -80158022235974344
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

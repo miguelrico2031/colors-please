@@ -235,7 +235,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spr_martillo_strip4_0: -3313805246485355110
+      spr_martillo_strip4_1: 2997444570250817643
+      spr_martillo_strip4_2: -103306343496786281
+      spr_martillo_strip4_3: 986868232254311121
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
