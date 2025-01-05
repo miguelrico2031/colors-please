@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 96cbd5af9280dcf4ab0052d39142ec60
+guid: 3dd0fac140a63a743bbd7075f858fa4a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4695116400737162237
-    second: spr_corcheas_strip4_0
-  - first:
-      213: -2488798670682505683
-    second: spr_corcheas_strip4_1
-  - first:
-      213: 1054337188965601134
-    second: spr_corcheas_strip4_2
-  - first:
-      213: 3852983437543058037
-    second: spr_corcheas_strip4_3
+      213: 2540249433281570792
+    second: icono@10x_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -119,7 +110,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: iOS
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -132,7 +123,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -148,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_corcheas_strip4_0
+      name: icono@10x_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 4
-        width: 63
-        height: 59
+        x: 0
+        y: 0
+        width: 1397
+        height: 1796
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,74 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 30c63f2628897deb0800000000000000
-      internalID: -4695116400737162237
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_corcheas_strip4_1
-      rect:
-        serializedVersion: 2
-        x: 68
-        y: 4
-        width: 64
-        height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d2e31849bc2067dd0800000000000000
-      internalID: -2488798670682505683
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_corcheas_strip4_2
-      rect:
-        serializedVersion: 2
-        x: 136
-        y: 3
-        width: 62
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e6f47c55612c1ae00800000000000000
-      internalID: 1054337188965601134
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_corcheas_strip4_3
-      rect:
-        serializedVersion: 2
-        x: 201
-        y: 4
-        width: 66
-        height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 57aa730c50c887530800000000000000
-      internalID: 3852983437543058037
+      spriteID: 8e7a2a79667c04320800000000000000
+      internalID: 2540249433281570792
       vertices: []
       indices: 
       edges: []
@@ -248,11 +173,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      spr_corcheas_strip4_0: -4695116400737162237
-      spr_corcheas_strip4_1: -2488798670682505683
-      spr_corcheas_strip4_2: 1054337188965601134
-      spr_corcheas_strip4_3: 3852983437543058037
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
