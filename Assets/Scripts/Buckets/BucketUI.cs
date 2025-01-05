@@ -113,6 +113,8 @@ public class BucketUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
         CurrentState = State.BeingSelected;
         _confirmationProgress = 0f;
+        GetComponent<Animator>().speed = 0f;
+        _fill.transform.parent.GetComponent<Image>().sprite = GetComponent<Image>().sprite;
     }
 
     
@@ -137,6 +139,7 @@ public class BucketUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public void Enable()
     {
         CurrentState = State.Available;
+        GetComponent<Animator>().speed = 1f;
         _image.color = _defaultColor;  
         _costText.color = _defaultColorCostText;
         _fill.fillAmount = 0f;
@@ -145,6 +148,7 @@ public class BucketUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public void Disable()
     {
         CurrentState = State.Unavailable;
+        GetComponent<Animator>().speed = 1f;
         _image.color = _disabledColor;
         _costText.color = _disabledColorCostText;
         _fill.fillAmount = 0f;
@@ -153,6 +157,7 @@ public class BucketUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public void DisableEndScene()
     {
         CurrentState = State.Unavailable;
+        GetComponent<Animator>().speed = 1f;
         _fill.fillAmount = 0f;
     }
 
@@ -160,6 +165,7 @@ public class BucketUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
      private void SelectBucket()
     {
         CurrentState = State.Selected;
+        GetComponent<Animator>().speed = 1f;
 
         _image.color = _selectedColor;
         _costText.color = _selectedColorCostText;

@@ -6,4 +6,6 @@ public enum Character //agregar aqui los personajes nuevos
     Son,
     Landlord,
     Boss,
+    NeighborCarl,
+    NeighborMartha
 }

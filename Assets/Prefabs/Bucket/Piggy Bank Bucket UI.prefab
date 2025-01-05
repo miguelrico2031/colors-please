@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 659724283138283036, guid: 1db2972980600c24e84046bab64ee1d7, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 986406834022386595, guid: 1db2972980600c24e84046bab64ee1d7, type: 3}
       propertyPath: m_Controller
       value: 
@@ -103,6 +107,10 @@ PrefabInstance:
     - target: {fileID: 7147725949200282334, guid: 1db2972980600c24e84046bab64ee1d7, type: 3}
       propertyPath: m_text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8081963730988534314, guid: 1db2972980600c24e84046bab64ee1d7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8283001581008164796, guid: 1db2972980600c24e84046bab64ee1d7, type: 3}
       propertyPath: _disabledColor.a

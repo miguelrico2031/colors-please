@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 49fa50cdba5dcb741bed276b35114bd9
+guid: 21f6b6665eb584b49bbb821fcf7f64f4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3686888737945642462
-    second: icono_0
+      213: -4213946230669450357
+    second: spr_cuadrado_gambling_strip4_0
+  - first:
+      213: 6042330028182339134
+    second: spr_cuadrado_gambling_strip4_1
+  - first:
+      213: 2265211316135910607
+    second: spr_cuadrado_gambling_strip4_2
+  - first:
+      213: 4182570232301376267
+    second: spr_cuadrado_gambling_strip4_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,9 +49,9 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -51,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 400
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,19 +119,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -139,23 +135,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: icono_0
+      name: spr_cuadrado_gambling_strip4_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 141
-        height: 180
+        width: 497
+        height: 500
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 88, y: 111, z: 102, w: 80}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ed563afe5c57a2330800000000000000
-      internalID: 3686888737945642462
+      spriteID: b83e95aca3e0585c0800000000000000
+      internalID: -4213946230669450357
       vertices: []
       indices: 
       edges: []
@@ -164,7 +160,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f2c5505ae5735564294d803cc1c6a3ed
     internalID: 0
     vertices: []
     indices: 
@@ -174,7 +170,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      icono_0: 3686888737945642462
+      spr_cuadrado_gambling_strip4_0: -4213946230669450357
+      spr_cuadrado_gambling_strip4_1: 6042330028182339134
+      spr_cuadrado_gambling_strip4_2: 2265211316135910607
+      spr_cuadrado_gambling_strip4_3: 4182570232301376267
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

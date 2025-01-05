@@ -19,21 +19,29 @@ MonoBehaviour:
     ChatColor: {r: 0, g: 0, b: 0, a: 0}
   - Character: 1
     Name: Dwight Dropper
-    Picture: {fileID: 8727749776475338117, guid: 1229e7b6af3ea4949bffef1b0140fc02, type: 3}
-    ChatColor: {r: 0.690566, g: 0.690566, b: 0.690566, a: 1}
+    Picture: {fileID: -8586699808616689596, guid: e0d49124d9fa8694a8e2df478420f558, type: 3}
+    ChatColor: {r: 0.77254903, g: 0.77254903, b: 0.77254903, a: 1}
   - Character: 2
-    Name: Claude
-    Picture: {fileID: -1833916756600125517, guid: 00f09db756a7c584fa47915a46d1b0e6, type: 3}
-    ChatColor: {r: 0.98182017, g: 1, b: 0.53396225, a: 1}
+    Name: Claude Clonestamp
+    Picture: {fileID: -6301148875643079632, guid: 425d2f310ede82f418d442dc4235a16e, type: 3}
+    ChatColor: {r: 1, g: 0.75, b: 0.8457862, a: 1}
   - Character: 3
-    Name: Dwight Jr
-    Picture: {fileID: -4567196947324017653, guid: 903fc6e0c771fab469f7ac405e3d5a4c, type: 3}
-    ChatColor: {r: 0.2688572, g: 0.4641509, b: 0.30456126, a: 1}
+    Name: Dwight Jr Dropper Clonestamp
+    Picture: {fileID: -6756471228596302557, guid: cc5800bcd9d81424584b11544a1c56b8, type: 3}
+    ChatColor: {r: 0.5246529, g: 0.8490566, b: 0.5842372, a: 1}
   - Character: 4
-    Name: Landolordo
-    Picture: {fileID: -1825931381, guid: 1201c14bb4ee74d8e99e56dc4f3f4fd1, type: 3}
-    ChatColor: {r: 0.78867924, g: 0.53579724, b: 0.40922034, a: 1}
+    Name: Diego Directselection
+    Picture: {fileID: 1569252295302907744, guid: 347f4d616d377f647afd82a16cdfe558, type: 3}
+    ChatColor: {r: 0.9803922, g: 1, b: 0.53333336, a: 1}
   - Character: 5
-    Name: El Jef
-    Picture: {fileID: -5360521793857065805, guid: d36a6fb5efa2d7d408594978c17f26d9, type: 3}
-    ChatColor: {r: 0.34515485, g: 0.45122817, b: 0.5396226, a: 1}
+    Name: Edward Eyedroppinson
+    Picture: {fileID: -3985249881065891479, guid: 730da56a46a092d4ab953098ce125fe1, type: 3}
+    ChatColor: {r: 0.59474015, g: 0.69316596, b: 0.9339623, a: 1}
+  - Character: 6
+    Name: Carl Customshape
+    Picture: {fileID: 4306850296687643777, guid: 13e1a0df4e303824187db0ffa1249799, type: 3}
+    ChatColor: {r: 0.6538217, g: 0.5238074, b: 0.745283, a: 0}
+  - Character: 7
+    Name: Martha Magneticlasso
+    Picture: {fileID: -1520479468681070429, guid: eb1503657ecbca54b9b6823a901f12f1, type: 3}
+    ChatColor: {r: 1, g: 0.7503603, b: 0.5424528, a: 0}
