@@ -18,6 +18,7 @@ public class ShootBall : MonoBehaviour
     private RGB255.Coordinate _currentCoordinate;
     private bool _isAiming;
     private Vector2 _touchPos;
+    private Transform _arrowChild;
     private Vector2 _defaultArrowScale;
     private float _aimCountdown;
     private Vector3 _defaultPosition;
@@ -26,7 +27,8 @@ public class ShootBall : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
-        _defaultArrowScale = _arrow.localScale;
+        _arrowChild = _arrow.GetChild(0);
+        _defaultArrowScale = _arrowChild.localScale;
         _clickArea.pointerUp += Shoot;
         _rb.bodyType = RigidbodyType2D.Kinematic;
         _arrow.gameObject.SetActive(false);
@@ -75,7 +77,7 @@ public class ShootBall : MonoBehaviour
         _arrow.gameObject.SetActive(true);
         var scale = _defaultArrowScale;
         scale.x = _minArrowScale;
-        _arrow.localScale = scale;
+        _arrowChild.localScale = scale;
         _arrow.rotation = Quaternion.Euler(0, 0, 0);
         _aimCountdown = maxAimTime;
     }
@@ -91,7 +93,7 @@ public class ShootBall : MonoBehaviour
         _arrow.rotation = Quaternion.Euler(0f, 0f, angle);
         var scale = _defaultArrowScale;
         scale.x = Mathf.Clamp(direction.magnitude * _arrowScaleFactor, _minArrowScale, _maxArrowScale);
-        _arrow.localScale = scale;
+        _arrowChild.localScale = scale;
     }
 
     private void Shoot()
@@ -107,7 +109,7 @@ public class ShootBall : MonoBehaviour
         }
         
         _rb.bodyType = RigidbodyType2D.Dynamic;
-        _rb.AddForce(_arrow.right * (_arrow.localScale.x * _forceFactor), ForceMode2D.Impulse);
+        _rb.AddForce(_arrow.right * (_arrowChild.localScale.x * _forceFactor), ForceMode2D.Impulse);
         OnShoot?.Invoke();
     }
     
