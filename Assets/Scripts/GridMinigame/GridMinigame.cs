@@ -90,9 +90,9 @@ public class GridMinigame : MonoBehaviour
         float canvasWidth = canvasRect.rect.width;
 
         // proporciones de los 3 elementos en pantalla: Titulo, grid de casillas y marcador de color
-        float titleHeightRatio = 0.25f;
+        float titleHeightRatio = 0.10f;
         float markerHeightRatio = 0.10f;
-        float gridHeightRatio = 0.65f;
+        float gridHeightRatio = 0.80f;
 
         float titleSectionStart = canvasHeight / 2;
         float titleSectionEnd = canvasHeight / 2 - canvasHeight * titleHeightRatio;

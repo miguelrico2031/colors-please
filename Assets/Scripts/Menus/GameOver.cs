@@ -22,6 +22,7 @@ public class GameOver : MonoBehaviour
     
     private void Start()
     {
+        ServiceLocator.Get<IMusicService>().SetPhase(2);
         var character = ServiceLocator.Get<IDayService>().GameOverCharacter;
         var data = _gameOverData.First(d => d.Character == character);
         _gameOverText.text = data.Message;

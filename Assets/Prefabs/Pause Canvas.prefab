@@ -221,7 +221,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 8a44fec5759d50c40885e803653e4c92, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -455,6 +455,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -100
       objectReference: {fileID: 0}
+    - target: {fileID: 5489105590151591779, guid: f6648d1d9b1a5d644a9be8491bfa4f30, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5985891849290232301, guid: f6648d1d9b1a5d644a9be8491bfa4f30, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -498,6 +502,10 @@ PrefabInstance:
     - target: {fileID: 7227122573431384513, guid: f6648d1d9b1a5d644a9be8491bfa4f30, type: 3}
       propertyPath: m_Name
       value: Pause Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240083739469424514, guid: f6648d1d9b1a5d644a9be8491bfa4f30, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7245484950719139315, guid: f6648d1d9b1a5d644a9be8491bfa4f30, type: 3}
       propertyPath: m_AnchorMax.y

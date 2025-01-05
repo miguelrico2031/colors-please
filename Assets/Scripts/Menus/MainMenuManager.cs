@@ -11,8 +11,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private float _minTitleScale;
     [SerializeField] private float _titleScalePeriod;
     [SerializeField] private LeanTweenType _titleScaleEaseType;
-    [SerializeField] private float _minTitleRotation;
-    [SerializeField] private float _titleRotationPeriod;
+    [SerializeField] private float _minTitleRotation = 45f;
+    [SerializeField] private float _titleRotationPeriod = 1.090f;
     [SerializeField] private LeanTweenType _titleRoationEaseType;
     
     private void Start()

@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Sliders Minigame
   m_EditorClassIdentifier: 
   SceneName: Sliders
+  HelpText: Utiliza los sliders para introducir las coordenadas en RGB del color
+    del fondo.

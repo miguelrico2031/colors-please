@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Grid Minigame
   m_EditorClassIdentifier: 
   SceneName: Grid
+  HelpText: "Mueve tu tel\xE9fono y pulsa la pantalla para seleccionar las casillas
+    correspondientes al color en hexadecimal."
