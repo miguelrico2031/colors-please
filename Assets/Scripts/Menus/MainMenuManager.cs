@@ -50,6 +50,11 @@ public class MainMenuManager : MonoBehaviour
 
     public void ContinueGame()
     {
+        LoadGame();
+    }
+
+    public static void LoadGame()
+    {
         ServiceLocator.Get<IPersistenceService>().Load();
         ServiceLocator.Get<IDayService>().ClearNonPersistentData();
         ServiceLocator.Get<IDayService>().StartDay();

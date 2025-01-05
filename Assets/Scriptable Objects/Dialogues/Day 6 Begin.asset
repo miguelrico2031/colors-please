@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a48728766a413e9dc659c4fc1a0f01, type: 3}
+  m_Name: Day 6 Begin
+  m_EditorClassIdentifier: 
+  <Messages>k__BackingField:
+  - Character: 5
+    Text: "\xA1Se\xF1or Dropper! Estoy tan impresionado con su trabajo, que he decidido
+      ofrecerle convertirse en socio de la empresa."
+  - Character: 1
+    Text: "\xBFSocio? \xA1Wow! \xBFQu\xE9 tengo que hacer?"
+  - Character: 5
+    Text: "Solo pagar una peque\xF1a cuota de entrada. Un detalle para demostrar
+      su compromiso."
+  - Character: 1
+    Text: "Uf, ahora estoy un poco pelado, Se\xF1or Jefe\u2026"
+  - Character: 5
+    Text: "Oh\u2026 ser\xEDa una pena que rechace esta oportunidad. Me pondr\xEDa
+      muy triste. No querr\xE1 hacer llorar a un cuentagotas, \xBFverdad?"
+  - Character: 1
+    Text: "Vaya movida\u2026 Lo pensar\xE9."
+  - Character: 5
+    Text: "H\xE1galo, Se\xF1or Dropper. Ser\xEDa un honor llamarlo \u201Csocio\u201D.
+      Y usted podr\xEDa llamarme \u201CEdward\u201D o \u201Ccoleg\xF3n\u201D en vez
+      de \u201CSe\xF1or Jefe\u201D. \xA1Me emociono tan solo con pensarlo! Pero solo
+      si se convierte en socio, eh."

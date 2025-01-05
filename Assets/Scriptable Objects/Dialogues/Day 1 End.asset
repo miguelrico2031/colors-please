@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a48728766a413e9dc659c4fc1a0f01, type: 3}
+  m_Name: Day 1 End
+  m_EditorClassIdentifier: 
+  <Messages>k__BackingField:
+  - Character: 2
+    Text: "Hola Dwight, \xBFqu\xE9 tal tu primer d\xEDa de trabajo?"
+  - Character: 1
+    Text: "Bien, ha sido medio locura, pero bien\u2026\r"
+  - Character: 2
+    Text: "Me alegro. \xBFTe han pagado bien? Es que como hemos hablado, molar\xEDa
+      ir ahorrando para comprarnos una casa, que este zulo alquilado es casi inhabitable,
+      y el casero, Diego Directselection, nos sube el alquiler casi cada semana.\r"
+  - Character: 1
+    Text: "Tienes raz\xF3n, para eso estoy currando, para ahorrar y comprarnos un
+      pisito.\r"
+  - Character: 2
+    Text: "La cosa es que nuestro hijo, Dwight Junior, va a empezar el cole y necesita
+      cuadernos y l\xE1pices y tal. As\xED que deber\xEDas comprarle eso, en vez
+      de meter toda la pasta al cubo hucha.\r"
+  - Character: 1
+    Text: "\xBFCubo hucha?\r"
+  - Character: 2
+    Text: "Si, al final de cada d\xEDa, tendr\xE1s varios cubos en pantalla, que
+      son los posibles gastos que tienes. T\xFA decides cuales pulsas, para llenar
+      y pagarlos. El dinero que sobre ir\xE1 al cubo de hucha. Cuando el cubo llegue
+      a XXXX dinero, podremos comprar nuestro pisito so\xF1ado.\r"
+  - Character: 3
+    Text: "\xA1Hola pap\xE1 uno! No es por hacerte chantaje emocional ni nada eh,
+      que solo tengo 5 a\xF1os. Pero lo de mis cuadernos para el cole es importante.
+      Deber\xE1s escoger los gastos con cuidado, porque me tienes que tener contento
+      a m\xED y a pap\xE1 dos.\r"
+  - Character: 3
+    Text: "Bueno, y tambi\xE9n al casero, Diego Directselection, que no nos queremos
+      quedar sin techo.\r\r"

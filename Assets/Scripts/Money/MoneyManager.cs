@@ -65,6 +65,7 @@ public class MoneyManager : ScriptableObject, IMoneyService
     public void Load(int piggyBankMoney)
     {
         PiggyBankMoney = (uint) piggyBankMoney;
+        DayMoney = 0;
     }
 
     public void Save(out int piggyBankMoney)

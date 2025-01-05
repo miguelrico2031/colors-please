@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a48728766a413e9dc659c4fc1a0f01, type: 3}
+  m_Name: Day 7 End
+  m_EditorClassIdentifier: 
+  <Messages>k__BackingField:
+  - Character: 2
+    Text: "Oye, Dwight, te tengo que confesar algo: ya no quiero ser un tampon de
+      clonar. \xA1Quiero ser un tamp\xF3n de motivo! Es lo que realmente me har\xEDa
+      feliz."
+  - Character: 1
+    Text: "\xBFTamp\xF3n de motivo? \xBFEso qu\xE9 significa?"
+  - Character: 2
+    Text: "Bueno\u2026 digamos que quiero ser m\xE1s aut\xE9ntico. He decidido que
+      quiero hacer un cambio, un cambio grande. Quiero ser yo mismo, pero para eso
+      necesito hacerme la cirug\xEDa."
+  - Character: 1
+    Text: "\xBFCirug\xEDa? \xBFEst\xE1s hablando de\u2026?"
+  - Character: 2
+    Text: "S\xED, es lo que te imaginas. Pero necesito dinero para cubrir los gastos.
+      Esto es algo que me va a hacer muy feliz, Dwight."
+  - Character: 1
+    Text: "Bueno, si es para hacerte feliz\u2026 Ver\xE9 si nos lo podemos permitir,
+      supongo."

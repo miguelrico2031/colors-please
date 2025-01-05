@@ -26,13 +26,18 @@ public class PersistenceManager : ScriptableObject, IPersistenceService
     public void NewSave()
     {
         GameData data = new();
-        string json = JsonUtility.ToJson(data);
-        PlayerPrefs.SetString(_saveKey, json);
-        PlayerPrefs.Save();
+
         
         ServiceLocator.Get<IDayService>().Load(data.DayIndex);
         ServiceLocator.Get<IMoneyService>().Load(data.PiggyBankMoney);
-        ServiceLocator.Get<IRelationshipService>().Load(data.Points);
+        // ServiceLocator.Get<IRelationshipService>().Load(data.Points);
+        ServiceLocator.Get<IRelationshipService>().ResetPoints();
+        ServiceLocator.Get<IRelationshipService>().Save(out data.Points);
+
+        
+        string json = JsonUtility.ToJson(data);
+        PlayerPrefs.SetString(_saveKey, json);
+        PlayerPrefs.Save();
         
         Debug.Log("New game saved!");
     }

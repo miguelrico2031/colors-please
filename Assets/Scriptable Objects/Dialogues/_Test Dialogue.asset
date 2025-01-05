@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a48728766a413e9dc659c4fc1a0f01, type: 3}
+  m_Name: _Test Dialogue
+  m_EditorClassIdentifier: 
+  <Messages>k__BackingField:
+  - Character: 5
+    Text: "Incre\xEDble. Estas nuevas generaciones no saben lo que es un color RGB.
+      Ah, pero preg\xFAntales qu\xE9 es \u201CSkibidi Toilet\u201D y seguro te lo
+      explican con detalle."
+  - Character: 1
+    Text: hola
+  - Character: 2
+    Text: Klk mio

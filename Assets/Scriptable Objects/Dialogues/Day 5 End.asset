@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a48728766a413e9dc659c4fc1a0f01, type: 3}
+  m_Name: Day 5 End
+  m_EditorClassIdentifier: 
+  <Messages>k__BackingField:
+  - Character: 2
+    Text: "\xA1Dwight! \xBFSabes qu\xE9 d\xEDa es hoy?"
+  - Character: 1
+    Text: "\xBFAzul verdoso con 15% de rojo?"
+  - Character: 2
+    Text: "\xA1Nuestro aniversario!"
+  - Character: 1
+    Text: "\xA1Oh, claro! Felicidades y tal."
+  - Character: 2
+    Text: "Gracias, pero con una felicitaci\xF3n no me conformo. Quiero que me saques
+      a cenar."
+  - Character: 2
+    Text: "Nada de efectos de capa baratillos, \xBFeh? Estoy hablando del restaurante
+      GaussianBlur."
+  - Character: 1
+    Text: "\xBFGaussianBlur? \xA1Pero si ah\xED cobran hasta por deseleccionar!"
+  - Character: 2
+    Text: "Cierto, pero me amas tant\xEDsimo que me llevar\xE1s, \xBFverdad?"
+  - Character: 1
+    Text: "Ay\u2026"

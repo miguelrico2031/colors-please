@@ -37,15 +37,7 @@ public class PiggyBankBucket : MonoBehaviour
         
         foreach (var consequence in consequences)
         {
-            uint points = (uint)Mathf.Abs(consequence.Points);
-            if (consequence.Points > 0)
-            {
-                relationShipService.AddPoints(consequence.character, points);
-            }
-            else
-            {
-                relationShipService.RemovePoints(consequence.character, points);
-            }
+            relationShipService.RemovePoints(consequence.character, consequence.PointsToRemove);
         }
     }
 
@@ -57,6 +49,6 @@ public class PiggyBankBucket : MonoBehaviour
     private IEnumerator WaitAndEndScene()
     {
         yield return new WaitForSeconds(_sceneEndDelay);
-        ServiceLocator.Get<IDayService>().StartDay();
+        ServiceLocator.Get<IDayService>().EndDay();
     }
 }

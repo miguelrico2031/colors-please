@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a48728766a413e9dc659c4fc1a0f01, type: 3}
+  m_Name: Day 3 Begin
+  m_EditorClassIdentifier: 
+  <Messages>k__BackingField:
+  - Character: 5
+    Text: "\xA1Se\xF1or Dropper! Necesito hablar con usted de algo muy importante."
+  - Character: 1
+    Text: "\xBFM\xE1s RGB, Se\xF1or Jefe?"
+  - Character: 5
+    Text: "No, no. Esto es personal. He estado pensando\u2026 Usted y yo deber\xEDamos
+      ser m\xE1s que jefe y empleado. Deber\xEDamos ser... \xA1amigos!"
+  - Character: 5
+    Text: "Y no hay mejor forma de empezar una amistad que\u2026 \xA1invitarle a
+      mi cumplea\xF1os! Es ma\xF1ana por la noche."
+  - Character: 1
+    Text: "\xA1Qu\xE9 buena! \xBFQu\xE9 le llevo de regalo? \xBFUna tarjeta de cumplea\xF1os?"
+  - Character: 5
+    Text: "No, no, no. Quiero algo especial, algo que refleje mi esencia. Tr\xE1igame
+      un Pastel de M\xE1scara de Capa. Es \xFAnico, elegante y, sobre todo, \xA1muy
+      rico!"
+  - Character: 1
+    Text: "Un\u2026 \xBFPastel de M\xE1scara de Capa?"
+  - Character: 5
+    Text: "\xA1Exacto! Espero que no defraude, Se\xF1or Dropper. Nuestra amistad
+      depende de ello."

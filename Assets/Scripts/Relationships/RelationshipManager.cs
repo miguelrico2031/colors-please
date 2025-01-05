@@ -6,31 +6,20 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/RelationshipManager")]
 public class RelationshipManager : ScriptableObject, IRelationshipService
 {
-    [field: SerializeField] public uint MaxPoints { get; private set; }
+    [field: SerializeField] public List<RelationshipPoints> Points { get; private set; }
 
-    public List<RelationshipPoints> Points { get; private set; } = new();
-    
+
     // public bool IsDirty {get; private set;}
 
     // private Dictionary<Character, int> _dayPoints = new();
 
     public uint GetPoints(Character character)
     {
-        throw new NotImplementedException();
         return Points.First(p => p.character == character).Points;
     }
 
-    public void AddPoints(Character character, uint points)
-    {
-        // IsDirty = true;
-        // _dayPoints.TryAdd(character, 0);
-        // _dayPoints[character] += (int)points;
-         
-         var relationshipPoints = Points.First(p => p.character == character);
-         
-         var newPoints = relationshipPoints.Points + points;
-        relationshipPoints.Points = (uint) Mathf.Clamp(newPoints, 0, MaxPoints);
-    }
+    private uint GetMaxPoints(Character character) => Points.First(p => p.character == character).MaxPoints;
+
 
     public void RemovePoints(Character character, uint points)
     {
@@ -39,7 +28,7 @@ public class RelationshipManager : ScriptableObject, IRelationshipService
         // _dayPoints[character] -= (int)points;
 
         var relationshipPoints = Points.First(p => p.character == character);
-            
+
         var newPoints = points < relationshipPoints.Points
             ? relationshipPoints.Points - points
             : 0;
@@ -48,11 +37,37 @@ public class RelationshipManager : ScriptableObject, IRelationshipService
 
     public void ResetPoints()
     {
-        uint newValue = MaxPoints / 2;
         foreach (var rp in Points)
         {
-            rp.Points = newValue;
+            rp.Points = rp.MaxPoints;
         }
+    }
+
+    public bool IsGameOver(out Character character)
+    {
+        if (GetPoints(Character.Landlord) == 0)
+        {
+            character = Character.Landlord;
+            return true;
+        }
+        else if (GetPoints(Character.Husband) == 0)
+        {
+            character = Character.Husband;
+            return true;
+        }
+        else if (GetPoints(Character.Son) == 0)
+        {
+            character = Character.Son;
+            return true;
+        }
+        else if (GetPoints(Character.Boss) == 0)
+        {
+            character = Character.Boss;
+            return true;
+        }
+
+        character = Character.None;
+        return false;
     }
 
 

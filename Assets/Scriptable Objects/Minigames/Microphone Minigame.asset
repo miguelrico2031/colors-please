@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Microphone Minigame
   m_EditorClassIdentifier: 
   SceneName: Microphone Minigame
+  HelpText: "Mant\xE9n pulsado el boton del microfono. Cuanto m\xE1s fuerte hables,
+    m\xE1s intensidad tendr\xE1 el color. Primero rojo, luego verde, luego azul."

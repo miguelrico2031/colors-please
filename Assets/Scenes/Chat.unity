@@ -804,10 +804,10 @@ MonoBehaviour:
   _continueArea: {fileID: 1328926971}
   _areaSwapDuration: 0.75
   _areaSwapAnimationType: 28
-  _chatDisplacement: {x: 0, y: 450, z: 0}
+  _chatDisplacement: {x: 0, y: 550, z: 0}
   _delayBeforeFirstMessage: 1
-  _delayBetweenMessages: 3
-  _initialContainterCapacity: 4
+  _delayBetweenMessages: 1.5
+  _initialContainterCapacity: 2
 --- !u!1 &1245101208
 GameObject:
   m_ObjectHideFlags: 0

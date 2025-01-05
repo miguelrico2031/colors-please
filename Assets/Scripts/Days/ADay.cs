@@ -7,8 +7,7 @@ public abstract class ADay : ScriptableObject
     
     [field: SerializeField] public Dialogue DialogueBefore { get; private set; }
     [field: SerializeField] public Dialogue DialogueAfter { get; private set; }
-    [field: SerializeField] public List<CharacterBucket> Buckets { get; private set; }
-    [field: SerializeField] public bool SkipNonUniqueBuckets { get; private set; }
+    [field: SerializeField] public List<Bucket> Buckets { get; private set; }
     
     public abstract IEnumerable<Minigame> GetMinigames();
 }

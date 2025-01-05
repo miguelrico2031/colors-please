@@ -4,5 +4,5 @@ using UnityEngine;
 public class Minigame : ScriptableObject
 {
     public string SceneName;
-    
+    [TextArea(5, 20)] public string HelpText;
 }

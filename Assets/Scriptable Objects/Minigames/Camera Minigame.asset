@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Camera Minigame
   m_EditorClassIdentifier: 
   SceneName: Camera Minigame
+  HelpText: "Arrastra el dedo para elegir el lugar de la grabaci\xF3n de la c\xE1mara
+    donde se obtendr\xE1 el color, antes de que se acabe el tiempo."

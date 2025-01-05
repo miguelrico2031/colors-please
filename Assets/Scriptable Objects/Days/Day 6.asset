@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d802a6f5ad7414cada89d466f4722b8, type: 3}
+  m_Name: Day 6
+  m_EditorClassIdentifier: 
+  <DialogueBefore>k__BackingField: {fileID: 11400000, guid: 240252258721a264bb6aad9e5ded68bf, type: 2}
+  <DialogueAfter>k__BackingField: {fileID: 11400000, guid: 1130a1db16833574484b0bc0c5a1f161, type: 2}
+  <Buckets>k__BackingField:
+  - {fileID: 11400000, guid: be81b9630d5a97a4eb853fe99c92ae40, type: 2}
+  - {fileID: 11400000, guid: 2423799d2cea6b34d97436f62ddc3726, type: 2}
+  <MinigamesCount>k__BackingField: 9
+  _nonRepeatingSequenceSize: 5
+  _minigamesPool:
+  - {fileID: 11400000, guid: adb69f0cd60c5bb4290c0ba5a21756a4, type: 2}
+  - {fileID: 11400000, guid: 401d2dc1369f4eb4c993da9aeb0cf726, type: 2}
+  - {fileID: 11400000, guid: 6a120ac1d650204428d00ac6ed51dee5, type: 2}
+  - {fileID: 11400000, guid: 7dedf0af534263a45a1c70b987cfe825, type: 2}
+  - {fileID: 11400000, guid: e435b70dc677726448de078731d30e85, type: 2}
+  - {fileID: 11400000, guid: 47f518ee733481546879cea965584701, type: 2}
+  - {fileID: 11400000, guid: bf55f65b156e04d4692a711eebe88e70, type: 2}
+  - {fileID: 11400000, guid: ffbba6c812f3c954284da13072c04f79, type: 2}
+  - {fileID: 11400000, guid: 31f3a214ec61abe4b81a6d7b1924fc15, type: 2}
+  - {fileID: 11400000, guid: 31f3a214ec61abe4b81a6d7b1924fc15, type: 2}
+  - {fileID: 11400000, guid: 520c4048155cd3044936f8e57854cdf9, type: 2}

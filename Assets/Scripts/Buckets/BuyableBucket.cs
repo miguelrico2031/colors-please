@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BuyableBucket : MonoBehaviour
 {
+    [SerializeField] private string _boughtText = "Comprado";
     private BucketUI _bucketUI;
 
     private IMoneyService _moneyService;
@@ -48,10 +49,9 @@ public class BuyableBucket : MonoBehaviour
     {
         _bucketUI.OnSelect -= OnSelect;
         _moneyService.OnMoneyChange -= OnMoneyChange;
-        _bucketUI.CostText.text = "Bought";
-        
+        _bucketUI.CostText.text = _boughtText;
+
         RemoveMoney();
-        ApplyPayedConsequences();
     }
 
     private void RemoveMoney()
@@ -66,25 +66,6 @@ public class BuyableBucket : MonoBehaviour
             _moneyService.RemoveDayMoney(dayMoney);
             uint remainder = _bucketUI.Bucket.Cost - dayMoney;
             _moneyService.RemoveFromPiggyBank(remainder);
-        }
-
-    }
-
-    private void ApplyPayedConsequences()
-    {
-        var relationShipService = ServiceLocator.Get<IRelationshipService>();
-
-        foreach (var consequence in _bucketUI.Bucket.PayedConsequences)
-        {
-            uint points = (uint)Mathf.Abs(consequence.Points);
-            if (consequence.Points > 0)
-            {
-                relationShipService.AddPoints(consequence.character, points);
-            }
-            else
-            {
-                relationShipService.RemovePoints(consequence.character, points);
-            }
         }
     }
 }

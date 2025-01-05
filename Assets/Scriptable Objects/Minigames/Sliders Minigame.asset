@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03385c5037334c278512aed92272821c, type: 3}
   m_Name: Sliders Minigame
   m_EditorClassIdentifier: 
-  SceneName: Sliders Minigame
+  SceneName: Sliders

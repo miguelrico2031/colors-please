@@ -32,6 +32,27 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Buckets Minigame.unity
     guid: cad86009778c26f4abe23a87711b7b5a
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 33215274d1958e3488c7fba28e2c3758
+  - enabled: 1
+    path: Assets/Scenes/Lose.unity
+    guid: ad32480c45c33b644bed02a8d5ca95e1
+  - enabled: 1
+    path: Assets/Scenes/Gambling.unity
+    guid: fef150543e7014e419b74b623c05efc5
+  - enabled: 1
+    path: Assets/Scenes/Grid.unity
+    guid: 090d2d38cd9e6884b8da8ef6aecdead3
+  - enabled: 1
+    path: Assets/Scenes/Hammer.unity
+    guid: 19cc7d3e1b32ac246b10a55a2b1e3ab9
+  - enabled: 1
+    path: Assets/Scenes/Shoot Minigame.unity
+    guid: 08f41e140119fa64782f956009713261
+  - enabled: 1
+    path: Assets/Scenes/Sliders.unity
+    guid: 3f7d91510d48d1d48b8d54da01f32db5
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 75e516cb6c7bb814ea73e150f304f5ea, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

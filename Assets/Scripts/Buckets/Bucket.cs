@@ -10,15 +10,13 @@ public class Bucket : ScriptableObject
     public string Description;
     [field: SerializeField] public uint Cost { get; private set; }
 
-    [Header("Use negative numbers to make consequences\nthat decrease relationship points")] 
-    [SerializeField] public List<Consequence> PayedConsequences = new();
     [SerializeField] public List<Consequence> NotPayedConsequences = new();
 
 
     [Serializable]
     public class Consequence
     {
-        [FormerlySerializedAs("Relationship")] public Character character;
-        public int Points;
+        public Character character;
+        public uint PointsToRemove;
     }
 }

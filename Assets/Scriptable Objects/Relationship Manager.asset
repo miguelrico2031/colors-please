@@ -12,4 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4fce771124440b387c6eb4c9a200cc5, type: 3}
   m_Name: Relationship Manager
   m_EditorClassIdentifier: 
-  <MaxPoints>k__BackingField: 10
+  <Points>k__BackingField:
+  - character: 2
+    Points: 1
+    MaxPoints: 2
+  - character: 3
+    Points: 1
+    MaxPoints: 2
+  - character: 5
+    Points: 1
+    MaxPoints: 2
+  - character: 4
+    Points: 1
+    MaxPoints: 1

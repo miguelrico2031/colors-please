@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: Shoot Minigame
   m_EditorClassIdentifier: 
   SceneName: Shoot Minigame
+  HelpText: "Arrastra el dedo para apuntar y su\xE9ltalo para disparar. El color
+    se elige seg\xFAn la posici\xF3n en la que caiga la bola. Primero rojo, luego
+    verde, luego azul."

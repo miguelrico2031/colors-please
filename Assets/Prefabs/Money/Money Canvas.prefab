@@ -143,7 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dayMoneyText: {fileID: 268175892283444849}
   _piggyBankMoneyText: {fileID: 1197336800259245820}
-  _animationSpeed: 20
+  _animationSpeed: 60
 --- !u!1 &5029063514159708551
 GameObject:
   m_ObjectHideFlags: 0

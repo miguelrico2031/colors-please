@@ -12,6 +12,7 @@ public class DayManager : ScriptableObject, IDayService
     [field: SerializeField] public RGB255 TargetColor { get; private set; }
     [field: SerializeField] public RGB255 GuessedColor { get; private set; }
     [field: SerializeField] public Minigame CurrentMinigame { get; private set; }
+    [field: SerializeField] public Character GameOverCharacter { get; private set; }
     
     [SerializeField] private string _chatSceneName;
     [SerializeField] private string _bucketsSceneName;
@@ -36,13 +37,9 @@ public class DayManager : ScriptableObject, IDayService
         _currentDayIndex++;
         ServiceLocator.Get<IPersistenceService>().Save();
         
-        if (_currentDayIndex >= _days.Count)
-        {
-            FinishGame();
-            return;
-        }
+        int index = Mathf.Min(_currentDayIndex, _days.Count - 1);
         
-        CurrentDay = _days[_currentDayIndex];
+        CurrentDay = _days[index];
 
         _minigames = new Queue<Minigame>(CurrentDay.GetMinigames());
 
@@ -80,6 +77,26 @@ public class DayManager : ScriptableObject, IDayService
         ServiceLocator.Get<ISceneTransitionService>().TransitionToScene(_bucketsSceneName);
     }
 
+    public void EndDay()
+    {
+        //comprobar condicion de victoria
+        var moneyService = ServiceLocator.Get<IMoneyService>();
+        if (moneyService.PiggyBankMoney >= moneyService.PiggyBankGoal)
+        {
+            Win();
+        }
+        //comprobar condiciones de derrota
+        else if (ServiceLocator.Get<IRelationshipService>().IsGameOver(out var character))
+        {
+            GameOverCharacter = character;
+            Lose();
+        }
+        else
+        {
+            StartDay();
+        }
+    }
+
     public void Load(int dayIndex)
     {
         _currentDayIndex = dayIndex - 1; //porque se va a ++ al principio de StartDay
@@ -113,6 +130,16 @@ public class DayManager : ScriptableObject, IDayService
             ServiceLocator.Get<ISceneTransitionService>().TransitionToScene(_chatSceneName);
         }
         else GoToBuckets();
+    }
+
+    private void Win()
+    {
+        ServiceLocator.Get<ISceneTransitionService>().TransitionToScene("Win");
+    }
+
+    private void Lose()
+    {
+        ServiceLocator.Get<ISceneTransitionService>().TransitionToScene("Lose");
     }
 
 

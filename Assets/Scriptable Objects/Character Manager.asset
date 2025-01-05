@@ -26,7 +26,7 @@ MonoBehaviour:
     Picture: {fileID: -6301148875643079632, guid: 425d2f310ede82f418d442dc4235a16e, type: 3}
     ChatColor: {r: 1, g: 0.75, b: 0.8457862, a: 1}
   - Character: 3
-    Name: Dwight Jr Dropper Clonestamp
+    Name: Dwight Jr
     Picture: {fileID: -6756471228596302557, guid: cc5800bcd9d81424584b11544a1c56b8, type: 3}
     ChatColor: {r: 0.5246529, g: 0.8490566, b: 0.5842372, a: 1}
   - Character: 4
@@ -40,8 +40,8 @@ MonoBehaviour:
   - Character: 6
     Name: Carl Customshape
     Picture: {fileID: 4306850296687643777, guid: 13e1a0df4e303824187db0ffa1249799, type: 3}
-    ChatColor: {r: 0.6538217, g: 0.5238074, b: 0.745283, a: 0}
+    ChatColor: {r: 0.6538217, g: 0.5238074, b: 0.745283, a: 1}
   - Character: 7
     Name: Martha Magneticlasso
     Picture: {fileID: -1520479468681070429, guid: eb1503657ecbca54b9b6823a901f12f1, type: 3}
-    ChatColor: {r: 1, g: 0.7503603, b: 0.5424528, a: 0}
+    ChatColor: {r: 1, g: 0.7503603, b: 0.5424528, a: 1}

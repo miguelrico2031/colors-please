@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a48728766a413e9dc659c4fc1a0f01, type: 3}
+  m_Name: Day 2 End
+  m_EditorClassIdentifier: 
+  <Messages>k__BackingField:
+  - Character: 4
+    Text: "Hombre Dwight, qu\xE9 casualidad que nos encontremos justo en el pasillo.
+      Eso me recuerda\u2026 No me has pagado el alquiler todav\xEDa, \xBFa que no?"
+  - Character: 1
+    Text: "Qu\xE9 va, luego te lo pago\u2026"
+  - Character: 4
+    Text: "Mejor que sea pronto. Tengo que renovar la licencia de Abode, y cr\xE9eme,
+      no son precisamente baratas. As\xED que ya sabes, paga cuando puedas\u2026
+      pero que \"cuando puedas\" sea hoy."

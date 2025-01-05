@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b841a80c24df4521a4d07cdfe1ea05d5, type: 3}
   m_Name: Day Manager
   m_EditorClassIdentifier: 
-  <CurrentDay>k__BackingField: {fileID: 11400000, guid: ff8d8b6b1b01cc240839ff27f500b982, type: 2}
+  <CurrentDay>k__BackingField: {fileID: 0}
   <DialogueToDisplay>k__BackingField: {fileID: 11400000, guid: 03e26d792f6de3b4eb4dea103d25ed19, type: 2}
   <TargetColor>k__BackingField:
     R: 119
@@ -23,10 +23,18 @@ MonoBehaviour:
     G: 137
     B: 141
   <CurrentMinigame>k__BackingField: {fileID: 0}
+  <GameOverCharacter>k__BackingField: 0
   _chatSceneName: Chat
   _bucketsSceneName: Buckets
   _scoreSceneName: Score
   _days:
-  - {fileID: 11400000, guid: ff8d8b6b1b01cc240839ff27f500b982, type: 2}
-  - {fileID: 11400000, guid: d19414471bb5b3d4e94f1ab613c8ebd2, type: 2}
+  - {fileID: 11400000, guid: 099d5e35243f7a742b11e92b38b7110d, type: 2}
+  - {fileID: 11400000, guid: b07129d6313e6a44ba19af119462dbf2, type: 2}
+  - {fileID: 11400000, guid: 5b611aebfe140be4b9c703056b3c1845, type: 2}
+  - {fileID: 11400000, guid: 449791a30a07f1841908156a7dce865c, type: 2}
+  - {fileID: 11400000, guid: 08f1d89a3295d014aa396df7bb750fa6, type: 2}
+  - {fileID: 11400000, guid: 7213fa523a99993459d8ae0ed7fea498, type: 2}
+  - {fileID: 11400000, guid: f7604031e147f54409df646e47a376fa, type: 2}
+  - {fileID: 11400000, guid: d5a1d2aa53e14034682358158a727f87, type: 2}
+  - {fileID: 11400000, guid: a3a54a54c159c304fb178711259b4b70, type: 2}
   _currentDayIndex: 0
