@@ -7,6 +7,7 @@ public static class ServiceLocator
     {
         ThrowExceptions,
         FalseOrNull,
+        OverwriteOrNull,
     }
 
     public static FailStrategies FailStrategy { get; set; } = FailStrategies.ThrowExceptions;
@@ -17,12 +18,18 @@ public static class ServiceLocator
         string key = typeof(T).Name;
         if (!_services.TryAdd(key, service))
         {
-            return FailStrategy switch
+            switch (FailStrategy)
             {
-                FailStrategies.ThrowExceptions => throw new Exception($"service {key} already registered."),
-                FailStrategies.FalseOrNull => false,
-                _ => throw new ArgumentOutOfRangeException()
-            };
+                case FailStrategies.ThrowExceptions:
+                    throw new Exception($"service {key} already registered.");
+                case FailStrategies.FalseOrNull:
+                    return false;
+                case FailStrategies.OverwriteOrNull:
+                    _services[key] = service;
+                    return true;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
         
         _services[key] = service;
@@ -40,6 +47,7 @@ public static class ServiceLocator
         {
             FailStrategies.ThrowExceptions => throw new Exception($"service {key} not found."),
             FailStrategies.FalseOrNull => default,
+            FailStrategies.OverwriteOrNull => default,
             _ => throw new ArgumentOutOfRangeException()
         };
     }

@@ -15,6 +15,7 @@ public class Initializer : MonoBehaviour
     
     [Header("Days")]
     [SerializeField] private DayManager _dayManager;
+    [SerializeField] private EndlessManager _endlessManager;
     
     [Header("Score")]
     [SerializeField] private ScoreManager _scoreManager;
@@ -23,17 +24,35 @@ public class Initializer : MonoBehaviour
     [SerializeField] private PersistenceManager _persistenceManager;
     
     
-    private static Initializer _instance;
+    public static Initializer Instance {get; private set;}
+    
     private void Awake()
     {
-        if (_instance is not null)
+        if (Instance is not null)
         {
             Destroy(transform.root.gameObject);
             return;
         }
-        _instance = this;
+        Instance = this;
         DontDestroyOnLoad(transform.root.gameObject);
         LocateAndRegisterServices();
+    }
+
+    public void SetDayMode()
+    {
+        var strat = ServiceLocator.FailStrategy;
+        ServiceLocator.FailStrategy = ServiceLocator.FailStrategies.OverwriteOrNull;
+        ServiceLocator.Register<IDayService>(_dayManager);
+        ServiceLocator.FailStrategy = strat;
+    }
+
+    public void SetEndlessMode()
+    {
+        
+        var strat = ServiceLocator.FailStrategy;
+        ServiceLocator.FailStrategy = ServiceLocator.FailStrategies.OverwriteOrNull;
+        ServiceLocator.Register<IDayService>(_endlessManager);
+        ServiceLocator.FailStrategy = strat;
     }
 
     //La idea es, cada que se implemente un manager-service, se registre en esta funcion

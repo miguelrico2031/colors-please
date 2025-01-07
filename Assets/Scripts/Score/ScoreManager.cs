@@ -4,6 +4,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/ScoreManager")]
 public class ScoreManager : ScriptableObject, IScoreService
 {
+    [field: SerializeField] public float EndlessMinPercentage { get; private set; } = 50f;
+    
     [SerializeField] private int _minMoney, _maxMoney;
     [SerializeField] private float _noMoneyPercentageThreshold;
     [SerializeField] private float _tipPercentageThreshold;

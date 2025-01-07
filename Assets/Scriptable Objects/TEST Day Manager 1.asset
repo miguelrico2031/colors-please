@@ -15,14 +15,14 @@ MonoBehaviour:
   <CurrentDay>k__BackingField: {fileID: 11400000, guid: 53a54f48df4d4834aa29b04cf21d7879, type: 2}
   <DialogueToDisplay>k__BackingField: {fileID: 0}
   <TargetColor>k__BackingField:
-    R: 157
-    G: 186
-    B: 129
+    R: 0
+    G: 32
+    B: 226
   <GuessedColor>k__BackingField:
-    R: 148
-    G: 182
-    B: 159
-  <CurrentMinigame>k__BackingField: {fileID: 11400000, guid: 47f518ee733481546879cea965584701, type: 2}
+    R: 180
+    G: 63
+    B: 156
+  <CurrentMinigame>k__BackingField: {fileID: 0}
   <GameOverCharacter>k__BackingField: 3
   _chatSceneName: Chat
   _bucketsSceneName: Buckets

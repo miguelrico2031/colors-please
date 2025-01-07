@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class ScoreSceneManager : MonoBehaviour
 {
+    [SerializeField] private bool _isEndless;
     [SerializeField] private float _sceneDuration;
     [Header("Remaining time Indicator")]
     [SerializeField] private Image _remainingTimeIndicator;
@@ -38,12 +39,18 @@ public class ScoreSceneManager : MonoBehaviour
     [SerializeField] private float _scoreAnimationDuration;
     [SerializeField] private LeanTweenType _scoreAnimationType;
 
+    [Header("Endless")]
+    [SerializeField] private TextMeshProUGUI _gameOverText;
+    [SerializeField] private TextMeshProUGUI _highScoreText;
+    [SerializeField] private TextMeshProUGUI _newHighScoreText;
+
     private static readonly int _topColorHash = Shader.PropertyToID("_TopColor");
     private static readonly int _bottomColorHash = Shader.PropertyToID("_BottomColor");
     private IDayService _dayService;
     private IScoreService _scoreService;
     private float _remainingTime;
     private Score _score;
+    private bool _isEndlessGameOver;
 
     private void Awake()
     {
@@ -92,6 +99,9 @@ public class ScoreSceneManager : MonoBehaviour
         _guessedColorImage.color = _dayService.GuessedColor.ToColor();
 
         _score = _scoreService.GetScore(_dayService.TargetColor, _dayService.GuessedColor);
+
+        _isEndlessGameOver = _isEndless && _score.Percentage < _scoreService.EndlessMinPercentage;
+        
         _percentageText.text = $"{_score.Percentage:F2}%";
         _moneyText.text = $"${_score.Money}";
         _tipText.text = $"${_score.Tip}";
@@ -150,6 +160,12 @@ public class ScoreSceneManager : MonoBehaviour
         yield return new WaitForSeconds(_scoreAnimationDuration);
         ServiceLocator.Get<IMusicService>().PlaySoundPitch("aceptar", 0.4f);
 
+        if (_isEndlessGameOver)
+        {
+            yield return DisplayEndlessGameOver();
+            yield break;
+        }
+
         money.gameObject.SetActive(true);
         LeanTween.scale(money.gameObject, Vector3.one, _scoreAnimationDuration)
             .setEase(_scoreAnimationType);
@@ -169,12 +185,65 @@ public class ScoreSceneManager : MonoBehaviour
 
         ServiceLocator.Get<IMoneyService>().AddDayMoney(_score.Money + _score.Tip);
     }
+
+    private IEnumerator DisplayEndlessGameOver()
+    {
+        var gameOverGO =  _gameOverText.transform.parent.gameObject;
+        var highScoreGO = _highScoreText.transform.parent.gameObject;
+        var newHighScoreGO = _newHighScoreText.transform.parent.gameObject;
+        
+        gameOverGO.transform.localScale = Vector3.one * _scoreAnimationInitialScale;
+        highScoreGO.transform.localScale = Vector3.one * _scoreAnimationInitialScale;
+        newHighScoreGO.transform.localScale = Vector3.one * _scoreAnimationInitialScale;
+        
+        gameOverGO.SetActive(true);
+        LeanTween.scale(gameOverGO, Vector3.one, _scoreAnimationDuration)
+            .setEase(_scoreAnimationType);
+        yield return new WaitForSeconds(_scoreAnimationDuration);
+        ServiceLocator.Get<IMusicService>().PlaySoundPitch("aceptar", 0.6f);
+        
+        var money = (int)ServiceLocator.Get<IMoneyService>().DayMoney;
+        var highScore = PlayerPrefs.GetInt("HighScore", 0);
+        _highScoreText.text = $"${Mathf.Max(money, highScore)}";
+        highScoreGO.SetActive(true);
+        LeanTween.scale(highScoreGO, Vector3.one, _scoreAnimationDuration)
+            .setEase(_scoreAnimationType);
+        yield return new WaitForSeconds(_scoreAnimationDuration);
+        ServiceLocator.Get<IMusicService>().PlaySoundPitch("aceptar", 0.6f);
+
+
+        
+        if (money <= highScore) yield break;
+        
+        
+        PlayerPrefs.SetInt("HighScore", money);
+
+        newHighScoreGO.SetActive(true);
+        LeanTween.scale(newHighScoreGO, Vector3.one, _scoreAnimationDuration)
+            .setEase(_scoreAnimationType);
+        yield return new WaitForSeconds(_scoreAnimationDuration);
+        ServiceLocator.Get<IMusicService>().PlaySoundPitch("aceptar", 0.6f);
+
+        LeanTween.scale(_newHighScoreText.gameObject, Vector3.one * 1.1f, _scoreAnimationDuration * .75f)
+            .setLoopPingPong()
+            .setEase(LeanTweenType.linear);
+
+
+    }
     
 
     private void NextMinigame()
     {
         ServiceLocator.Get<IMusicService>().PlaySoundPitch("aceptar2");
         this.enabled = false;
-        ServiceLocator.Get<IDayService>().GoToNextMinigame();
+
+        if (_isEndlessGameOver)
+        {
+            ServiceLocator.Get<ISceneTransitionService>().TransitionToScene("Main Menu");
+        }
+        else
+        {
+            ServiceLocator.Get<IDayService>().GoToNextMinigame();
+        }
     }
 }

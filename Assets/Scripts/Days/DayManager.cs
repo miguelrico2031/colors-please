@@ -134,6 +134,7 @@ public class DayManager : ScriptableObject, IDayService
 
     private void Win()
     {
+        PlayerPrefs.SetInt("Endless", 1);
         ServiceLocator.Get<ISceneTransitionService>().TransitionToScene("Win");
     }
 
@@ -142,9 +143,4 @@ public class DayManager : ScriptableObject, IDayService
         ServiceLocator.Get<ISceneTransitionService>().TransitionToScene("Lose");
     }
 
-
-    private void FinishGame()
-    {
-        Debug.Log("GANASTE?");
-    }
 }
