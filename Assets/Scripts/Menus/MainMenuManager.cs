@@ -51,8 +51,6 @@ public class MainMenuManager : MonoBehaviour
         
         _saveInfoText.text = $"Día {data.DayIndex + 1}\nHucha: ${data.PiggyBankMoney}";
 
-        ServiceLocator.Get<IMusicService>().SetSong("clips");
-        ServiceLocator.Get<IMusicService>().SetPhase(2);
 
         LeanTween.scale(_title, Vector3.one * _minTitleScale, _titleScalePeriod)
             .setLoopPingPong()
