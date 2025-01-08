@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Score Manager
   m_EditorClassIdentifier: 
   <EndlessMinPercentage>k__BackingField: 50
-  _minMoney: 50
-  _maxMoney: 150
-  _noMoneyPercentageThreshold: 35
-  _tipPercentageThreshold: 90
+  _minMoney: 10
+  _maxMoney: 50
+  _noMoneyPercentageThreshold: 20
+  _tipPercentageThreshold: 85
   _minTip: 10
   _maxTip: 20
