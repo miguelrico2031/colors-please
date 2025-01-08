@@ -58,6 +58,9 @@ public class PaintDropSpawner : MonoBehaviour
         if (paintDropPool.Count > 0)
         {
             GameObject newPaintDrop = paintDropPool.Dequeue();
+
+            if (newPaintDrop == null) return; // Evitar error al acabar el juego
+
             newPaintDrop.transform.position = spawnPoint.position + new Vector3(
                 Random.Range(-0.15f, 0.15f),
                 Random.Range(-0.15f, 0.15f),

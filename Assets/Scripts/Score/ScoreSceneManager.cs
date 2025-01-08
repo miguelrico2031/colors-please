@@ -62,6 +62,7 @@ public class ScoreSceneManager : MonoBehaviour
 
     private void Start()
     {
+        ServiceLocator.Get<IMusicService>().StopGambling();
         ServiceLocator.Get<IMusicService>().PlaySound("fin");
         InitializeUI();
         StartCoroutine(DisplayScore());

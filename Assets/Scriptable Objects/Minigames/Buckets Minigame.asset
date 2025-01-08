@@ -13,3 +13,7 @@ MonoBehaviour:
   m_Name: Buckets Minigame
   m_EditorClassIdentifier: 
   SceneName: Buckets Minigame
+  HelpText: "Vuelca tu m\xF3vil para echar pintura en el cubo de debajo. Mezcla pintura
+    hasta obtener el color de fondo antes de que se acabe el tiempo. Para cambiar
+    el color de la pintura utiliza los botones de la derecha. Puedes pulsar el bot\xF3n
+    de listo si acabas antes del tiempo."

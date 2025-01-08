@@ -133,7 +133,6 @@ public class GamblingManager : MonoBehaviour
         nStops++;
         if(nStops == 3)
         {
-            ServiceLocator.Get<IMusicService>().StopGambling();
             ServiceLocator.Get<IDayService>().FinishMinigame(targetRGB, answerRGB);
         }
     }
