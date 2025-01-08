@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class BucketDst : MonoBehaviour
 {
-    [SerializeField] private BucketsMinigameManager manager;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -12,7 +11,7 @@ public class BucketDst : MonoBehaviour
             //Destroy(other.gameObject);
             PaintDropSpawner.Instance.ReturnToPool(other.gameObject);
 
-            manager.MixColor(otherColor);
+            BucketsMinigameManager.Instance.MixColor(otherColor);
         }
 
     }
