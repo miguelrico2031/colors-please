@@ -7,14 +7,7 @@ public class HoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public float scale = 1.2f;
     public float time = 0.5f;
     private LTDescr tweenId;
-    private Color color;
-    private float hoverColorFactor = 1f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        color = GetComponent<Image>().color;
-    }
     public void OnPointerEnter(PointerEventData eventData)
     {
         tweenId = LeanTween.scale(gameObject, Vector2.one * scale, time).setEase(LeanTweenType.easeOutElastic);

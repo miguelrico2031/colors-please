@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: Pachinko Minigame
   m_EditorClassIdentifier: 
   SceneName: Pachinko Minigame
+  HelpText: "Apunta con el dedo para disparar la bola de Pachinko en la direcci\xF3n
+    en la que quieras, y gira el m\xF3vil para corregir la direcci\xF3n en la que
+    se vaya moviendo la bola a lo largo del Pachinko."
