@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Hammer
   m_EditorClassIdentifier: 
   SceneName: Hammer
+  HelpText: "Agita el tel\xE9fono para subir el color sea el turno de cada calor.
+    A mayor fuerza, m\xE1s subir\xE1 el color."
