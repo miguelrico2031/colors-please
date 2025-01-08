@@ -39,4 +39,10 @@ public class Pause : MonoBehaviour
         _background.SetActive(false);
         ServiceLocator.Get<IMusicService>().PlaySound("aceptar2");
     }
+
+    public void ExitToMenu()
+    {
+        ResumeGame();
+        ServiceLocator.Get<ISceneTransitionService>().TransitionToScene("Main Menu");
+    }
 }

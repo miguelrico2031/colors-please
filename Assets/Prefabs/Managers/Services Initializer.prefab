@@ -47,7 +47,7 @@ MonoBehaviour:
   _moneyManager: {fileID: 11400000, guid: 4efc8559ed6735a41a1b8c20bda1ed54, type: 2}
   _relationshipManager: {fileID: 11400000, guid: a7c1110ecb0ce8446abdcfe557a8ab71, type: 2}
   _characterManager: {fileID: 11400000, guid: ea9dee44456b382438f85d04ce58a6f8, type: 2}
-  _dayManager: {fileID: 11400000, guid: 13aa91579e8773c408b3f4c010727801, type: 2}
+  _dayManager: {fileID: 11400000, guid: 69aca9690f55f3948b8a6e4d33f635d9, type: 2}
   _endlessManager: {fileID: 11400000, guid: 36004dcf76b12344290a827c9215c92f, type: 2}
   _scoreManager: {fileID: 11400000, guid: 6eae553eff7c526469241a10ec7c462d, type: 2}
   _persistenceManager: {fileID: 11400000, guid: d674b92887129fb4abcef0ef964b29cb, type: 2}
