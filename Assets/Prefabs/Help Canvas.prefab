@@ -183,7 +183,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tus muertos
+  m_text: Texto de ayuda no encontrado
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: afc76d419eed3b242807de9a6b855af0, type: 2}
   m_sharedMaterial: {fileID: -3575457998427817731, guid: afc76d419eed3b242807de9a6b855af0, type: 2}
