@@ -11,6 +11,7 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private GameObject _optionsPanel;
     [SerializeField] private GameObject _creditsPanel;
     [SerializeField] private GameObject _backButton;
+    [SerializeField] private GameObject _exitButton;
     [SerializeField] private GameObject _menuCanvas;
     [SerializeField] private Slider _musicSlider;
     [SerializeField] private Slider _soundsSlider;
@@ -44,6 +45,7 @@ public class OptionsMenu : MonoBehaviour
         _creditsPanel.SetActive(false);
         _optionsPanel.SetActive(true);
         _backButton.SetActive(true);
+        if (_exitButton) _exitButton.SetActive(true);
     }
 
     public void GoBack()
@@ -59,6 +61,7 @@ public class OptionsMenu : MonoBehaviour
             _optionsPanel.SetActive(false);
             _backButton.SetActive(false);
             if(_menuCanvas) _menuCanvas.SetActive(true);
+            if (_exitButton) _exitButton.SetActive(false);
             OnOptionsMenuHide?.Invoke();
         }
     }
@@ -107,5 +110,4 @@ public class OptionsMenu : MonoBehaviour
         _comparerText.text = ComparerTool.DefaultComparer.ToString();
         ServiceLocator.Get<IMusicService>().PlaySound("aceptar2");
     }
-
 }

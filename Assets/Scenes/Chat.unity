@@ -127,9 +127,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 603815242155525919, guid: dfc508780ebd0c840995223ae4e64718, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 603815242155525919, guid: dfc508780ebd0c840995223ae4e64718, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 603815242155525919, guid: dfc508780ebd0c840995223ae4e64718, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 603815242155525919, guid: dfc508780ebd0c840995223ae4e64718, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 603815242155525919, guid: dfc508780ebd0c840995223ae4e64718, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 623723669159256877, guid: dfc508780ebd0c840995223ae4e64718, type: 3}
       propertyPath: m_Name
       value: Pause Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320062140908467980, guid: dfc508780ebd0c840995223ae4e64718, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1657148728264571570, guid: dfc508780ebd0c840995223ae4e64718, type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -215,6 +239,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6619062835011949880, guid: dfc508780ebd0c840995223ae4e64718, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7207667834820401843, guid: dfc508780ebd0c840995223ae4e64718, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399751668370714115, guid: dfc508780ebd0c840995223ae4e64718, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -233,6 +269,7 @@ GameObject:
   - component: {fileID: 167077970}
   - component: {fileID: 167077969}
   - component: {fileID: 167077972}
+  - component: {fileID: 167077973}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -364,6 +401,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &167077973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167077967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11ff0e4c96e606e498e9343370d39fab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scale: 1.2
+  time: 0.5
 --- !u!1 &296626242
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,6 +1169,7 @@ GameObject:
   - component: {fileID: 1452551115}
   - component: {fileID: 1452551114}
   - component: {fileID: 1452551117}
+  - component: {fileID: 1452551118}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1261,6 +1313,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1452551118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452551112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11ff0e4c96e606e498e9343370d39fab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scale: 1.1
+  time: 0.5
 --- !u!1 &1636559862
 GameObject:
   m_ObjectHideFlags: 0

@@ -417,6 +417,7 @@ GameObject:
   - component: {fileID: 404666236}
   - component: {fileID: 404666235}
   - component: {fileID: 404666238}
+  - component: {fileID: 404666239}
   m_Layer: 5
   m_Name: Options Button
   m_TagString: Untagged
@@ -572,6 +573,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &404666239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404666233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11ff0e4c96e606e498e9343370d39fab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scale: 1.2
+  time: 0.5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,6 +738,7 @@ GameObject:
   - component: {fileID: 540402240}
   - component: {fileID: 540402239}
   - component: {fileID: 540402238}
+  - component: {fileID: 540402244}
   m_Layer: 5
   m_Name: Endless Button
   m_TagString: Untagged
@@ -905,6 +921,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 800, y: 225}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &540402244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540402237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11ff0e4c96e606e498e9343370d39fab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scale: 1.2
+  time: 0.5
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1610,6 +1640,7 @@ GameObject:
   - component: {fileID: 1402405228}
   - component: {fileID: 1402405227}
   - component: {fileID: 1402405231}
+  - component: {fileID: 1402405232}
   m_Layer: 5
   m_Name: Continue Game Button
   m_TagString: Untagged
@@ -1792,6 +1823,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1402405232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402405225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11ff0e4c96e606e498e9343370d39fab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scale: 1.2
+  time: 0.5
 --- !u!1 &1407311890
 GameObject:
   m_ObjectHideFlags: 0
@@ -2537,6 +2582,7 @@ GameObject:
   - component: {fileID: 1990142419}
   - component: {fileID: 1990142418}
   - component: {fileID: 1990142421}
+  - component: {fileID: 1990142422}
   m_Layer: 5
   m_Name: New Game Button
   m_TagString: Untagged
@@ -2692,6 +2738,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1990142422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990142416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11ff0e4c96e606e498e9343370d39fab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scale: 1.2
+  time: 0.5
 --- !u!1 &1994832797
 GameObject:
   m_ObjectHideFlags: 0
@@ -3111,10 +3171,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2073733946991290679, guid: f6648d1d9b1a5d644a9be8491bfa4f30, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3978840641546788820, guid: f6648d1d9b1a5d644a9be8491bfa4f30, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3146,10 +3202,6 @@ PrefabInstance:
     - target: {fileID: 7227122573431384513, guid: f6648d1d9b1a5d644a9be8491bfa4f30, type: 3}
       propertyPath: m_Name
       value: Options Menu Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 7227122573431384513, guid: f6648d1d9b1a5d644a9be8491bfa4f30, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7245484950719139315, guid: f6648d1d9b1a5d644a9be8491bfa4f30, type: 3}
       propertyPath: m_AnchorMax.y

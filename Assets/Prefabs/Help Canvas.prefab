@@ -403,6 +403,7 @@ GameObject:
   - component: {fileID: 7063594724334892621}
   - component: {fileID: 4586571985804625860}
   - component: {fileID: 6177321476431330589}
+  - component: {fileID: 1561549372083090661}
   m_Layer: 5
   m_Name: Help Button
   m_TagString: Untagged
@@ -546,6 +547,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1561549372083090661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7964215235075605730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11ff0e4c96e606e498e9343370d39fab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scale: 1.2
+  time: 0.5
 --- !u!1 &8658022902199167372
 GameObject:
   m_ObjectHideFlags: 0
