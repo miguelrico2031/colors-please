@@ -2,18 +2,13 @@ using UnityEngine;
 
 public class BouncyPinScript : MonoBehaviour
 {
+    [SerializeField] private long _vibrationMilliseconds = 100;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Pachinko Ball"))
         {
-            Vibrate();
+            Vibration.Vibrate(_vibrationMilliseconds);
             ServiceLocator.Get<IMusicService>().PlaySoundPitch("pin2");
         }
-    }
-    private void Vibrate()
-    {
-#if UNITY_ANDROID || UNITY_IOS
-        Handheld.Vibrate();
-#endif
     }
 }

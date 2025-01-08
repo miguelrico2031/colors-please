@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <EndlessMinPercentage>k__BackingField: 50
   _minMoney: 10
-  _maxMoney: 50
+  _maxMoney: 70
   _noMoneyPercentageThreshold: 20
-  _tipPercentageThreshold: 85
-  _minTip: 10
-  _maxTip: 20
+  _tipPercentageThreshold: 80
+  _minTip: 1
+  _maxTip: 30

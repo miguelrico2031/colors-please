@@ -99,7 +99,7 @@ public class PachinkoManager : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         _pachinkoClickArea.GetComponent<ClickAreaScript>().pointerDown -= ActivateArrow;
         _pachinkoClickArea.GetComponent<ClickAreaScript>().pointerUp -= ReleaseArrow;
@@ -125,7 +125,6 @@ public class PachinkoManager : MonoBehaviour
                 _pachinkoGradient.SetColor("_RightColor", Color.blue);
                 break;
         }
-        Debug.Log(_ballCount);
         _pachinkoState = states.aim;
     }
 
@@ -203,7 +202,7 @@ public class PachinkoManager : MonoBehaviour
         else
         {
             RGB255 guessedColor = new RGB255(_RGBComponents[0], _RGBComponents[1], _RGBComponents[2]);
-            Debug.Log(guessedColor.ToString());
+            GetComponent<GravityManager>().ResetGravity();
             ServiceLocator.Get<IDayService>().FinishMinigame(_targetColor, guessedColor);
         }
     }

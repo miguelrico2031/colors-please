@@ -4,6 +4,8 @@ using UnityEngine.InputSystem.LowLevel;
 
 public class GravityManager : MonoBehaviour
 {
+    [SerializeField, Range(-1, 0)] private float maxLeftInclination = -0.7f;
+    [SerializeField, Range(-1, 0)] private float maxRightInclination = -0.3f;
     private Vector2 initial_gravity;
     private void Awake()
     {
@@ -26,7 +28,7 @@ public class GravityManager : MonoBehaviour
         }
     }
 
-    private void ResetGravity()
+    public void ResetGravity()
     {
         Physics2D.gravity = initial_gravity;
     }
@@ -34,7 +36,7 @@ public class GravityManager : MonoBehaviour
     public void OnGyro(Vector3 gyroGravity)
     {
         Vector2 inputGravity = new Vector2(gyroGravity.x, gyroGravity.y + gyroGravity.z);
-        inputGravity = new Vector2(inputGravity.x, Mathf.Clamp(inputGravity.y, -1.0f, 0f)).normalized;
+        inputGravity = new Vector2(inputGravity.x, Mathf.Clamp(inputGravity.y, maxLeftInclination, maxRightInclination)).normalized;
         Vector2 newGravity = inputGravity * Mathf.Abs(initial_gravity.y);
         Physics2D.gravity = newGravity;
     }
