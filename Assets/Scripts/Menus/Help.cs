@@ -15,6 +15,7 @@ public class Help : MonoBehaviour
 
     public void ToggleHelp()
     {
+        ServiceLocator.Get<IMusicService>().PlaySound("aceptar2");
         if (!_helpPanel.activeSelf)
         {
             _helpPanel.SetActive(true);

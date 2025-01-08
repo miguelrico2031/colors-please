@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6964aef4192449485ab3b62b7d966bf, type: 3}
   m_Name: Score Manager
   m_EditorClassIdentifier: 
-  _minMoney: 10
-  _maxMoney: 30
+  <EndlessMinPercentage>k__BackingField: 50
+  _minMoney: 50
+  _maxMoney: 150
   _noMoneyPercentageThreshold: 35
   _tipPercentageThreshold: 90
   _minTip: 10
