@@ -2,6 +2,9 @@ using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
+using UnityEngine.InputSystem.EnhancedTouch;
 using UnityEngine.UIElements;
 
 public enum states
@@ -21,6 +24,7 @@ public class PachinkoManager : MonoBehaviour
     [SerializeField] private GameObject _pachinkoGrid;
     [SerializeField] private GameObject[] _pachinkoLayoutsList;
     [SerializeField] private GameObject _pachinkoEndingWall;
+    [SerializeField] private GameObject _pachinkoClickArea;
     [SerializeField] private Material _pachinkoGradient;
     [SerializeField] private float _forceFactor = 2f;
     [SerializeField] private float _minForce = 1f;
@@ -75,6 +79,8 @@ public class PachinkoManager : MonoBehaviour
         _RGBComponents = new byte[3];
         _arrow.SetActive(false);
         _valueSelected.gameObject.SetActive(false);
+        _pachinkoClickArea.GetComponent<ClickAreaScript>().pointerDown += ActivateArrow;
+        _pachinkoClickArea.GetComponent<ClickAreaScript>().pointerUp += ReleaseArrow;
         Instantiate(_pachinkoLayoutsList[Random.Range(0, _pachinkoLayoutsList.Length)], _pachinkoGrid.transform);
     }
 
@@ -92,8 +98,14 @@ public class PachinkoManager : MonoBehaviour
                 break;
         }
     }
+
+    private void OnDisable()
+    {
+        _pachinkoClickArea.GetComponent<ClickAreaScript>().pointerDown -= ActivateArrow;
+        _pachinkoClickArea.GetComponent<ClickAreaScript>().pointerUp -= ReleaseArrow;
+    }
     #endregion
-    
+
     #region StatesFunctions
     private void StartAim()
     {
@@ -119,37 +131,41 @@ public class PachinkoManager : MonoBehaviour
 
     private void Aim()
     {
-        if (Input.touchCount > 0)
+        if (_pachinkoClickArea.GetComponent<ClickAreaScript>().touching)
         {
-            Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Began)
-            {
-                _arrow.SetActive(true);
-                ServiceLocator.Get<IMusicService>().PlaySoundPitch("cancelar");
-            }
-
-            if (touch.phase == TouchPhase.Moved)
-            {
-                var touchPos = (Vector2)Camera.main.ScreenToWorldPoint(touch.position);
-                _aimDirection = touchPos - _originalBallPosition;
-                float dirLengthClamped = Mathf.Clamp(_aimDirection.magnitude, _minWidth, _maxWidth);
-                Vector2 newSize = new Vector2(dirLengthClamped + Mathf.Clamp(_aimDirection.magnitude, 0f, _maxWidth), _arrowSprite.size.y);
-                _arrowSprite.size = newSize;
-                float r = (dirLengthClamped - _minWidth) / (_maxWidth - _minWidth);
-                float g = 1 - ((dirLengthClamped - _minWidth) / (_maxWidth - _minWidth));
-                _arrowSprite.color = new Color(r,g,0f);
-                _arrow.transform.right = _aimDirection;
-            }
-
-            if (touch.phase == TouchPhase.Ended)
-            {
-                _arrow.SetActive(false);
-                _rb.constraints = RigidbodyConstraints2D.None;
-                _rb.AddForce(_aimDirection * _forceFactor, ForceMode2D.Impulse);
-                _pachinkoState = states.game;
-                ServiceLocator.Get<IMusicService>().PlaySoundPitch("lanza");
-            }
+            MoveArrow();
         }
+    }
+
+    private void ActivateArrow()
+    {
+        if (_pachinkoState != states.aim)
+            return;
+        _arrow.SetActive(true);
+    }
+
+    private void MoveArrow()
+    {
+        var touchPos = _pachinkoClickArea.GetComponent<ClickAreaScript>().touchPosition;
+        touchPos = Camera.main.ScreenToWorldPoint(touchPos);
+        _aimDirection = touchPos - _originalBallPosition;
+        float dirLengthClamped = Mathf.Clamp(_aimDirection.magnitude, _minWidth, _maxWidth);
+        Vector2 newSize = new Vector2(dirLengthClamped + Mathf.Clamp(_aimDirection.magnitude, 0f, _maxWidth), _arrowSprite.size.y);
+        _arrowSprite.size = newSize;
+        float r = (dirLengthClamped - _minWidth) / (_maxWidth - _minWidth);
+        float g = 1 - ((dirLengthClamped - _minWidth) / (_maxWidth - _minWidth));
+        _arrowSprite.color = new Color(r, g, 0f);
+        _arrow.transform.right = _aimDirection;
+    }
+
+    private void ReleaseArrow()
+    {
+        if (_pachinkoState != states.aim)
+            return;
+        _arrow.SetActive(false);
+        _rb.constraints = RigidbodyConstraints2D.None;
+        _rb.AddForce(_aimDirection * _forceFactor, ForceMode2D.Impulse);
+        _pachinkoState = states.game;
     }
 
     public void DetectRGBValue()
