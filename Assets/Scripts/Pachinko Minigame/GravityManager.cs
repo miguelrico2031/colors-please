@@ -24,34 +24,16 @@ public class GravityManager : MonoBehaviour
             InputSystem.EnableDevice(GravitySensor.current);
             OnGyro(GravitySensor.current.gravity.ReadValue());
         }
-
-        
     }
 
     private void ResetGravity()
     {
         Physics2D.gravity = initial_gravity;
     }
-    //public void OnGyro(InputAction.CallbackContext context)
-    //{
-    //    Vector3 gyroGravity = context.ReadValue<Vector3>();
-    //    Vector2 inputGravity = new Vector2(gyroGravity.x, gyroGravity.y + gyroGravity.z);
-    //    inputGravity = new Vector2(inputGravity.x, Mathf.Clamp(inputGravity.y, -1.0f, 0f)).normalized;
-    //    Vector2 newGravity = inputGravity * Mathf.Abs(initial_gravity.y);
-    //    Physics2D.gravity = newGravity;
-    //}
 
     public void OnGyro(Vector3 gyroGravity)
     {
         Vector2 inputGravity = new Vector2(gyroGravity.x, gyroGravity.y + gyroGravity.z);
-        inputGravity = new Vector2(inputGravity.x, Mathf.Clamp(inputGravity.y, -1.0f, 0f)).normalized;
-        Vector2 newGravity = inputGravity * Mathf.Abs(initial_gravity.y);
-        Physics2D.gravity = newGravity;
-    }
-
-    private void ModifyGravity()
-    {
-        Vector2 inputGravity = new Vector2(Input.gyro.gravity.x, Input.gyro.gravity.y + Input.gyro.gravity.z);
         inputGravity = new Vector2(inputGravity.x, Mathf.Clamp(inputGravity.y, -1.0f, 0f)).normalized;
         Vector2 newGravity = inputGravity * Mathf.Abs(initial_gravity.y);
         Physics2D.gravity = newGravity;
