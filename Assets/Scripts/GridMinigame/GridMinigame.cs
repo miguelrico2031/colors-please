@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using UnityEngine.InputSystem;
+
 
 public class GridMinigame : MonoBehaviour
 {
@@ -26,10 +28,14 @@ public class GridMinigame : MonoBehaviour
     private string selectedHex = "#";
     private RGB255 targetColor;
     private RGB255 playerColor;
+
+    public GameObject clickArea;
     //private bool isReady = false;
 
     void Start()
     {
+        clickArea.GetComponent<ClickAreaScript>().pointerDown += SelectCharacter;
+
         targetColor = RGB255.Random();
         //Debug.Log($"color: {targetColor}");
         targetImage.color = targetColor.ToColor();
@@ -39,14 +45,22 @@ public class GridMinigame : MonoBehaviour
         cursorPosition = new Vector2(Screen.width / 2, Screen.height / 2);
         UpdateCursorPosition();
 
-        if (SystemInfo.supportsGyroscope)
+        /* EL INPUT ANTIGUO 
+         * if (SystemInfo.supportsGyroscope)
         {
             Input.gyro.enabled = true;
         }
         else
         {
             Debug.LogWarning("el movil no tiene giroscopio");
+        }*/
+
+        if (!SystemInfo.supportsGyroscope)
+        {
+            throw new System.Exception("Tu dispositivo no tiene giroscopio");
         }
+
+        GetComponent<PlayerInput>().actions["Gyro"].Enable();
 
         //StartCoroutine(InitializeInput());
     }
@@ -54,18 +68,24 @@ public class GridMinigame : MonoBehaviour
     /*
     IEnumerator InitializeInput()
     {
-        // Esperar un frame para garantizar que todo esté renderizado
+        // Esperar a que se inicialice
         yield return null;
         Canvas.ForceUpdateCanvases();
         isReady = true;
-        Debug.Log("Input listo. Puedes interactuar con la cuadrícula.");
+        Debug.Log("Input listo.");
     }*/
 
     void Update()
     {
         //if (!isReady) return;
+        Vector2 tilt = new Vector2(0,0);
 
-        Vector2 tilt = GetTilt(); // La inclinacion del movil
+        if (GravitySensor.current != null)
+        {
+            InputSystem.EnableDevice(GravitySensor.current);
+            tilt = new Vector2(GravitySensor.current.gravity.ReadValue().x, GravitySensor.current.gravity.ReadValue().y);
+        }
+
         Vector2 acceleration = tilt * accelerationFactor * Time.deltaTime; // * la aceleracion y el deltatime
         cursorVelocity += acceleration; // se aplica al cursor
         cursorVelocity = Vector2.Lerp(cursorVelocity, Vector2.zero, friction * Time.deltaTime); 
@@ -76,12 +96,6 @@ public class GridMinigame : MonoBehaviour
         cursorPosition.y = Mathf.Clamp(cursorPosition.y, 0, Screen.height);
 
         UpdateCursorPosition();
-
-        // pulsar en la pantalla
-        if (Input.GetMouseButtonDown(0))
-        {
-            SelectCharacter();
-        }
     }
 
     void PositionTextsAndGrid()
@@ -116,40 +130,9 @@ public class GridMinigame : MonoBehaviour
         gridRect.sizeDelta = new Vector2(canvasWidth, gridHeight);
         gridRect.anchoredPosition = new Vector2(0, (titleSectionEnd + markerSectionStart) / 2); // Centrado entre título y marcador
 
-        AdjustTextColor(); // cambiar color textos
-    }
-
-    void AdjustTextColor()
-    {
-        float similarityWithBlack = RGB255.GetSimilarity(targetColor, new RGB255());
-
-        if (similarityWithBlack > 0.5f)
-        {
-            titleText.color = Color.white;
-            selectedText.color = Color.white;
-        }
-        else
-        {
-            titleText.color = Color.black;
-            selectedText.color = Color.black;
-        }
-
-        Debug.Log($"similaritud con negro: {similarityWithBlack}");
     }
 
 
-    Vector2 GetTilt()
-    {
-        if (SystemInfo.supportsGyroscope)
-        {
-            return new Vector2(Input.gyro.gravity.x, Input.gyro.gravity.y);
-        }
-        else
-        {
-            Debug.Log("No soporta giroscopio el movil");
-            return Vector2.zero;
-        }
-    }
 
     void UpdateCursorPosition()
     {
@@ -231,6 +214,11 @@ public class GridMinigame : MonoBehaviour
             }
         }
         Debug.LogWarning("el cursor no esta en ninguna celda");
+    }
+
+    private void OnDisable()
+    {
+        clickArea.GetComponent<ClickAreaScript>().pointerDown -= SelectCharacter;
     }
 
     void FinishMinigame()

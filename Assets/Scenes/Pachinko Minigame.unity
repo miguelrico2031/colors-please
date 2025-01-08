@@ -459,6 +459,7 @@ MonoBehaviour:
   - {fileID: 4374019228221482936, guid: 9a5c4d937aa4b4745afaed8692d971fc, type: 3}
   - {fileID: 4374019228221482936, guid: 96843bd76d21d854eb563410b40a86d4, type: 3}
   _pachinkoEndingWall: {fileID: 1224280110}
+  _pachinkoClickArea: {fileID: 204097867}
   _pachinkoGradient: {fileID: 2100000, guid: a42459f3382c5674297a0b09de6467d8, type: 2}
   _forceFactor: 2
   _minForce: 1

@@ -32,18 +32,13 @@ public class PaintGravityManager : MonoBehaviour
             InputSystem.EnableDevice(GravitySensor.current);
             OnGyro(GravitySensor.current.gravity.ReadValue());
         }
-
-        
     }
 
     private void OnGyro(Vector3 gyroGravity)
     {
-        if (Input.gyro.enabled)
-        {
-            Vector2 inputGravity = new Vector2(gyroGravity.x, gyroGravity.y + gyroGravity.z);
-            inputGravity = new Vector2(inputGravity.x, Mathf.Clamp(inputGravity.y, -1.0f, 0f)).normalized;
-            Vector2 newGravity = inputGravity * Mathf.Abs(init_gravity.y) * 2.5f;
-            Physics2D.gravity = newGravity;
-        }
+        Vector2 inputGravity = new Vector2(gyroGravity.x, gyroGravity.y + gyroGravity.z);
+        inputGravity = new Vector2(inputGravity.x, Mathf.Clamp(inputGravity.y, -1.0f, 0f)).normalized;
+        Vector2 newGravity = inputGravity * Mathf.Abs(init_gravity.y) * 2.5f;
+        Physics2D.gravity = newGravity;
     }
 }
