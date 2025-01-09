@@ -4345,6 +4345,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3598049032793006500, guid: dfc508780ebd0c840995223ae4e64718, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 74.94336
+      objectReference: {fileID: 0}
     - target: {fileID: 8082675892360160219, guid: dfc508780ebd0c840995223ae4e64718, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 21.988525
@@ -6220,6 +6224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2855c05ae102d540ae27f5dbf6da386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  init_gravity: {x: 0, y: 0, z: 0}
 --- !u!114 &1581742376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6247,9 +6252,9 @@ MonoBehaviour:
   yellowBucketButton: {fileID: 180410789}
   whiteBucketButton: {fileID: 2144352017}
   activeColor: 0
-  countdownTime: 30
+  countdownTime: 40
   countdownText: {fileID: 282055668}
-  DEBUG: 1
+  DEBUG: 0
 --- !u!114 &1581742377
 MonoBehaviour:
   m_ObjectHideFlags: 0

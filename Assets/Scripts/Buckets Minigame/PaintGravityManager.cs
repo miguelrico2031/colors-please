@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PaintGravityManager : MonoBehaviour
 {
-    private Vector3 init_gravity;
+    [SerializeField] private Vector3 init_gravity;
 
     private void Awake()
     {
@@ -40,5 +40,11 @@ public class PaintGravityManager : MonoBehaviour
         inputGravity = new Vector2(inputGravity.x, Mathf.Clamp(inputGravity.y, -1.0f, 0f)).normalized;
         Vector2 newGravity = inputGravity * Mathf.Abs(init_gravity.y) * 2.5f;
         Physics2D.gravity = newGravity;
+    }
+
+    public void ResetGravity()
+    {
+        Debug.Log("Reiniciando la gravedad antes de salir de la escena");
+        Physics2D.gravity = new Vector2(0, init_gravity.y);
     }
 }

@@ -217,6 +217,7 @@ public class BucketsMinigameManager : MonoBehaviour
 
     public void FinishMinigame()
     {
+        GetComponent<PaintGravityManager>().ResetGravity();
         ServiceLocator.Get<IDayService>().FinishMinigame(targetColor, guessColor);
         ServiceLocator.Get<IMusicService>().PlaySoundPitch("exclamacion");
     }
