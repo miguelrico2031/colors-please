@@ -852,7 +852,6 @@ GameObject:
   - component: {fileID: 993923560}
   - component: {fileID: 993923559}
   - component: {fileID: 993923561}
-  - component: {fileID: 993923562}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -939,19 +938,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &993923562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 993923557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83ec0ff273829eb4bab458d458b74ce8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetObject: {fileID: 1590360863}
 --- !u!1001 &1092927703
 PrefabInstance:
   m_ObjectHideFlags: 0

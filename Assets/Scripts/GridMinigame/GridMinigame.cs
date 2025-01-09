@@ -188,7 +188,6 @@ public class GridMinigame : MonoBehaviour
             return;
         }
 
-        ServiceLocator.Get<IMusicService>().PlaySound("aceptar2");
 
         for (int row = 0; row < rows; row++)
         {
@@ -202,7 +201,8 @@ public class GridMinigame : MonoBehaviour
                     selectedHex += character;
                     selectedText.text = selectedHex;
                     //Debug.Log($"Caracter: {character}, posicion: [{row}, {column}]");
-                    
+                    ServiceLocator.Get<IMusicService>().PlaySound("aceptar2");
+
                     if (selectedHex.Length == 7)
                     {
                         //Debug.Log($"Codigo: {selectedHex}");
