@@ -16,7 +16,7 @@ public class GravityManager : MonoBehaviour
 
         GetComponent<PlayerInput>().actions["Gyro"].Enable();
 
-        initial_gravity = Physics2D.gravity;
+        initial_gravity = new Vector2(0f, -9.81f);
     }
 
     private void Update()
