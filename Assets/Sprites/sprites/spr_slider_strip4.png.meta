@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: c5fdbb85de5e5b041962792962bc4cf0
+guid: a4a6bc7cf4cb7c045b73204c40164206
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 649223268058989734
-    second: Button_0
+      213: 5976825994439327541
+    second: spr_slider_0
+  - first:
+      213: -219692953125934485
+    second: spr_slider_1
+  - first:
+      213: 7797917428925779555
+    second: spr_slider_2
+  - first:
+      213: -6887249988002780880
+    second: spr_slider_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,23 +148,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Button_0
+      name: spr_slider_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 500
-        height: 250
+        x: 49
+        y: 35
+        width: 1895
+        height: 188
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 27, y: 23, z: 24, w: 23}
+      border: {x: 219, y: 0, z: 178, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6a403906f11820900800000000000000
-      internalID: 649223268058989734
+      spriteID: 53f70ea4393f1f250800000000000000
+      internalID: 5976825994439327541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_slider_1
+      rect:
+        serializedVersion: 2
+        x: 2038
+        y: 29
+        width: 1930
+        height: 190
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 0, z: 205, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6aa5415c6e73fcf0800000000000000
+      internalID: -219692953125934485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_slider_2
+      rect:
+        serializedVersion: 2
+        x: 4020
+        y: 29
+        width: 1969
+        height: 191
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 185, y: 0, z: 156, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36ec2f22694c73c60800000000000000
+      internalID: 7797917428925779555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_slider_3
+      rect:
+        serializedVersion: 2
+        x: 6015
+        y: 39
+        width: 1958
+        height: 178
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 195, y: 0, z: 182, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 039e7c940a29b60a0800000000000000
+      internalID: -6887249988002780880
       vertices: []
       indices: 
       edges: []
@@ -164,7 +239,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ad07e04a908d2b540a13aad7fa60794a
+    spriteID: 17d93307252b01a4d8f7f6294b1cefe7
     internalID: 0
     vertices: []
     indices: 
@@ -174,7 +249,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Button_0: 649223268058989734
+      spr_slider_0: 5976825994439327541
+      spr_slider_1: -219692953125934485
+      spr_slider_2: 7797917428925779555
+      spr_slider_3: -6887249988002780880
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

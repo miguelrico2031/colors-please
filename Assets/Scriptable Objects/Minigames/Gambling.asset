@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneName: Gambling
   HelpText: "Det\xE9n la columna pulsando el bot\xF3n cuando creas que est\xE1 pasando
-    el color correcto."
+    el valor del color correcto."

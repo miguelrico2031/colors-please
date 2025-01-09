@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Undertale Minigame
   m_EditorClassIdentifier: 
   SceneName: Undertale Minigame
+  HelpText: Pulsa en la pantalla en el momento exacto para elegir el valor de cada
+    uno de los componentes del color.
