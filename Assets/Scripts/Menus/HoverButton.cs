@@ -10,7 +10,7 @@ public class HoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        tweenId = LeanTween.scale(gameObject, Vector2.one * scale, time).setEase(LeanTweenType.easeOutElastic);
+        tweenId = LeanTween.scale(gameObject, Vector2.one * scale, time).setEase(LeanTweenType.easeOutElastic).setIgnoreTimeScale(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -18,7 +18,7 @@ public class HoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         if (tweenId != null)
         {
             LeanTween.cancel(gameObject, tweenId.id);
-            LeanTween.scale(gameObject, Vector2.one, time).setEase(LeanTweenType.easeOutCubic);
+            LeanTween.scale(gameObject, Vector2.one, time).setEase(LeanTweenType.easeOutCubic).setIgnoreTimeScale(true);
         }
     }
 
@@ -27,7 +27,7 @@ public class HoverButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         if (tweenId != null)
         {
             LeanTween.cancel(gameObject, tweenId.id);
-            LeanTween.scale(gameObject, Vector2.one, time).setEase(LeanTweenType.easeOutCubic);
+            LeanTween.scale(gameObject, Vector2.one, time).setEase(LeanTweenType.easeOutCubic).setIgnoreTimeScale(true);
         }
     }
 }
