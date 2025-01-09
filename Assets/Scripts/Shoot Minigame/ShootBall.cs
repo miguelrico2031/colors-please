@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShootBall : MonoBehaviour
 {
+    [SerializeField] private Collider2D _targetCollider;
     [SerializeField] private ClickAreaScript _clickArea;
     [SerializeField] private Transform _arrow;
     [SerializeField] private float _minArrowScale, _maxArrowScale, _arrowScaleFactor;
@@ -14,7 +15,6 @@ public class ShootBall : MonoBehaviour
     public RGB255 GuessedColor {get; private set;} = new RGB255();
 
     private Rigidbody2D _rb;
-    private Collider2D _collider;
     private RGB255.Coordinate _currentCoordinate;
     private bool _isAiming;
     private Vector2 _touchPos;
@@ -26,7 +26,7 @@ public class ShootBall : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _collider = GetComponent<Collider2D>();
+        _targetCollider = GetComponent<Collider2D>();
         _arrowChild = _arrow.GetChild(0);
         _defaultArrowScale = _arrowChild.localScale;
         _clickArea.pointerUp += Shoot;
@@ -104,7 +104,7 @@ public class ShootBall : MonoBehaviour
         
         if(_arrow.eulerAngles.z is > 5f and < 175f)
         {
-            _collider.enabled = false;
+            _targetCollider.enabled = false;
             Invoke(nameof(EnableCollider), _colliderDisabledTime);
         }
         
@@ -114,7 +114,7 @@ public class ShootBall : MonoBehaviour
     }
     
     
-    private void EnableCollider() => _collider.enabled = true;
+    private void EnableCollider() => _targetCollider.enabled = true;
 
     private void Stop()
     {

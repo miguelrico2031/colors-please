@@ -151,10 +151,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8010f43714d141288f1a95d63ee1b7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _targetCollider: {fileID: 758096138}
   _clickArea: {fileID: 327892827}
   _arrow: {fileID: 532776715}
   _minArrowScale: 0.3
-  _maxArrowScale: 1.75
+  _maxArrowScale: 1.35
   _arrowScaleFactor: 0.5
   _forceFactor: 10
   _colliderDisabledTime: 0.2
@@ -1508,6 +1509,7 @@ GameObject:
   - component: {fileID: 1276361815}
   - component: {fileID: 1276361814}
   - component: {fileID: 1276361816}
+  - component: {fileID: 1276361817}
   m_Layer: 0
   m_Name: Bounds
   m_TagString: Untagged
@@ -1550,7 +1552,7 @@ EdgeCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 1
   m_Points:
   - {x: -0.5, y: 0}
   - {x: 0.5, y: 0}
@@ -1585,6 +1587,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac244ee07174421c9f63782ac0056ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &1276361817
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276361813}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1545331925
 GameObject:
   m_ObjectHideFlags: 0

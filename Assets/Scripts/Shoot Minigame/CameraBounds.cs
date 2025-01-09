@@ -19,10 +19,10 @@ public class CameraBounds : MonoBehaviour
         float camHeight = _mainCamera.orthographicSize * 2;
         float camWidth = camHeight * _mainCamera.aspect;
 
-        points[0] = new Vector2(-camWidth / 2, -camHeight / 2); // Bottom-left
-        points[1] = new Vector2(-camWidth / 2, camHeight / 2);  // Top-left
-        points[2] = new Vector2(camWidth / 2, camHeight / 2);   // Top-right
-        points[3] = new Vector2(camWidth / 2, -camHeight / 2);  // Bottom-right
+        points[0] = new Vector2(-camWidth / 2, -camHeight / 2) + new Vector2(-_edgeCollider.edgeRadius, -_edgeCollider.edgeRadius); // Bottom-left
+        points[1] = new Vector2(-camWidth / 2, camHeight / 2) + new Vector2(-_edgeCollider.edgeRadius, _edgeCollider.edgeRadius);  // Top-left
+        points[2] = new Vector2(camWidth / 2, camHeight / 2) + new Vector2(_edgeCollider.edgeRadius, _edgeCollider.edgeRadius);   // Top-right
+        points[3] = new Vector2(camWidth / 2, -camHeight / 2) + new Vector2(_edgeCollider.edgeRadius, -_edgeCollider.edgeRadius);  // Bottom-right
         points[4] = points[0]; // Closing the loop
 
         _edgeCollider.points = points;
