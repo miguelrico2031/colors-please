@@ -101,8 +101,11 @@ public class PachinkoManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        _pachinkoClickArea.GetComponent<ClickAreaScript>().pointerDown -= ActivateArrow;
-        _pachinkoClickArea.GetComponent<ClickAreaScript>().pointerUp -= ReleaseArrow;
+        if(_pachinkoClickArea != null)
+        {
+            _pachinkoClickArea.GetComponent<ClickAreaScript>().pointerDown -= ActivateArrow;
+            _pachinkoClickArea.GetComponent<ClickAreaScript>().pointerUp -= ReleaseArrow;
+        }
     }
     #endregion
 
@@ -201,14 +204,15 @@ public class PachinkoManager : MonoBehaviour
         }
         else
         {
+            Reset();
             RGB255 guessedColor = new RGB255(_RGBComponents[0], _RGBComponents[1], _RGBComponents[2]);
-            GetComponent<GravityManager>().ResetGravity();
             ServiceLocator.Get<IDayService>().FinishMinigame(_targetColor, guessedColor);
         }
     }
 
     private void Reset()
     {
+        GetComponent<GravityManager>().ResetGravity();
         _pachinkoBall.transform.position = _originalBallPosition;
         Vector2 resetPosition = new Vector2(_valueSelected.position.x, _originalValuePosY);
         LeanTween.scale(_valueSelected, Vector2.one, 0f);
