@@ -31,5 +31,7 @@ MonoBehaviour:
   - Character: 5
     Text: "H\xE1galo, Se\xF1or Dropper. Ser\xEDa un honor llamarlo \u201Csocio\u201D.
       Y usted podr\xEDa llamarme \u201CEdward\u201D o \u201Ccoleg\xF3n\u201D en vez
-      de \u201CSe\xF1or Jefe\u201D. \xA1Me emociono tan solo con pensarlo! Pero solo
-      si se convierte en socio, eh."
+      de \u201CSe\xF1or Jefe\u201D."
+  - Character: 5
+    Text: "\xA1Me emociono tan solo con pensarlo! Pero solo si se convierte en socio,
+      eh."

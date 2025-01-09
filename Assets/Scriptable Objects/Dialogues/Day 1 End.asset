@@ -19,8 +19,10 @@ MonoBehaviour:
     Text: "Bien, ha sido medio locura, pero bien\u2026\r"
   - Character: 2
     Text: "Me alegro. \xBFTe han pagado bien? Es que como hemos hablado, molar\xEDa
-      ir ahorrando para comprarnos una casa, que este zulo alquilado es casi inhabitable,
-      y el casero, Diego Directselection, nos sube el alquiler casi cada semana.\r"
+      ir ahorrando para comprarnos una casa.\r"
+  - Character: 2
+    Text: "Este zulo alquilado es casi inhabitable, y el casero, Diego Directselection,
+      nos sube el alquiler casi cada semana.\r\r"
   - Character: 1
     Text: "Tienes raz\xF3n, para eso estoy currando, para ahorrar y comprarnos un
       pisito.\r"
@@ -33,13 +35,16 @@ MonoBehaviour:
   - Character: 2
     Text: "Si, al final de cada d\xEDa, tendr\xE1s varios cubos en pantalla, que
       son los posibles gastos que tienes. T\xFA decides cuales pulsas, para llenar
-      y pagarlos. El dinero que sobre ir\xE1 al cubo de hucha. Cuando el cubo llegue
-      a XXXX dinero, podremos comprar nuestro pisito so\xF1ado.\r"
+      y pagarlos.\r"
+  - Character: 2
+    Text: "El dinero que sobre ir\xE1 al cubo de hucha. Cuando el cubo llegue a $999,
+      podremos comprar nuestro pisito so\xF1ado.\r\r"
   - Character: 3
     Text: "\xA1Hola pap\xE1 uno! No es por hacerte chantaje emocional ni nada eh,
-      que solo tengo 5 a\xF1os. Pero lo de mis cuadernos para el cole es importante.
-      Deber\xE1s escoger los gastos con cuidado, porque me tienes que tener contento
-      a m\xED y a pap\xE1 dos.\r"
+      que solo tengo 5 a\xF1os. Pero lo de mis cuadernos para el cole es importante.\r"
+  - Character: 3
+    Text: "Deber\xE1s escoger los gastos con cuidado, porque me tienes que tener
+      contento a m\xED y a pap\xE1 dos.\r\r"
   - Character: 3
     Text: "Bueno, y tambi\xE9n al casero, Diego Directselection, que no nos queremos
       quedar sin techo.\r\r"

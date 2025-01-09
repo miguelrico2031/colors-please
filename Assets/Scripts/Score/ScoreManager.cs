@@ -19,7 +19,7 @@ public class ScoreManager : ScriptableObject, IScoreService
     {
         Score score = new Score();
         float similarity = RGB255.GetSimilarity(targetColor, guessedColor);
-        var percentage = 100f * similarity;
+        var percentage = Mathf.Clamp(100f * similarity, 0f, 100f);
         score.Percentage = percentage;
 
         //hay 2 umbrales, el noMoney, que si el porcentaje es mas bajo que el umbral no se recibe nada de dinero

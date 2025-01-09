@@ -46,12 +46,13 @@ public class MainMenuManager : MonoBehaviour
         if (!ServiceLocator.Get<IPersistenceService>().TryGetSavedData(out var data))
         {
             _continueButton.SetActive(false);
-            return;
+        }
+        else
+        {
+            _saveInfoText.text = $"Día {data.DayIndex + 1}\nHucha: ${data.PiggyBankMoney}";
         }
         
-        _saveInfoText.text = $"Día {data.DayIndex + 1}\nHucha: ${data.PiggyBankMoney}";
-
-
+        
         LeanTween.scale(_title, Vector3.one * _minTitleScale, _titleScalePeriod)
             .setLoopPingPong()
             .setEase(_titleScaleEaseType);
