@@ -4,10 +4,14 @@ using UnityEngine.InputSystem;
 public class PaintGravityManager : MonoBehaviour
 {
     [SerializeField] private Vector3 init_gravity;
+    private bool endedGame = false;
 
     private void Awake()
     {
         init_gravity = Physics.gravity;
+
+        endedGame = false;
+
         /*if (SystemInfo.supportsGyroscope)
         {
             //Input.gyro.enabled = true;
@@ -27,6 +31,8 @@ public class PaintGravityManager : MonoBehaviour
 
     void Update()
     {
+        if (endedGame) return;
+
         if (GravitySensor.current != null)
         {
             InputSystem.EnableDevice(GravitySensor.current);
@@ -40,11 +46,13 @@ public class PaintGravityManager : MonoBehaviour
         inputGravity = new Vector2(inputGravity.x, Mathf.Clamp(inputGravity.y, -1.0f, 0f)).normalized;
         Vector2 newGravity = inputGravity * Mathf.Abs(init_gravity.y) * 2.5f;
         Physics2D.gravity = newGravity;
+        Debug.Log("Modificando gravedad");
     }
 
     public void ResetGravity()
     {
         Debug.Log("Reiniciando la gravedad antes de salir de la escena");
+        endedGame = true;
         Physics2D.gravity = new Vector2(0, init_gravity.y);
     }
 }

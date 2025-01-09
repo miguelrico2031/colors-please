@@ -213,7 +213,7 @@ PrefabInstance:
     - target: {fileID: 5275117329617312293, guid: ca2d237f806da5d48bbaab69f060ce25, type: 3}
       propertyPath: _dayManager
       value: 
-      objectReference: {fileID: 11400000, guid: 13aa91579e8773c408b3f4c010727801, type: 2}
+      objectReference: {fileID: 11400000, guid: 69aca9690f55f3948b8a6e4d33f635d9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
