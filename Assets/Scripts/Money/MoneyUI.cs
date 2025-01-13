@@ -81,7 +81,12 @@ public class MoneyUI : MonoBehaviour
 
     private void DisplayMoney()
     {
+        if (_displayedDayMoney % 3 == 0)
+        {
+            ServiceLocator.Get<IMusicService>().PlaySoundPitch("bip");
+        }
         _dayMoneyText.text = $"{_displayedDayMoney}";
         _piggyBankMoneyText.text = $"{_displayedPiggyBankMoney} / {_piggyBankGoal}";
     }
+
 }
